@@ -49,14 +49,12 @@
 		ADB9B79E2E9FA44900BA8ACC /* ItemMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */; };
 		ADC616172E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */; };
 		ADC616182E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */; };
-		ADDF9EC72EC8891B0088F0DD /* fmj-offline-2025111501.zip in Resources */ = {isa = PBXBuildFile; fileRef = ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */; };
 		ADE2000B2DA6071D00B64179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200012DA6071D00B64179 /* AppDelegate.swift */; };
 		ADE2000C2DA6071D00B64179 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200082DA6071D00B64179 /* SceneDelegate.swift */; };
 		ADE2000D2DA6071D00B64179 /* HDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200092DA6071D00B64179 /* HDWebViewController.swift */; };
 		ADE2000E2DA6071D00B64179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE200022DA6071D00B64179 /* Assets.xcassets */; };
 		ADE200102DA6071D00B64179 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200052DA6071D00B64179 /* LaunchScreen.storyboard */; };
 		ADE200112DA6071D00B64179 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200072DA6071D00B64179 /* Main.storyboard */; };
-		ADE57DBB2EB64BD9006D0DCA /* baye-offline-2025110101.zip in Resources */ = {isa = PBXBuildFile; fileRef = ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */; };
 		ADEB7CEF2E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */; };
 		ADEB7CF02E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */; };
 		ADF1C6682DA8F4E70091AAC4 /* HDWebJSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */; };
@@ -132,7 +130,6 @@
 		ADB9B7972E9FA44900BA8ACC /* GoldMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldMultiplierCell.swift; sourceTree = "<group>"; };
 		ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMultiplierCell.swift; sourceTree = "<group>"; };
 		ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDOfflinePackageUpdateManager.swift; sourceTree = "<group>"; };
-		ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "fmj-offline-2025111501.zip"; sourceTree = "<group>"; };
 		ADE200012DA6071D00B64179 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE200022DA6071D00B64179 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADE200032DA6071D00B64179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,7 +138,6 @@
 		ADE200082DA6071D00B64179 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ADE200092DA6071D00B64179 /* HDWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebViewController.swift; sourceTree = "<group>"; };
 		ADE2FFB02DA6046000B64179 /* HDBayeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDBayeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "baye-offline-2025110101.zip"; sourceTree = "<group>"; };
 		ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatProbabilityCell.swift; sourceTree = "<group>"; };
 		ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebJSBridge.swift; sourceTree = "<group>"; };
 		ADF1C6692DA91DC70091AAC4 /* HDWebURLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebURLSchemeHandler.swift; sourceTree = "<group>"; };
@@ -247,8 +243,6 @@
 		ADE200122DA6074600B64179 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */,
-				ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */,
 				D96CCC1E2E064A9D00D8C46C /* AssetsFMJ.xcassets */,
 				D96CCC1C2E0649DC00D8C46C /* HDFMJApp.plist */,
 				ADE200032DA6071D00B64179 /* Info.plist */,
@@ -475,7 +469,6 @@
 				ADE2000E2DA6071D00B64179 /* Assets.xcassets in Resources */,
 				ADE200102DA6071D00B64179 /* LaunchScreen.storyboard in Resources */,
 				ADE200112DA6071D00B64179 /* Main.storyboard in Resources */,
-				ADE57DBB2EB64BD9006D0DCA /* baye-offline-2025110101.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +480,6 @@
 				ADF2D4242E02AE7400A8D915 /* LaunchScreen.storyboard in Resources */,
 				D96CCC1F2E064A9D00D8C46C /* AssetsFMJ.xcassets in Resources */,
 				ADF2D4252E02AE7400A8D915 /* Main.storyboard in Resources */,
-				ADDF9EC72EC8891B0088F0DD /* fmj-offline-2025111501.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

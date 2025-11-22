@@ -115,54 +115,7 @@ extension HDWebViewController {
     }
     
     @objc private func handleGrantSpecialItems(_ notification: Notification) {
-        guard let productId = notification.userInfo?["productId"] as? String else { return }
         
-        // 调用 m-native-bridge.js 中的统一接口，所有逻辑都在 JS 中处理
-        let jsCode = "window.iOSGrantIAPItems('\(productId)')"
-        
-        // 执行JS代码并处理结果
-        executeJavaScript(jsCode, context: "发放内购物品") { result in
-            switch result {
-            case .success(let value):
-                var success = false
-                var message = "发放内购物品完成"
-                
-                if let jsonString = value as? String,
-                   let data = jsonString.data(using: .utf8),
-                   let response = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    
-                    success = response["success"] as? Bool ?? false
-                    message = response["message"] as? String ?? "发放内购物品完成"
-                }
-                
-                // 发送结果通知给 HDAboutViewController（JSAPI太快，延迟2秒通知）
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    NotificationCenter.default.post(
-                        name: .itemGrantResult,
-                        object: nil,
-                        userInfo: [
-                            "success": success,
-                            "message": message
-                        ]
-                    )
-                }
-                
-            case .failure(let error):
-                HDAppsTool.debugLog("内购物品发放失败: \(error)")
-                
-                // 发送失败通知给 HDAboutViewController
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(
-                        name: .itemGrantResult,
-                        object: nil,
-                        userInfo: [
-                            "success": false,
-                            "message": "发放内购物品失败，请重试"
-                        ]
-                    )
-                }
-            }
-        }
     }
     
     @objc private func handleExpMultiplierChanged(_ notification: Notification) {
@@ -201,65 +154,7 @@ extension HDWebViewController {
     }
 
     @objc private func handleAddAllItemsTriple(_ notification: Notification) {
-        // 调用JavaScript中的全物品功能
-        let jsCode = """
-            (function() {
-                if (typeof window.addAllItemsTriple === 'function') {
-                    var result = window.addAllItemsTriple();
-                    // result已经是 {success: boolean, message: string} 对象
-                    return JSON.stringify(result);
-                } else {
-                    return JSON.stringify({success: false, message: '全物品功能未加载，请确保游戏已启动'});
-                }
-            })();
-            """
-
-        executeJavaScript(jsCode, context: "执行全物品功能") { result in
-            switch result {
-            case .success(let value):
-                var success = false
-                var message = "解析结果失败"
-
-                if let jsonString = value as? String,
-                   let data = jsonString.data(using: .utf8),
-                   let response = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    success = response["success"] as? Bool ?? false
-                    message = response["message"] as? String ?? "未知错误"
-
-                    HDAppsTool.debugLog("全物品功能执行结果: success=\(success), message=\(message)")
-                } else {
-                    // JSON解析失败，记录原始返回值
-                    HDAppsTool.debugLog("全物品功能返回值解析失败，原始值: \(String(describing: value))")
-                }
-
-                // 发送结果通知给 HDAboutViewController
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(
-                        name: .itemGrantResult,
-                        object: nil,
-                        userInfo: [
-                            "success": success,
-                            "message": message
-                        ]
-                    )
-                }
-
-            case .failure(let error):
-                HDAppsTool.debugLog("全物品功能执行失败: \(error)")
-
-                // 发送失败通知给 HDAboutViewController
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(
-                        name: .itemGrantResult,
-                        object: nil,
-                        userInfo: [
-                            "success": false,
-                            "message": "全物品功能执行失败，请重试"
-                        ]
-                    )
-                }
-            }
-        }
+        
     }
 
     @objc private func handleBayeOrientationChanged(_ notification: Notification) {
@@ -426,73 +321,16 @@ extension HDWebViewController {
     
     
     private func updateColorFilterMode() {
-        // 使用统一的 FilterBridge API
-        // 首先尝试使用 FilterBridge，如果不存在则降级到直接调用 setPresetFilter
-        let jsCode = """
-            (function() {
-                if (typeof window.FilterBridge !== 'undefined' && window.FilterBridge.setPresetFilter) {
-                    // 使用统一的 FilterBridge API
-                    return window.FilterBridge.setPresetFilter('\(colorFilterMode)');
-                } else if (typeof window.setPresetFilter === 'function') {
-                    // 降级到直接调用（兼容旧版本）
-                    return window.setPresetFilter('\(colorFilterMode)');
-                } else {
-                    console.warn('滤镜API未找到，可能页面还未完全加载');
-                    return false;
-                }
-            })();
-            """
-        self.wkWebView?.evaluateJavaScript(jsCode) { (result, error) in
-            if let error = error {
-                debugPrint("更新滤镜颜色失败: \(error)")
-            } else {
-                debugPrint("更新滤镜颜色成功: \(self.colorFilterMode), 结果: \(String(describing: result))")
-                
-                // 对于霸业App，同步更新原生主题色
-                if HDAppsTool.hdAppName() == .hdBayeApp {
-                    self.applyNativeThemeForFilter()
-                }
-            }
-        }
+        
     }
     
     private func updateGameSpeed() {
-        // 使用统一的API - 两个应用都使用相同的setGameSpeed
-        let jsCode = """
-            if (typeof window.setGameSpeed === 'function') {
-                window.setGameSpeed(\(gameSpeed));
-                console.log('通过统一API setGameSpeed 设置游戏速度: \(gameSpeed)');
-            } else {
-                console.warn('游戏速度控制API未加载，可能页面还未完全加载');
-            }
-            """
-        self.wkWebView?.evaluateJavaScript(jsCode) { (result, error) in
-            if let error = error {
-                debugPrint("更新游戏速度失败: \(error)")
-            } else {
-                debugPrint("更新游戏速度成功: \(self.gameSpeed)")
-            }
-        }
+        
     }
     
     
     private func updateEngineSelection() {
-        let jsCode = """
-            window.fmjcorev2 = \(useNewEngine);
-            localStorage.setItem('fmjcorev2', '\(useNewEngine)');
-            """
-        self.wkWebView?.evaluateJavaScript(jsCode) { [weak self] (result, error) in
-            if let error = error {
-                debugPrint("更新引擎选择失败: \(error)")
-            } else {
-                debugPrint("更新引擎选择成功: \(self?.useNewEngine ?? false)")
-                self?.alreadyInjectJS = false
-                // 执行webview reload
-                DispatchQueue.main.async {
-                    self?.wkWebView?.reload()
-                }
-            }
-        }
+        
     }
     
     private func getCurrentMapUsageLimit() -> Int {
@@ -500,146 +338,39 @@ extension HDWebViewController {
     }
     
     private func updateMapContainerVisibility() {
-        // 检查是否需要根据使用次数关闭地图
-        if !IAPManager.shared.isProductPurchased(productId: HDAppsTool.doubleGoldId()) {
-            let currentLimit = getCurrentMapUsageLimit()
-            if HDAppData.shared.mapUsageCount >= currentLimit && showMapContainer {
-                showMapContainer = false
-                HDAppData.shared.showMapContainer = false
-            }
-        }
         
-        let jsCode = """
-            window.showMapContainer(\(showMapContainer));
-            localStorage.setItem('showMapContainer', '\(showMapContainer)');
-            """
-        executeJavaScript(jsCode, context: HDConstants.JSContext.updateMapDisplay)
     }
     
     private func updateCombatProbability() {
-        let actualProbability = 100 - combatProbability
-        let jsCode = """
-            // 设置window变量
-            window.combat_probability = \(actualProbability);
-            """
-        executeJavaScript(jsCode, context: "初始化遇敌概率")
+        
     }
     
     private func winExpGlodMultiple() {
-        // 检查经验倍率：产品已购买则使用用户设置的倍率
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.doubleExpId()) {
-            let multiplier = HDAppData.shared.expMultiplier
-            let jsCode = """
-                window.winExpMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: HDConstants.JSContext.setExpMultiple)
-        } else {
-            let jsCode = """
-                window.winExpMultiple = \(1);
-                """
-            executeJavaScript(jsCode, context: HDConstants.JSContext.setExpMultiple)
-        }
-
-        // 检查金币倍率：产品已购买则使用用户设置的倍率
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.doubleGoldId()) {
-            let multiplier = HDAppData.shared.goldMultiplier
-            let jsCode = """
-                window.winMoneyMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: HDConstants.JSContext.setGoldMultiple)
-        } else {
-            let jsCode = """
-                window.winMoneyMultiple = \(1);
-                """
-            executeJavaScript(jsCode, context: HDConstants.JSContext.setGoldMultiple)
-        }
-
-        // 检查物品倍率：VIP购买则使用用户设置的倍率
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.allGoodsId_VIP()) {
-            let multiplier = HDAppData.shared.itemMultiplier
-            let jsCode = """
-                window.winItemMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: "设置物品掉落倍率")
-        } else {
-            let jsCode = """
-                window.winItemMultiple = \(1);
-                """
-            executeJavaScript(jsCode, context: "设置物品掉落倍率")
-        }
+        
     }
     
     private func updateExpMultiplier(_ multiplier: Int) {
-        // 只有在产品已购买的情况下才应用倍率设置
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.doubleExpId()) {
-            let jsCode = """
-                window.winExpMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: "更新经验倍率 \(multiplier)x")
-        }
+        
     }
 
     private func updateGoldMultiplier(_ multiplier: Int) {
-        // 只有在产品已购买的情况下才应用倍率设置
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.doubleGoldId()) {
-            let jsCode = """
-                window.winMoneyMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: "更新金币倍率 \(multiplier)x")
-        }
+        
     }
 
     private func updateItemMultiplier(_ multiplier: Int) {
-        // 只有在产品已购买的情况下才应用倍率设置
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.allGoodsId_VIP()) {
-            let jsCode = """
-                window.winItemMultiple = \(multiplier);
-                """
-            executeJavaScript(jsCode, context: "更新物品倍率 \(multiplier)x")
-        }
+        
     }
 
     private func updateAgricultureMultiplier(_ multiplier: Int) {
-        // 只有在VIP产品已购买的情况下才应用倍率设置
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.allGoodsId_VIP()) {
-            let jsCode = """
-                // 调用JavaScript函数设置农业开发倍率
-                window.setAgricultureMultiplier(\(multiplier));
-                """
-            executeJavaScript(jsCode, context: "更新农业开发倍率 \(multiplier)x")
-        }
+        
     }
 
     private func updateCommerceMultiplier(_ multiplier: Int) {
-        // 只有在VIP产品已购买的情况下才应用倍率设置
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.allGoodsId_VIP()) {
-            let jsCode = """
-                // 调用JavaScript函数设置商业开发倍率
-                window.setCommerceMultiplier(\(multiplier));
-                """
-            executeJavaScript(jsCode, context: "更新商业开发倍率 \(multiplier)x")
-        }
+        
     }
 
     private func initializeBayeVIPMultipliers() {
-        // 检查VIP是否已购买
-        if IAPManager.shared.isProductPurchased(productId: HDAppsTool.allGoodsId_VIP()) {
-            let agricultureMultiplier = HDAppData.shared.agricultureMultiplier
-            let commerceMultiplier = HDAppData.shared.commerceMultiplier
-
-            let jsCode = """
-                window.setAgricultureMultiplier(\(agricultureMultiplier));
-                window.setCommerceMultiplier(\(commerceMultiplier));
-                """
-            executeJavaScript(jsCode, context: "初始化三国霸业VIP倍率设置")
-        } else {
-            // 未购买VIP，设置为1倍
-            let jsCode = """
-                window.setAgricultureMultiplier(1);
-                window.setCommerceMultiplier(1);
-                """
-            executeJavaScript(jsCode, context: "初始化三国霸业VIP倍率设置(未购买)")
-        }
+        
     }
 
     func disableTouchCallout() {

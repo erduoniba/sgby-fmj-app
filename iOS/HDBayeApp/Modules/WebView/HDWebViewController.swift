@@ -274,21 +274,7 @@ extension HDWebViewController {
   }
   
   private func updateMapDisplayAndButton() {
-    // 调用JS方法隐藏/显示地图
-    let jsCode = """
-            window.showMapContainer(\(showMapContainer));
-            localStorage.setItem('showMapContainer', '\(showMapContainer)');
-            """
-    wkWebView?.evaluateJavaScript(jsCode) { (result, error) in
-      if let error = error {
-        debugPrint("切换地图显示状态失败: \(error)")
-      } else {
-        debugPrint("切换地图显示状态成功: \(self.showMapContainer)")
-      }
-    }
     
-    // 更新按钮状态
-    updateThumbMapButtonState()
   }
   
   private func updateThumbMapButtonState() {

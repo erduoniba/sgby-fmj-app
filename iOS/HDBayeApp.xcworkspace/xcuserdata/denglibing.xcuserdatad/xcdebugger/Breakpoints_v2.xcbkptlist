@@ -15,9 +15,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "733"
-            endingLineNumber = "733"
-            landmarkName = "HDWebViewController"
-            landmarkType = "21">
+            endingLineNumber = "733">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -31,9 +29,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "725"
-            endingLineNumber = "725"
-            landmarkName = "HDWebViewController"
-            landmarkType = "21">
+            endingLineNumber = "725">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -47,9 +43,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "730"
-            endingLineNumber = "730"
-            landmarkName = "navigationToggleButtonTapped()"
-            landmarkType = "7">
+            endingLineNumber = "730">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -63,9 +57,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "699"
-            endingLineNumber = "699"
-            landmarkName = "updateNavigationBarVisibility()"
-            landmarkType = "7">
+            endingLineNumber = "699">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -79,9 +71,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "701"
-            endingLineNumber = "701"
-            landmarkName = "updateNavigationBarVisibility()"
-            landmarkType = "7">
+            endingLineNumber = "701">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
