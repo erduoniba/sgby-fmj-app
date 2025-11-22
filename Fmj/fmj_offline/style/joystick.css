@@ -1,0 +1,91 @@
+#buttons {
+  position: relative;
+  border: solid 1px #aaa;
+  display: inline-block;
+  width: 100%;
+  border-radius: 10px;
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.button {
+  display: inline-block;
+  background: #ccc;
+  color: black;
+  height: 50px;
+  width: 33%;
+  margin: 0;
+  margin-right: -3px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button:hover {
+  background: #eee;
+}
+
+.button:active {
+  background: #ddd;
+}
+
+.button.active {
+  color: white;
+  background: #888;
+}
+
+.button:nth-child(2) {
+  width: 34%;
+  border-left: solid 1px #aaa;
+  border-right: solid 1px #aaa;
+}
+
+.highlight {
+  display: none;
+}
+
+.highlight.active {
+  display: block;
+}
+
+.zone {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.zone.active {
+  display: block;
+}
+
+.zone > h1 {
+  position: absolute;
+  padding: 10px 10px;
+  margin: 0;
+  color: white;
+  right: 0;
+  bottom: 0;
+}
+
+.zone.dynamic {
+  background: rgba(0, 0, 255, 0.1);
+}
+
+.zone.semi {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zone.static {
+  background: rgba(255, 0, 0, 0.1);
+}

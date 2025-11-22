@@ -1,0 +1,3967 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>脚本系统简易教程 &mdash; 霸业技术文档中心 1.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="霸业技术文档中心 1.0 文档" href="../index.html"/>
+        <link rel="next" title="示范脚本" href="../demos/index.html"/>
+        <link rel="prev" title="霸业技术文档中心" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> 霸业技术文档中心
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">脚本系统简易教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#javascript">Javascript简要基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">基本概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Javascript的数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">赋值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">条件判断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">遍历数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function">函数（function）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">霸业脚本系统原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">霸业脚本编写向导</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">调试方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">实时查看和修改引擎数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">实时替换钩子函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">添加调试日志</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api">霸业API手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#datas">数据手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baye-data">baye.data 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hooks">钩子函数手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-aifightcommand">baye.hooks.aiFightCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getskillids">baye.hooks.getSkillIds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-calcattackrange">baye.hooks.calcAttackRange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-showskill">baye.hooks.showSkill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-givetool">baye.hooks.giveTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-takeofftool">baye.hooks.takeOffTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didopennewgame">baye.hooks.didOpenNewGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didloadgame">baye.hooks.didLoadGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willsavegame">baye.hooks.willSaveGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-tacticstage1">baye.hooks.tacticStage1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-tacticstage2">baye.hooks.tacticStage2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-tacticstage3">baye.hooks.tacticStage3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-tacticstage4">baye.hooks.tacticStage4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-tacticstage5">baye.hooks.tacticStage5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willaddorder">baye.hooks.willAddOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willexecuteorder">baye.hooks.willExecuteOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-enterbattle">baye.hooks.enterBattle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlestage1">baye.hooks.battleStage1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlestage2">baye.hooks.battleStage2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlestage3">baye.hooks.battleStage3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlestage4">baye.hooks.battleStage4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlestage5">baye.hooks.battleStage5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-exitbattle">baye.hooks.exitBattle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-citymakecommand">baye.hooks.cityMakeCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willgivetool">baye.hooks.willGiveTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willtakeofftool">baye.hooks.willTakeOffTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-countattackhurt">baye.hooks.countAttackHurt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-countskillhurt">baye.hooks.countSkillHurt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battlebuildattackattriutes">baye.hooks.battleBuildAttackAttriutes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">baye.hooks.getSkillIds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-battledrivepersonstate">baye.hooks.battleDrivePersonState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getmaxarms">baye.hooks.getMaxArms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-gettoolpropertyvalue">baye.hooks.getToolPropertyValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-gettoolpropertytitle">baye.hooks.getToolPropertyTitle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getpersonpropertyvalue">baye.hooks.getPersonPropertyValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getpersonpropertytitle">baye.hooks.getPersonPropertyTitle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getcitypropertydisplay">baye.hooks.getCityPropertyDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getfighterinfo">baye.hooks.getFighterInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getterraininfo">baye.hooks.getTerrainInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-showabout">baye.hooks.showAbout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willshowpkanimation">baye.hooks.willShowPKAnimation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didshowpkanimation">baye.hooks.didShowPKAnimation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-showminimap">baye.hooks.showMiniMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-showmainhelp">baye.hooks.showMainHelp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didshowfightstatebar">baye.hooks.didShowFightStateBar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didrefreshfightstatebar">baye.hooks.didRefreshFightStateBar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didshowfightsituation">baye.hooks.didShowFightSituation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-didrefreshfightsituation">baye.hooks.didRefreshFightSituation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-loadfightmap">baye.hooks.loadFightMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-getpersonname">baye.hooks.getPersonName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-showstatechanged">baye.hooks.showStateChanged</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-drawgenerals">baye.hooks.drawGenerals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-countmove">baye.hooks.countMove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-countlandresistance">baye.hooks.countLandResistance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-countmoverange">baye.hooks.countMoveRange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-fontimageforchar">baye.hooks.fontImageForChar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willopenmenu">baye.hooks.willOpenMenu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willchangemenuselection">baye.hooks.willChangeMenuSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willclosemenu">baye.hooks.willCloseMenu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-fightcountwinner">baye.hooks.fightCountWinner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-willshowcityinfo">baye.hooks.willShowCityInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-hooks-fightwillshowhelp">baye.hooks.fightWillShowHelp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">功能函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getpersonname-index">baye.getPersonName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-gettoolname-index">baye.getToolName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getskillname-index">baye.getSkillName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getcityname-index">baye.getCityName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-setcustomdata-data">baye.setCustomData(data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getcustomdata">baye.getCustomData()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-alert-msg-then">baye.alert(msg, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-say-personindex-msg-then">baye.say(personIndex, msg, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-delay-ticks-flag-then">baye.delay(ticks, flag, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-playspe-x-y-speid-index-flag-then">baye.playSPE(x, y, speid, index, flag, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-choose-x-y-w-h-items-init-then">baye.choose(x, y, w, h, items, init, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-centerchoose-w-h-items-init-then">baye.centerChoose(w, h, items, init, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-chooseperson-items-init-then">baye.choosePerson(items, init, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-choosetool-items-init-then">baye.chooseTool(items, init, then)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getpersonbyname-name">baye.getPersonByName(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getcitybyname-name">baye.getCityByName(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getfighterindexbyname-name">baye.getFighterIndexByName(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getfighterpositionbyname-name">baye.getFighterPositionByName(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getpersonnamebyid-id">baye.getPersonNameByID(id)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getterrainbygeneralindex-index">baye.getTerrainByGeneralIndex(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-putpersonincity-city-person">baye.putPersonInCity(city, person)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-puttoolincity-city-tool-hide">baye.putToolInCity(city, tool, hide)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-deletepersonincity-city-person">baye.deletePersonInCity(city, person)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-deletetoolincity-city-tool">baye.deleteToolInCity(city, tool)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getpersonbygeneralindex-gindex">baye.getPersonByGeneralIndex(gIndex)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-movehere-name">baye.moveHere(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-drawtext-x-y-text">baye.drawText(x, y, text)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-drawimage-x-y-resid-resitem-picindex">baye.drawImage(x, y, resid, resitem, picIndex)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-clearrect-left-top-right-bottom">baye.clearRect(left, top, right, bottom)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-revertrect-left-top-right-bottom">baye.revertRect(left, top, right, bottom)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-drawline-startx-starty-endx-endy">baye.drawLine(startX, startY, endX, endY)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-drawrect-left-top-right-bottom">baye.drawRect(left, top, right, bottom)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-drawdot-x-y-color">baye.drawDot(x, y, color)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baye-getnumber-min-max-then">baye.getNumber(min, max, then)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">示范脚本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id2">计算攻防</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id3">计算伤害</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id4">道具为人物加额外属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id5">不复用年龄数据，额外为人物增加统率属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id6">弹出提示，和对话</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#id7">&#8220;工匠&#8221;人物</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">霸业技术文档中心</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>脚本系统简易教程</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/script/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="id1">
+<h1>脚本系统简易教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>得益于HTML优势，网页版霸业在原版基础上扩展出Javascript脚本系统，使得lib制作能高度定制游戏逻辑。</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="javascript">
+<h2>Javascript简要基础<a class="headerlink" href="#javascript" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>基本概念<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>脚本是一种编程语言，不同于普通文档（如XML），脚本主要由一系列的 <strong>数据</strong> 和对数据的 <strong>操作</strong> （语句）构成。</p>
+<p>脚本中语句是一条接着一条顺序执行下去的。如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//让对象a的值为1 （赋值）</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">//让b的值为a的值，此后b的值也为1</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//让a的值为2，此后a为2，b仍然为1</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">//让c的值为a的值，此后a为2，b为1，c为2</span>
+</pre></div>
+</div>
+<p>以上脚本有4条语句，顺序执行。</p>
+<p>XML文档描述“ <strong>做什么</strong> ”，脚本描述“ <strong>怎么做</strong> ”。</p>
+<p>霸业的脚本系统采用javascript语言, 本教程仅讲一些最基本的javascript脚本知识，欲了解更全面，请参考相关资料。</p>
+</div>
+<div class="section" id="id3">
+<h3>注释<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>注释的内容是为了帮助程序员阅读用的，代码执行时注释会被忽略。</p>
+<p><code class="docutils literal"><span class="pre">//</span></code> 标记单行注释开始，每一行的 <code class="docutils literal"><span class="pre">//</span></code> 开始到行末的内容为注释。</p>
+<p><code class="docutils literal"><span class="pre">/*</span></code> 和 <code class="docutils literal"><span class="pre">*/</span></code> 对，用于标记多行注释，如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm">这是注释</span>
+<span class="cm">这也是注释</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Javascript的数据类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>数字: <code class="docutils literal"><span class="pre">123</span></code></p>
+<p>字符串: <code class="docutils literal"><span class="pre">&quot;赵云&quot;</span></code></p>
+<p>对象: <code class="docutils literal"><span class="pre">{name:</span> <span class="pre">&quot;赵云&quot;,</span> <span class="pre">age:</span> <span class="pre">20}</span></code></p>
+<p>列表: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p>
+<p>...</p>
+</div>
+<div class="section" id="id5">
+<h3>赋值<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>最基础的动作语句是赋值，赋值就是让一个 <code class="docutils literal"><span class="pre">名字</span></code> 关联一个 <code class="docutils literal"><span class="pre">值</span></code> , 其后，我们就可以在需要用到这个 <code class="docutils literal"><span class="pre">值</span></code> 的地方使用这个 <code class="docutils literal"><span class="pre">名字</span></code> 来代替。</p>
+<p>基本语法：</p>
+<p><code class="docutils literal"><span class="pre">变量名称=值;</span></code></p>
+<p>示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm">简单赋值语句</span>
+<span class="cm">让 a 关联值 1，分号指示语句结束</span>
+<span class="cm">javascript里面分号是可选的，但为避免歧义，最好每条语句都加上分号</span>
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// var 定义并赋值，首次使用时加上var</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// 重新赋值, 此后a的值是3</span>
+</pre></div>
+</div>
+<p>没接触过编程语言的朋友一定要注意: <strong>程序里面的</strong> <code class="docutils literal"><span class="pre">=</span></code> <strong>符号代表的是一个动作，区别于我们数学里面学的</strong> <code class="docutils literal"><span class="pre">=</span></code> <strong>代表一个相等关系</strong> .</p>
+</div>
+<div class="section" id="id6">
+<h3>条件判断<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>有时候程序需要根据不同的条件执行不同的代码，Javasctipt 用 <code class="docutils literal"><span class="pre">if</span></code> 来进行条件判断。</p>
+<p>示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果 a &gt; b</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;a &gt; b&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例2:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果 a &gt; b</span>
+    <span class="c1">// console.log语句通常用于调试，它将字符串输出到控制台。</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;a &gt; b&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;a = 1&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;a = 2&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 其它情况</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;其它情况&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>遍历数据<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>有时候我们需要遍历一个集合里面的每一个元素做操作，比如霸业里面找出符合某种条件的人物。</p>
+<p>我们通常使用 <code class="docutils literal"><span class="pre">for</span></code> 循环来实现遍历数据，示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">for</span></code> 循环语法构成如下:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nx">表达式1</span><span class="p">;</span> <span class="nx">表达式2</span><span class="p">;</span> <span class="nx">表达式3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">循环体</span>
+<span class="p">}</span>
+
+<span class="nx">其它语句</span>
+</pre></div>
+</div>
+<p><strong>执行流程：</strong></p>
+<img alt="for流程图" src="../_images/flow.png" />
+</div>
+<div class="section" id="function">
+<h3>函数（function）<a class="headerlink" href="#function" title="永久链接至标题">¶</a></h3>
+<p>如果一段代码是可复用的或是逻辑相对独立，我们可以将其封装称为函数。</p>
+<p>基本语法:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">函数名称</span><span class="p">(</span><span class="nx">参数列表</span><span class="p">){</span>
+    <span class="nx">函数体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>函数名称可以忽略，称为匿名函数。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// 这种格式是普通的赋值语句， “=”右边的的函数整体是一个值。</span>
+<span class="nx">变量名称</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">参数列表</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">函数体</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// now, c = 3</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>或:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// now, c = 3</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>霸业脚本系统原理<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>霸业的脚本系统定义了一个对象 <code class="docutils literal"><span class="pre">baye.hooks</span></code> ，称之为 <code class="docutils literal"><span class="pre">钩子对象</span></code> ，此对象作为引擎与脚本衔接的纽带。
+引擎在一系列特定的时间点会调用 <code class="docutils literal"><span class="pre">baye.hooks</span></code> 里面的 <code class="docutils literal"><span class="pre">钩子函数</span></code> 来完成特定任务。</p>
+<p>当lib开启了脚本功能后，引擎在启动时会执行 <code class="docutils literal"><span class="pre">script.js</span></code> 文件内的代码。因此， <code class="docutils literal"><span class="pre">script.js</span></code> 文件的主要作用就是往 <code class="docutils literal"><span class="pre">baye.hooks</span></code> 对象里面填充我们需要关注的 <code class="docutils literal"><span class="pre">钩子函数</span></code> 来实现特定功能。</p>
+<p>示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">giveTool</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//简单示例，赏赐成功</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如上，每当引擎执行到赏赐功能的时候会调用 <code class="docutils literal"><span class="pre">baye.hooks.giveTool</span></code> 这个钩子函数，达到&#8221; <strong>询问</strong> 脚本是否要允许赏赐“这个目的。</p>
+</div>
+<div class="section" id="id9">
+<h2>霸业脚本编写向导<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>了解了原理后，我们就可以一步一步来编写霸业脚本了。</p>
+<p>假如我们要实现这么一个功能: <strong>每月对AI控制的人物执行升级</strong></p>
+<p>为实现此功能，我们需要在写一些功能代码，并且让引擎在每次策略结束后执行我们的代码。</p>
+<p><strong>Step1: 让引擎每次策略结束后执行我们的代码</strong></p>
+<p>我们设置钩子函数 <code class="docutils literal"><span class="pre">baye.hooks.tacticStage4</span></code> (详细介绍参考下文 <a class="reference internal" href="#hooks"><span>钩子函数手册</span></a> )</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">tacticStage4</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//待续</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Step2: 遍历所有人物，如果有归属，且归属不是玩家君主, 且等级未满上限，升级之</strong>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">tacticStage4</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">allPerson</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">playerKingId</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_PlayerKing</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">maxLevel</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_engineConfig</span><span class="p">.</span><span class="nx">maxLevel</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allPerson</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">allPerson</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="nx">playerKingId</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">&lt;</span> <span class="nx">maxLevel</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>注：</p>
+<ol class="arabic simple">
+<li>关于 <code class="docutils literal"><span class="pre">baye.data</span></code> 内的数据参考后文 <a class="reference internal" href="#datas"><span>数据手册</span></a></li>
+<li><code class="docutils literal"><span class="pre">allPerson[i]</span></code> : 取列表里第 <code class="docutils literal"><span class="pre">i</span></code> 个元素（也就是第i个人物的数据）</li>
+<li><code class="docutils literal"><span class="pre">&amp;&amp;</span></code> : 并且</li>
+<li><code class="docutils literal"><span class="pre">!=</span></code> : 不等于</li>
+</ol>
+<p><strong>Step3: 进一步完善</strong></p>
+<p>当人物处于被俘虏状态时，归属被设置为255，因此进一步排除俘虏被升级:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">tacticStage4</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">allPerson</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">playerKingId</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_PlayerKing</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">maxLevel</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_engineConfig</span><span class="p">.</span><span class="nx">maxLevel</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allPerson</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">allPerson</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="nx">playerKingId</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="mi">255</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">&lt;</span> <span class="nx">maxLevel</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Step4: 加入概率因素</strong>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">tacticStage4</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">allPerson</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">playerKingId</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_PlayerKing</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">maxLevel</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_engineConfig</span><span class="p">.</span><span class="nx">maxLevel</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allPerson</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">allPerson</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="nx">playerKingId</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="mi">255</span>
+            <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">&lt;</span> <span class="nx">maxLevel</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">chance</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span> <span class="c1">//产生一个0~1之间的随机数</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">chance</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="p">{</span><span class="c1">// 随机数小于0.7升级，也就是70%的概率升级</span>
+                <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>调试方法<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>我们使用PC浏览器的 <strong>&#8220;开发者工具&#8221;</strong> 来调试脚本。以Chrome浏览器为例，打开baye页面后按 <code class="docutils literal"><span class="pre">F12</span></code> 打开“开发者工具”。
+如下图：</p>
+<img alt="打开开发者工具" src="../_images/open-dev.png" />
+<div class="section" id="id11">
+<h3>实时查看和修改引擎数据<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>霸业的引擎数据存放在 <code class="docutils literal"><span class="pre">baye.data</span></code> 对象中，浏览器控制台中输入 <code class="docutils literal"><span class="pre">baye.data.</span></code> 浏览器会弹出自动补全菜单，对象中有哪些属性一览无余。如图：</p>
+<img alt="自动补全" src="../_images/completion.png" />
+<p>查看第一个城池的归属：</p>
+<img alt="查看城池归属" src="../_images/get-belong.png" />
+<p>修改第一个城池的归属：</p>
+<img alt="修改城池归属" src="../_images/set-belong.png" />
+<p>修改后移动一下城池光标，可以看到已经实时生效。</p>
+</div>
+<div class="section" id="id12">
+<h3>实时替换钩子函数<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>调试钩子函数时，如果每次修改一点脚本，又重新打包lib-&gt;重新加载运行，会非常麻烦。
+当我们修改了钩子函数后，只需在浏览器控制台对该钩子重新赋值，该钩子就即时生效。如图：</p>
+<img alt="修改钩子函数" src="../_images/set-hook.png" />
+</div>
+<div class="section" id="id13">
+<h3>添加调试日志<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>有时候为调试代码中的逻辑是否按预想的逻辑正常执行，我们需要得到一些实时输出信息。
+我们用 <code class="docutils literal"><span class="pre">console.log</span></code> 来实现日志功能。</p>
+<p>例如，前面的升级功能，我们要先看升级功能有没有正常执行，可以添加一些日志:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">tacticStage4</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">allPerson</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">playerKingId</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_PlayerKing</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">maxLevel</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_engineConfig</span><span class="p">.</span><span class="nx">maxLevel</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">allPerson</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">allPerson</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Belong</span> <span class="o">!=</span> <span class="nx">playerKingId</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">&lt;</span> <span class="nx">maxLevel</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">getPersonName</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; 升级为: &quot;</span> <span class="o">+</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Level</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>策略结束后，可见到控制台打印如下：</p>
+<img alt="打印日志" src="../_images/add-log.png" />
+</div>
+</div>
+<div class="section" id="api">
+<h2>霸业API手册<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h2>
+<div class="section" id="datas">
+<span id="id14"></span><h3>数据手册<a class="headerlink" href="#datas" title="永久链接至标题">¶</a></h3>
+<p>霸业引擎数据都导出到了 <code class="docutils literal"><span class="pre">baye.data</span></code> 对象里。</p>
+<p>以下摘自霸业引擎源码，后续有时间更新更详细说明。</p>
+<div class="section" id="baye-data">
+<h4>baye.data 属性<a class="headerlink" href="#baye-data" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c"><div class="highlight"><pre>/*变量定义*/
+/*------------------------------------------*/
+baye.data.g_FightMap[];             /* 战斗地图屏显缓存 */
+baye.data.g_FightPath[];            /* 战斗行军计算 */
+baye.data.g_FgtAtkRng[];            /* 攻击范围 */
+baye.data.g_TileId;         /* 当前地图所用tile的ID */
+baye.data.g_EneTmpProv;             /* 战斗模块，敌人粮草临时变量 */
+
+baye.data.g_MapWid;         /* 战斗地图宽度 */
+baye.data.g_MapHgt;         /* 战斗地图高度 */
+baye.data.g_FightMapData[];   /* 战场地形数据矩阵 */
+
+baye.data.g_screenWidth; //屏幕宽度
+baye.data.g_screenHeight; // 屏幕高度
+baye.data.g_FlipDrawing;  //镜像绘图
+baye.data.g_disablePushMessage; //屏蔽消息
+baye.data.g_MenuTouchComfirm; 菜单项选中是否需要二次确认
+
+baye.data.g_FoucsX;     /* 光标的地图坐标 */
+baye.data.g_FoucsY;
+baye.data.g_MapSX;      /* 当前地图显示的起始坐标 */
+baye.data.g_MapSY;
+baye.data.g_PathSX,
+baye.data.g_PathSY; /* 行军范围地图起始坐标 */
+baye.data.g_PUseSX,
+baye.data.g_PUseSY; /* 行军范围使用起始坐标 */
+baye.data.g_BakUpX,
+baye.data.g_BakUpY; /* 将领坐标备份 */
+baye.data.g_CityX,
+baye.data.g_CityY;  /* 城市坐标 */
+baye.data.g_FgtOver;                /* 战斗是否结束 */
+baye.data.g_FgtWeather;             /* 战场天气情况 */
+baye.data.g_FgtBoutCnt;             /* 战斗回合计数 */
+baye.data.g_MainGenIdx;             /* 主将序号 */
+baye.data.g_LookEnemy;              /* 是否观看敌人移动 */
+baye.data.g_LookMovie;              /* 是否观看战斗动画 */
+baye.data.g_MoveSpeed;              /* 战斗中移动速度 */
+baye.data.g_FgtParam;               /* 战斗模块接口参数 */
+    baye.data.g_FgtParam.Mode;                              /* 玩家的战斗模式FGT_DF|FGT_AT */
+    baye.data.g_FgtParam.Way;                               /* 战斗进攻方向 */
+    baye.data.g_FgtParam.MapId;                             /* 城市战斗地图 */
+    baye.data.g_FgtParam.CityIndex;                         /* 城市id */
+    baye.data.g_FgtParam.MProvender;                        /* 玩家粮草 */
+    baye.data.g_FgtParam.EProvender;                        /* 敌人粮草 */
+    baye.data.g_FgtParam.GenArray[20];              /* 将领队列 */
+baye.data.g_GenPos[20];     /* 将领地图位置及基本属性 */
+    baye.data.g_GenPos[?].x;                                /* 地图坐标x */
+    baye.data.g_GenPos[?].y;                                /* 地图坐标y */
+    baye.data.g_GenPos[?].hp;                               /* 生命 */
+    baye.data.g_GenPos[?].mp;                               /* 技能点 */
+    baye.data.g_GenPos[?].move;                             /* 移动力 */
+    baye.data.g_GenPos[?].active;                           /* 将领执行命令能力 */
+    baye.data.g_GenPos[?].state;                            /* 状态 */
+baye.data.g_GenAtt[2];              /* 攻击状态下的两个将领属性 */
+    baye.data.g_GenAtt[?].canny;                            /* 中计谋的可能性 */
+    baye.data.g_GenAtt[?].ter;                              /* 将领所在地形 */
+    baye.data.g_GenAtt[?].bile;                             /* 愤怒值 */
+    baye.data.g_GenAtt[?].armsType;                 /* 兵种 */
+    baye.data.g_GenAtt[?].at;                               /* 攻击力 */
+    baye.data.g_GenAtt[?].df;                               /* 防御力 */
+    baye.data.g_GenAtt[?].generalIndex;                     /* 将领id */
+
+baye.data.g_AutoUpdateMapXY;
+
+/*变量定义*/
+/*------------------------------------------*/
+baye.data.g_PlayerKing;             /*玩家君主*/
+baye.data.g_YearDate;                       /*当前日期*/
+baye.data.g_MonthDate;                      /*当前日期*/
+baye.data.g_PIdx;                   /*历史时期*/
+baye.data.g_Persons[250];           /*存放人才属性指针*/
+    baye.data.g_Persons[?].OldBelong;               /*俘虏的旧归属*/
+    baye.data.g_Persons[?].Belong;                  /*归属*/
+    baye.data.g_Persons[?].Level;                   /*等级*/
+    baye.data.g_Persons[?].Force;                   /*武力*/
+    baye.data.g_Persons[?].IQ;                              /*智力*/
+    baye.data.g_Persons[?].Devotion;                        /*忠诚*/
+    baye.data.g_Persons[?].Character;                       /*性格*/
+    baye.data.g_Persons[?].Experience;                      /*经验*/
+    baye.data.g_Persons[?].Thew;                    /*体力*/
+    baye.data.g_Persons[?].ArmsType;                        /*兵种*/
+    baye.data.g_Persons[?].Arms;                    /*兵力*/
+    baye.data.g_Persons[?].Equip[2];                        /*装备*/
+    baye.data.g_Persons[?].Age;                             /*年龄*/
+baye.data.g_Cities[38];     /*存放城市属性指针*/
+    baye.data.g_Cities[?].State;
+    baye.data.g_Cities[?].Belong;                   /*归属*/
+    baye.data.g_Cities[?].SatrapId;                 /*太守编号*/
+    baye.data.g_Cities[?].FarmingLimit;             /*农业上限*/
+    baye.data.g_Cities[?].Farming;                  /*农业开发度*/
+    baye.data.g_Cities[?].CommerceLimit;            /*商业上限*/
+    baye.data.g_Cities[?].Commerce;                 /*商业开发度*/
+    baye.data.g_Cities[?].PeopleDevotion;           /*民忠*/
+    baye.data.g_Cities[?].AvoidCalamity;            /*防灾*/
+    baye.data.g_Cities[?].PopulationLimit;          /*人口上限*/
+    baye.data.g_Cities[?].Population;                       /*人口*/
+    baye.data.g_Cities[?].Money;                    /*金钱*/
+    baye.data.g_Cities[?].Food;                     /*粮食*/
+    baye.data.g_Cities[?].MothballArms;             /*后备兵力*/
+    baye.data.g_Cities[?].PersonQueue;                      /*人才队列*/
+    baye.data.g_Cities[?].Persons;                  /*人才数*/
+    baye.data.g_Cities[?].ToolQueue;                        /*道具队列*/
+    baye.data.g_Cities[?].Tools;                    /*道具数*/
+baye.data.g_PersonsQueue[PERSON_MAX];       /*人才队列*/
+baye.data.g_GoodsQueue[GOODS_MAX];  /*道具队列*/
+baye.data.g_CityPos;                /*当前城市地图显示位置结构*/
+baye.data.g_Tools[];        /*存放道具属性指针*/
+    baye.data.g_Tools[?].idx;                       /* 道具序号 */
+    baye.data.g_Tools[?].useflag;           /* 使用标志：是被使用还是被装备*/
+    baye.data.g_Tools[?].atRange[30];               /* 攻击范围数据 */
+    baye.data.g_Tools[?].changeAttackRange;         /* 是否改变攻击范围 */
+    baye.data.g_Tools[?].at;                        /* 对武力的加层 */
+    baye.data.g_Tools[?].iq;                        /* 对智力的加层 */
+    baye.data.g_Tools[?].move;                      /* 对移动力的加层 */
+    baye.data.g_Tools[?].arm;                       /* 对兵种的改变 */
+baye.data.g_Skills[];  /* 技能属性 */
+    baye.data.g_Skills[?].aim;                              /* 施展目标 */
+    baye.data.g_Skills[?].state;                            /* 技能对目标状态的影响 */
+    baye.data.g_Skills[?].power;                            /* 对兵力的基本伤害 */
+    baye.data.g_Skills[?].destroy;                  /* 对粮草的基本伤害 */
+    baye.data.g_Skills[?].useMp;                            /* 消耗技能点 */
+    baye.data.g_Skills[?].weather[5];                       /* 天气效果（0为不可施展 1-100%效果）*/
+    baye.data.g_Skills[?].eland[8];                 /* 敌人所在地形效果（0为不可施展 1-100%效果）*/
+    baye.data.g_Skills[?].oland[8];                 /* 我方所在地形效果（0为不可施展 1-100%效果）*/
+    baye.data.g_Skills[?].earm[6];                  /* 敌人兵种加层（0为不可施展 1-100%效果）*/
+
+
+baye.data.g_engineConfig // 引擎参数设置
+    baye.data.g_engineConfig.fixCityOffset;    //纠正城市偏移
+    baye.data.g_engineConfig.fixThewOverFlow;  //修复体力溢出bug
+    baye.data.g_engineConfig.fixFoodOverFlow;  //修复出征刷粮草
+    baye.data.g_engineConfig.fixOverFlow16;    //修复多处16位溢出
+    baye.data.g_engineConfig.fixConsumeMoney;  //启用招降收费
+    baye.data.g_engineConfig.fixFightMoveOutRange; //修复战场瞬移
+    baye.data.g_engineConfig.fixAlienateComsumeThew; //修复离间减小敌将体力问题
+    baye.data.g_engineConfig.enableToolAttackRange; //启用&quot;道具改变攻击范围&quot;
+    baye.data.g_engineConfig.enable16bitConsumeMoney;   //启用扩展金钱消耗(16位)
+    baye.data.g_engineConfig.enableScript;              //启用脚本
+    baye.data.g_engineConfig.disableSL;              //禁SL
+    baye.data.g_engineConfig.aiLevelUpSpeed;            //AI升级速度 (0~100, 0使用原版默认策略)
+    baye.data.g_engineConfig.disableAgeGrow;         //禁用年龄增长
+    baye.data.g_engineConfig.ratioOfFoodToArmsPerMouth; // 市政兵力和粮耗(默认50，越大粮耗越少)
+    baye.data.g_engineConfig.ratioOfFoodToArmsPerDay; //战场兵力和粮耗参数(默认3，越大粮耗越少)
+    baye.data.g_engineConfig.armsPerDevotion;        //征兵量和民忠的关系(默认20)
+    baye.data.g_engineConfig.armsPerMoney;           //每个金钱能购买的士兵数(默认10)
+    baye.data.g_engineConfig.maxLevel;                //最大等级
+    baye.data.g_engineConfig.responseNoteOfBettle;   //&quot;战斗提示&quot;允许按键跳过(默认0，填2允许)
+    baye.data.g_engineConfig.aiDefenceMode;          // AI行军策略，默认0追主将，1守城
+    baye.data.g_engineConfig.aiAttackMethod;          // AI攻击时选择技能/普攻的算法(0原版，1优化版)
+    baye.data.g_engineConfig.batlleDisableWeatherChange;    // 禁止战场天气变化
+    baye.data.g_engineConfig.mainMenuButtonRects[16];   // 主界面4个按钮的边框位置
+    baye.data.g_engineConfig.periodMenuButtonRects[16]; // 时期界面4个按钮的边框位置
+    baye.data.g_engineConfig.saveFaceListAnchor[2];      // 存档界面list左上角坐标
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hooks">
+<span id="id15"></span><h3>钩子函数手册<a class="headerlink" href="#hooks" title="永久链接至标题">¶</a></h3>
+<div class="section" id="baye-hooks-aifightcommand">
+<h4>baye.hooks.aiFightCommand<a class="headerlink" href="#baye-hooks-aifightcommand" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>战场调用脚本进行行军计算及战斗命令选择，可利用此钩子实现自定义AI行军算法。</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>AI每次计算将领行军策略前</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="9%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.sIdx</td>
+<td>U8</td>
+<td>需要计算的行军将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="9%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.type</td>
+<td>U8</td>
+<td>命令类型，0 普攻， 1 技能， 3 休息</td>
+</tr>
+<tr class="row-odd"><td>context.param</td>
+<td>U8</td>
+<td>技能序号（如果选择技能）</td>
+</tr>
+<tr class="row-even"><td>context.aIdx</td>
+<td>U8</td>
+<td>攻击或技能目标将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-getskillids">
+<h4>baye.hooks.getSkillIds<a class="headerlink" href="#baye-hooks-getskillids" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取将领当前可使用的技能</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场每当AI或玩家使用技能前</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="13%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="18%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.skillIds</td>
+<td>[U8]</td>
+<td>技能号数组</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-calcattackrange">
+<h4>baye.hooks.calcAttackRange<a class="headerlink" href="#baye-hooks-calcattackrange" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算攻击范围</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场每次下攻击命令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="10%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>将领 <code class="docutils literal"><span class="pre">序号</span></code></td>
+</tr>
+<tr class="row-odd"><td>context.ter</td>
+<td>U8</td>
+<td>将领所处地形</td>
+</tr>
+<tr class="row-even"><td>context.type</td>
+<td>U8</td>
+<td>攻击类型，0 普攻，1 技能</td>
+</tr>
+<tr class="row-odd"><td>context.skillId</td>
+<td>U8</td>
+<td>技能 <code class="docutils literal"><span class="pre">ID</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="8%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.range</td>
+<td>[U8]</td>
+<td>攻击范围矩阵</td>
+</tr>
+<tr class="row-odd"><td>context.rangeSize</td>
+<td>U8</td>
+<td>攻击范围矩阵的边长，如5x5矩阵填写5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-showskill">
+<h4>baye.hooks.showSkill<a class="headerlink" href="#baye-hooks-showskill" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>施展技能是否成功
+可用于调整技能成功率。</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>施展技能时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="15%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.ter</td>
+<td>U8</td>
+<td>将领所处地形</td>
+</tr>
+<tr class="row-odd"><td>context.skillId</td>
+<td>U8</td>
+<td>技能 <code class="docutils literal"><span class="pre">ID</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="7%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.result</td>
+<td>U8</td>
+<td>是否成功，0 失败， 1 成功  (原context.success)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-givetool">
+<h4>baye.hooks.giveTool<a class="headerlink" href="#baye-hooks-givetool" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>用于控制赏赐命令是否成功</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>执行赏赐命令，道具即将被装到人物时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>将领所处地形</td>
+</tr>
+<tr class="row-odd"><td>context.toolIndex</td>
+<td>U8</td>
+<td>技能 <code class="docutils literal"><span class="pre">ID</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="11%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.result</td>
+<td>U8</td>
+<td>是否成功，0 失败， 1 成功</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-takeofftool">
+<h4>baye.hooks.takeOffTool<a class="headerlink" href="#baye-hooks-takeofftool" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>用于控制没收命令是否成功</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>执行赏赐命令，道具即将被装到人物时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>将领所处地形</td>
+</tr>
+<tr class="row-odd"><td>context.toolIndex</td>
+<td>U8</td>
+<td>技能`ID`</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="10%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.result</td>
+<td>U8</td>
+<td>是否成功，0 失败， 1 成功</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didopennewgame">
+<h4>baye.hooks.didOpenNewGame<a class="headerlink" href="#baye-hooks-didopennewgame" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>新开局时</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didloadgame">
+<h4>baye.hooks.didLoadGame<a class="headerlink" href="#baye-hooks-didloadgame" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>成功读档后</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willsavegame">
+<h4>baye.hooks.willSaveGame<a class="headerlink" href="#baye-hooks-willsavegame" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>执行存档前</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-tacticstage1">
+<h4>baye.hooks.tacticStage1<a class="headerlink" href="#baye-hooks-tacticstage1" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>策略阶段1</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>引擎的运行，最顶层分为如下几个阶段循环运行：</p>
+<ul class="simple">
+<li>判断统一或全军覆灭</li>
+<li>更新每个城池的太守</li>
+<li>玩家策略中 (玩家操作下各种命令，策略结束后继续后续步骤)</li>
+<li>电脑策略中</li>
+<li>执行命令（包括市政和军备等命令）</li>
+<li>执行数据更新策略（如粮草收获等）</li>
+</ul>
+<p>现脚本系统在此间插入了5个钩子点：</p>
+<ul class="simple">
+<li>判断统一或全军覆灭</li>
+<li>更新每个城池的太守</li>
+<li>调用tacticStage1</li>
+<li>玩家策略中 (玩家操作下各种命令，策略结束后继续后续步骤)</li>
+<li>调用tacticStage2</li>
+<li>电脑策略中</li>
+<li>调用tacticStage3</li>
+<li>执行命令（包括市政和军备等命令）</li>
+<li>调用tacticStage4</li>
+<li>执行数据更新策略（如粮草收获等）</li>
+<li>调用tacticStage5</li>
+</ul>
+</div>
+<div class="section" id="baye-hooks-tacticstage2">
+<h4>baye.hooks.tacticStage2<a class="headerlink" href="#baye-hooks-tacticstage2" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>策略阶段2</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-tacticstage3">
+<h4>baye.hooks.tacticStage3<a class="headerlink" href="#baye-hooks-tacticstage3" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>策略阶段3</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-tacticstage4">
+<h4>baye.hooks.tacticStage4<a class="headerlink" href="#baye-hooks-tacticstage4" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>策略阶段5</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-tacticstage5">
+<h4>baye.hooks.tacticStage5<a class="headerlink" href="#baye-hooks-tacticstage5" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>策略阶段5</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willaddorder">
+<h4>baye.hooks.willAddOrder<a class="headerlink" href="#baye-hooks-willaddorder" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>即将下达某命令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="8%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.OrderId</td>
+<td>U8</td>
+<td>命令ID</td>
+</tr>
+<tr class="row-odd"><td>context.Person</td>
+<td>U8</td>
+<td>执行命令的人物</td>
+</tr>
+<tr class="row-even"><td>context.City</td>
+<td>U8</td>
+<td>执行命令的城池</td>
+</tr>
+<tr class="row-odd"><td>context.Object</td>
+<td>U8</td>
+<td>执行命令的目标人物ID或目标城池ID</td>
+</tr>
+<tr class="row-even"><td>context.Arms</td>
+<td>U16</td>
+<td>兵力(运输)</td>
+</tr>
+<tr class="row-odd"><td>context.Food</td>
+<td>U16</td>
+<td>粮草(运输)</td>
+</tr>
+<tr class="row-even"><td>context.Money</td>
+<td>U16</td>
+<td>金钱(运输)</td>
+</tr>
+<tr class="row-odd"><td>context.Consume</td>
+<td>U8</td>
+<td>命令耗时(暂无用处)</td>
+</tr>
+<tr class="row-even"><td>context.TimeCount</td>
+<td>U8</td>
+<td>命令累时(暂无用处)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willexecuteorder">
+<h4>baye.hooks.willExecuteOrder<a class="headerlink" href="#baye-hooks-willexecuteorder" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>即将执行某命令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="8%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.OrderId</td>
+<td>U8</td>
+<td>命令ID</td>
+</tr>
+<tr class="row-odd"><td>context.Person</td>
+<td>U8</td>
+<td>执行命令的人物</td>
+</tr>
+<tr class="row-even"><td>context.City</td>
+<td>U8</td>
+<td>执行命令的城池</td>
+</tr>
+<tr class="row-odd"><td>context.Object</td>
+<td>U8</td>
+<td>执行命令的目标人物ID或目标城池ID</td>
+</tr>
+<tr class="row-even"><td>context.Arms</td>
+<td>U16</td>
+<td>兵力(运输)</td>
+</tr>
+<tr class="row-odd"><td>context.Food</td>
+<td>U16</td>
+<td>粮草(运输)</td>
+</tr>
+<tr class="row-even"><td>context.Money</td>
+<td>U16</td>
+<td>金钱(运输)</td>
+</tr>
+<tr class="row-odd"><td>context.Consume</td>
+<td>U8</td>
+<td>命令耗时(暂无用处)</td>
+</tr>
+<tr class="row-even"><td>context.TimeCount</td>
+<td>U8</td>
+<td>命令累时(暂无用处)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-enterbattle">
+<h4>baye.hooks.enterBattle<a class="headerlink" href="#baye-hooks-enterbattle" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>进入战场</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlestage1">
+<h4>baye.hooks.battleStage1<a class="headerlink" href="#baye-hooks-battlestage1" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场阶段1</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlestage2">
+<h4>baye.hooks.battleStage2<a class="headerlink" href="#baye-hooks-battlestage2" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场阶段2</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlestage3">
+<h4>baye.hooks.battleStage3<a class="headerlink" href="#baye-hooks-battlestage3" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场阶段3</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlestage4">
+<h4>baye.hooks.battleStage4<a class="headerlink" href="#baye-hooks-battlestage4" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场阶段5</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlestage5">
+<h4>baye.hooks.battleStage5<a class="headerlink" href="#baye-hooks-battlestage5" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场阶段5</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-exitbattle">
+<h4>baye.hooks.exitBattle<a class="headerlink" href="#baye-hooks-exitbattle" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战争结束</td>
+</tr>
+<tr class="row-odd"><td><strong>输入参数</strong></td>
+<td>无</td>
+</tr>
+<tr class="row-even"><td><strong>输出参数</strong></td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-citymakecommand">
+<h4>baye.hooks.cityMakeCommand<a class="headerlink" href="#baye-hooks-citymakecommand" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>城池菜单选择某命令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.cityIndex</td>
+<td>U8</td>
+<td>城池序号</td>
+</tr>
+<tr class="row-odd"><td>context.commandIndex</td>
+<td>U8</td>
+<td>命令序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return 1;</td>
+<td>提示错误 并跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-odd"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willgivetool">
+<h4>baye.hooks.willGiveTool<a class="headerlink" href="#baye-hooks-willgivetool" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>即将赏赐某道具给某人</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.cityIndex</td>
+<td>U8</td>
+<td>城池序号</td>
+</tr>
+<tr class="row-odd"><td>context.personIndex</td>
+<td>U8</td>
+<td>人物序号</td>
+</tr>
+<tr class="row-even"><td>context.toolIndex</td>
+<td>U8</td>
+<td>道具序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willtakeofftool">
+<h4>baye.hooks.willTakeOffTool<a class="headerlink" href="#baye-hooks-willtakeofftool" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自由</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>即将没收某人某道具</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.cityIndex</td>
+<td>U8</td>
+<td>城池序号</td>
+</tr>
+<tr class="row-odd"><td>context.personIndex</td>
+<td>U8</td>
+<td>人物序号</td>
+</tr>
+<tr class="row-even"><td>context.toolIndex</td>
+<td>U8</td>
+<td>道具序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-countattackhurt">
+<h4>baye.hooks.countAttackHurt<a class="headerlink" href="#baye-hooks-countattackhurt" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算普通攻击对兵力伤害</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>计算普通攻击对兵力伤害</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong>
+无, 攻防双方数据已存储于全局变量 <code class="docutils literal"><span class="pre">baye.data.g_GenAtt[]</span></code> 中</p>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.hurt</td>
+<td>U8</td>
+<td>兵力伤害值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-countskillhurt">
+<h4>baye.hooks.countSkillHurt<a class="headerlink" href="#baye-hooks-countskillhurt" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算技能对兵力和粮草的伤害</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>计算技能对兵力和粮草的伤害</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong>
+攻防双方数据已存储于全局变量 <code class="docutils literal"><span class="pre">baye.data.g_GenAtt[]</span></code> 中</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="10%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.skillId</td>
+<td>U8</td>
+<td>技能ID</td>
+</tr>
+<tr class="row-odd"><td>context.origin</td>
+<td>U8</td>
+<td>原始目标对象，AOE时使用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.hurt</td>
+<td>U8</td>
+<td>兵力伤害值</td>
+</tr>
+<tr class="row-odd"><td>context.prov</td>
+<td>U8</td>
+<td>粮草伤害值</td>
+</tr>
+<tr class="row-even"><td>context.state</td>
+<td>U8</td>
+<td>输出异常状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-battlebuildattackattriutes">
+<h4>baye.hooks.battleBuildAttackAttriutes<a class="headerlink" href="#baye-hooks-battlebuildattackattriutes" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算将领的攻防等属性</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>计算将领的攻防等属性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="11%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.index</td>
+<td>U8</td>
+<td>计算结果存储位置</td>
+</tr>
+<tr class="row-odd"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+将结果存储于存储于全局变量 <code class="docutils literal"><span class="pre">baye.data.g_GenAtt[context.index]</span></code> 中</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id16">
+<h4>baye.hooks.getSkillIds<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取将领的技能清单</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>获取将领的技能清单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="11%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.skillIds</td>
+<td>[U8]</td>
+<td>技能ID数组</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+</div>
+<div class="section" id="baye-hooks-battledrivepersonstate">
+<h4>baye.hooks.battleDrivePersonState<a class="headerlink" href="#baye-hooks-battledrivepersonstate" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>驱动战场将领自定义状态
+可用于自定义状态造成将领兵力伤害或补给。</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>驱动战场将领自定义状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="11%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领的 <code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong>
+无</p>
+<p><strong>返回值</strong>
+0 有变化, 1 无变化</p>
+</div>
+<div class="section" id="baye-hooks-getmaxarms">
+<h4>baye.hooks.getMaxArms<a class="headerlink" href="#baye-hooks-getmaxarms" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取人物最大可分配兵力</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>玩家或AI执行分配命令前</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>将领的序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.maxArms</td>
+<td>U8</td>
+<td>最大兵力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-gettoolpropertyvalue">
+<h4>baye.hooks.getToolPropertyValue<a class="headerlink" href="#baye-hooks-gettoolpropertyvalue" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取道具属性值</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>显示道具属性表时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.toolIndex</td>
+<td>U8</td>
+<td>道具序号</td>
+</tr>
+<tr class="row-odd"><td>context.propertyIndex</td>
+<td>U8</td>
+<td>属性序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.value</td>
+<td>String</td>
+<td>属性值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+</div>
+<div class="section" id="baye-hooks-gettoolpropertytitle">
+<h4>baye.hooks.getToolPropertyTitle<a class="headerlink" href="#baye-hooks-gettoolpropertytitle" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取道具属性表头</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>显示道具属性表时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.propertyIndex</td>
+<td>U8</td>
+<td>属性序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.title</td>
+<td>String</td>
+<td>属性表头字串</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+<p><strong>相关全局配置</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="11%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>baye.data.toolPropertiesCount</td>
+<td>U8</td>
+<td>属性表列数量</td>
+</tr>
+<tr class="row-even"><td>baye.data.toolPropertiesDisplayWitdh</td>
+<td>[U8]</td>
+<td>属性表各列宽度</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-getpersonpropertyvalue">
+<h4>baye.hooks.getPersonPropertyValue<a class="headerlink" href="#baye-hooks-getpersonpropertyvalue" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取人物属性值</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>显示人物属性表时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>人物序号</td>
+</tr>
+<tr class="row-odd"><td>context.propertyIndex</td>
+<td>U8</td>
+<td>属性序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.value</td>
+<td>String</td>
+<td>属性值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+</div>
+<div class="section" id="baye-hooks-getpersonpropertytitle">
+<h4>baye.hooks.getPersonPropertyTitle<a class="headerlink" href="#baye-hooks-getpersonpropertytitle" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取人物属性表头</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>显示人物属性表时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.propertyIndex</td>
+<td>U8</td>
+<td>属性序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.title</td>
+<td>String</td>
+<td>属性值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+<p><strong>相关全局配置</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="11%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>baye.data.personPropertiesCount</td>
+<td>U8</td>
+<td>属性表列数量</td>
+</tr>
+<tr class="row-even"><td>baye.data.personPropertiesDisplayWitdh</td>
+<td>[U8]</td>
+<td>属性表各列宽度</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-getcitypropertydisplay">
+<h4>baye.hooks.getCityPropertyDisplay<a class="headerlink" href="#baye-hooks-getcitypropertydisplay" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取城池属性行</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>显示城池属性时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.cityIndex</td>
+<td>U8</td>
+<td>城市序号</td>
+</tr>
+<tr class="row-odd"><td>context.propertyIndex</td>
+<td>U8</td>
+<td>属性序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.display</td>
+<td>String</td>
+<td>属性行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>
+无</p>
+<p><strong>相关全局配置</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="11%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>baye.data.cityPropertiesCount</td>
+<td>U8</td>
+<td>属性表行数量</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-getfighterinfo">
+<h4>baye.hooks.getFighterInfo<a class="headerlink" href="#baye-hooks-getfighterinfo" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>战场上获取人物信息字符串</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场上查看人物信息时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>人物战场序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="15%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.info</td>
+<td>String</td>
+<td>面板显示文本信息</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-getterraininfo">
+<h4>baye.hooks.getTerrainInfo<a class="headerlink" href="#baye-hooks-getterraininfo" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>战场上获取地形信息字符串</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>战场上查看地形信息时</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.ter</td>
+<td>U8</td>
+<td>地形序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="15%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.info</td>
+<td>String</td>
+<td>面板显示文本信息</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-showabout">
+<h4>baye.hooks.showAbout<a class="headerlink" href="#baye-hooks-showabout" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>显示开发群组页面</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willshowpkanimation">
+<h4>baye.hooks.willShowPKAnimation<a class="headerlink" href="#baye-hooks-willshowpkanimation" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>即将显示战斗动画</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didshowpkanimation">
+<h4>baye.hooks.didShowPKAnimation<a class="headerlink" href="#baye-hooks-didshowpkanimation" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>战斗动画之后</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-showminimap">
+<h4>baye.hooks.showMiniMap<a class="headerlink" href="#baye-hooks-showminimap" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>显示小地图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-showmainhelp">
+<h4>baye.hooks.showMainHelp<a class="headerlink" href="#baye-hooks-showmainhelp" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>主策略界面按下 <code class="docutils literal"><span class="pre">帮助</span></code> 键或点击 <code class="docutils literal"><span class="pre">屏幕右下角</span></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didshowfightstatebar">
+<h4>baye.hooks.didShowFightStateBar<a class="headerlink" href="#baye-hooks-didshowfightstatebar" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>战场完成状态栏显示</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didrefreshfightstatebar">
+<h4>baye.hooks.didRefreshFightStateBar<a class="headerlink" href="#baye-hooks-didrefreshfightstatebar" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>战场完成状态栏刷新</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didshowfightsituation">
+<h4>baye.hooks.didShowFightSituation<a class="headerlink" href="#baye-hooks-didshowfightsituation" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>完成显示战场形势图</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-didrefreshfightsituation">
+<h4>baye.hooks.didRefreshFightSituation<a class="headerlink" href="#baye-hooks-didrefreshfightsituation" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>战场形势图刷新</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-loadfightmap">
+<h4>baye.hooks.loadFightMap<a class="headerlink" href="#baye-hooks-loadfightmap" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>加载战场地形数据矩阵</td>
+</tr>
+<tr class="row-even"><td><strong>调用时机</strong></td>
+<td>进入战场</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+<p>示例:</p>
+<div class="highlight-c"><div class="highlight"><pre>baye.hooks.loadFightMap = function() {
+    var city = baye.data.g_FgtParam.CityIndex;
+    var name = baye.getCityName(city);
+
+    console.log(&#39;城池序号:&#39; + city);
+    console.log(&#39;城池名称:&#39; + name);
+    console.log(&#39;进攻方向:&#39; + baye.data.g_FgtParam.Way);
+
+    switch (name) {
+        case &#39;汉中&#39;: {
+            baye.data.g_MapWid = 17;
+            baye.data.g_MapHgt = 18;
+            baye.data.g_FightMapData = [
+ 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 3, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1,
+ 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1,
+ 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 5, 1, 2, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 1,20,16,16,16,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,17,20,16,24,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1,17,17,17,17,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1,17,23,16,21,
+ 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 5, 1, 1,23,16,16,16,
+            ];
+            break;
+        }
+        default:
+            return -1;
+    }
+    return 0;
+};
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-getpersonname">
+<h4>baye.hooks.getPersonName<a class="headerlink" href="#baye-hooks-getpersonname" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自定义人物名称</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.personIndex</td>
+<td>U8</td>
+<td>人物序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.name</td>
+<td>String</td>
+<td>人物名称</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-showstatechanged">
+<h4>baye.hooks.showStateChanged<a class="headerlink" href="#baye-hooks-showstatechanged" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>自定义显示状态变化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td><code class="docutils literal"><span class="pre">战场序号</span></code></td>
+</tr>
+<tr class="row-odd"><td>context.state</td>
+<td>U8</td>
+<td>变化后的状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<p>无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-drawgenerals">
+<h4>baye.hooks.drawGenerals<a class="headerlink" href="#baye-hooks-drawgenerals" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>显示所有将领图片
+用于自定义将领战场图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.frame</td>
+<td>U8</td>
+<td>帧序号0或1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<p>无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-countmove">
+<h4>baye.hooks.countMove<a class="headerlink" href="#baye-hooks-countmove" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算人物移动力
+结果存放于g_GenPos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领战场序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<p>无</p>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">countMove</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">baye</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">g_GenPos</span><span class="p">[</span><span class="n">c</span><span class="p">.</span><span class="n">generalIndex</span><span class="p">].</span><span class="n">move</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-countlandresistance">
+<h4>baye.hooks.countLandResistance<a class="headerlink" href="#baye-hooks-countlandresistance" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算地形对人物的阻力
+结果存放于g_GenPos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领战场序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="11%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.result</td>
+<td>[U8]</td>
+<td>各地形对人物的阻力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">countLandResistance</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 0x80 0x81 0x82 0x83 ... 阻力依次递增</span>
+    <span class="c1">// 输出46种地形对将领的阻力</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">46</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">context</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x81</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-countmoverange">
+<h4>baye.hooks.countMoveRange<a class="headerlink" href="#baye-hooks-countmoverange" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>计算人物移动范围
+结果存放于g_FightPath</td>
+</tr>
+</tbody>
+</table>
+<p>使用此钩子可完全自定义计算将领移动范围</p>
+<p>此钩子可代替 <code class="docutils literal"><span class="pre">[移动力钩子+阻力钩子]</span></code> 实现更灵活的移动范围计算</p>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.generalIndex</td>
+<td>U8</td>
+<td>将领战场序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="8%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>baye.data.g_FightPath</td>
+<td>[U8]</td>
+<td>移动范围[15x15]矩阵, 0x80以上不可达
+* 0x80及以下可到达
+* 0x81以上不可到达
+* 0x00 0x80 不显示光标但可以到达</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">countMoveRange</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="o">*</span><span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">baye</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">g_FightPath</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x79</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-fontimageforchar">
+<h4>baye.hooks.fontImageForChar<a class="headerlink" href="#baye-hooks-fontimageforchar" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>功能</strong></td>
+<td>获取扩展字体图片序号
+用于显示GB2312不支持的字体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.code</td>
+<td>U16</td>
+<td>文字的GBK编码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="7%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.index</td>
+<td>U16</td>
+<td>对应assets/003_MAIN_SPE.assets/1/下的图片序号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">fontImageForChar</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// index为 assets/003_MAIN_SPE.assets/1 下图片序号</span>
+
+    <span class="n">var</span> <span class="n">index</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x82e0</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// 傕</span>
+        <span class="mh">0x90aa</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// 惇</span>
+        <span class="mh">0xb574</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// 祎</span>
+        <span class="mh">0x8faa</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// 彧</span>
+        <span class="mh">0xe041</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// 郃</span>
+        <span class="mh">0xab64</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// 玠</span>
+        <span class="mh">0xae8f</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span> <span class="c1">// 畯</span>
+        <span class="mh">0x85b1</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span> <span class="c1">// 叡</span>
+    <span class="p">}[</span><span class="n">c</span><span class="p">.</span><span class="n">code</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">!=</span> <span class="n">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-willopenmenu">
+<h4>baye.hooks.willOpenMenu<a class="headerlink" href="#baye-hooks-willopenmenu" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>即将显示menu时调用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.index</td>
+<td>U16</td>
+<td>初始选中序号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willchangemenuselection">
+<h4>baye.hooks.willChangeMenuSelection<a class="headerlink" href="#baye-hooks-willchangemenuselection" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>即将menu变更选中项</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="12%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.index</td>
+<td>U16</td>
+<td>变更后的选中项</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willclosemenu">
+<h4>baye.hooks.willCloseMenu<a class="headerlink" href="#baye-hooks-willclosemenu" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>即将关闭menu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输入参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="12%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>context.index</td>
+<td>U16</td>
+<td>最终选中项</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-fightcountwinner">
+<h4>baye.hooks.fightCountWinner<a class="headerlink" href="#baye-hooks-fightcountwinner" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>电脑攻打电脑计算胜利方</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="baye-hooks-willshowcityinfo">
+<h4>baye.hooks.willShowCityInfo<a class="headerlink" href="#baye-hooks-willshowcityinfo" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>显示城市状态</td>
+</tr>
+</tbody>
+</table>
+<p>示例:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">willShowCityInfo</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;city:&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="p">.</span><span class="n">city</span><span class="p">);</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="baye-hooks-fightwillshowhelp">
+<h4>baye.hooks.fightWillShowHelp<a class="headerlink" href="#baye-hooks-fightwillshowhelp" title="永久链接至标题">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>调用时机</strong></td>
+<td>战场即将显示帮助（包括武将信息和地形信息）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>return 0;</td>
+<td>代表由钩子处理,
+将跳过引擎默认处理程序</td>
+</tr>
+<tr class="row-even"><td>return -1;</td>
+<td>将使用引擎默认处理程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>功能函数<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="section" id="baye-getpersonname-index">
+<h4>baye.getPersonName(index)<a class="headerlink" href="#baye-getpersonname-index" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>获取人物名称</dd>
+</dl>
+<p><strong>参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="22%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>U8</td>
+<td>将领序号</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>返回值</strong></dt>
+<dd>string 人物名称</dd>
+</dl>
+</div>
+<div class="section" id="baye-gettoolname-index">
+<h4>baye.getToolName(index)<a class="headerlink" href="#baye-gettoolname-index" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>获取道具名称</dd>
+</dl>
+<p><strong>参数</strong>：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="22%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>U8</td>
+<td>道具序号</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>返回值</strong></dt>
+<dd>string 道具名称</dd>
+</dl>
+</div>
+<div class="section" id="baye-getskillname-index">
+<h4>baye.getSkillName(index)<a class="headerlink" href="#baye-getskillname-index" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>获取技能名称</dd>
+</dl>
+<p><strong>参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="28%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>U8</td>
+<td>技能序号</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>返回值</strong></dt>
+<dd>string    技能名称</dd>
+</dl>
+</div>
+<div class="section" id="baye-getcityname-index">
+<h4>baye.getCityName(index)<a class="headerlink" href="#baye-getcityname-index" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>获取城池名称</dd>
+</dl>
+<p><strong>参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="28%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>index</td>
+<td>U8</td>
+<td>城池序号</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>返回值</strong></dt>
+<dd>string    城池名称</dd>
+</dl>
+</div>
+<div class="section" id="baye-setcustomdata-data">
+<h4>baye.setCustomData(data)<a class="headerlink" href="#baye-setcustomdata-data" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>存入自定义数据，自定义数据会存储进存档当中</dd>
+</dl>
+<p><strong>参数</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="28%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">类型</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>data</td>
+<td>string</td>
+<td>自定义数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong> 无</p>
+</div>
+<div class="section" id="baye-getcustomdata">
+<h4>baye.getCustomData()<a class="headerlink" href="#baye-getcustomdata" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><strong>功能</strong></dt>
+<dd>取出之前存储的自定义数据</dd>
+</dl>
+<p><strong>参数</strong> 无</p>
+<dl class="docutils">
+<dt><strong>返回值</strong></dt>
+<dd>string    之前存储的数据，若没存过，返回null</dd>
+</dl>
+</div>
+<div class="section" id="baye-alert-msg-then">
+<h4>baye.alert(msg, then)<a class="headerlink" href="#baye-alert-msg-then" title="永久链接至标题">¶</a></h4>
+<p>显示文字提示</p>
+</div>
+<div class="section" id="baye-say-personindex-msg-then">
+<h4>baye.say(personIndex, msg, then)<a class="headerlink" href="#baye-say-personindex-msg-then" title="永久链接至标题">¶</a></h4>
+<p>显示人物对话</p>
+</div>
+<div class="section" id="baye-delay-ticks-flag-then">
+<h4>baye.delay(ticks, flag, then)<a class="headerlink" href="#baye-delay-ticks-flag-then" title="永久链接至标题">¶</a></h4>
+<p>延时</p>
+</div>
+<div class="section" id="baye-playspe-x-y-speid-index-flag-then">
+<h4>baye.playSPE(x, y, speid, index, flag, then)<a class="headerlink" href="#baye-playspe-x-y-speid-index-flag-then" title="永久链接至标题">¶</a></h4>
+<p>播放动画</p>
+</div>
+<div class="section" id="baye-choose-x-y-w-h-items-init-then">
+<h4>baye.choose(x, y, w, h, items, init, then)<a class="headerlink" href="#baye-choose-x-y-w-h-items-init-then" title="永久链接至标题">¶</a></h4>
+<p>显示选择菜单</p>
+</div>
+<div class="section" id="baye-centerchoose-w-h-items-init-then">
+<h4>baye.centerChoose(w, h, items, init, then)<a class="headerlink" href="#baye-centerchoose-w-h-items-init-then" title="永久链接至标题">¶</a></h4>
+<p>居中显示选择菜单</p>
+</div>
+<div class="section" id="baye-chooseperson-items-init-then">
+<h4>baye.choosePerson(items, init, then)<a class="headerlink" href="#baye-chooseperson-items-init-then" title="永久链接至标题">¶</a></h4>
+<p>显示选择人数界面</p>
+</div>
+<div class="section" id="baye-choosetool-items-init-then">
+<h4>baye.chooseTool(items, init, then)<a class="headerlink" href="#baye-choosetool-items-init-then" title="永久链接至标题">¶</a></h4>
+<p>显示选择道具界面</p>
+</div>
+<div class="section" id="baye-getpersonbyname-name">
+<h4>baye.getPersonByName(name)<a class="headerlink" href="#baye-getpersonbyname-name" title="永久链接至标题">¶</a></h4>
+<p>获取人物数据</p>
+</div>
+<div class="section" id="baye-getcitybyname-name">
+<h4>baye.getCityByName(name)<a class="headerlink" href="#baye-getcitybyname-name" title="永久链接至标题">¶</a></h4>
+<p>获取城池数据</p>
+</div>
+<div class="section" id="baye-getfighterindexbyname-name">
+<h4>baye.getFighterIndexByName(name)<a class="headerlink" href="#baye-getfighterindexbyname-name" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-getfighterpositionbyname-name">
+<h4>baye.getFighterPositionByName(name)<a class="headerlink" href="#baye-getfighterpositionbyname-name" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-getpersonnamebyid-id">
+<h4>baye.getPersonNameByID(id)<a class="headerlink" href="#baye-getpersonnamebyid-id" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-getterrainbygeneralindex-index">
+<h4>baye.getTerrainByGeneralIndex(index)<a class="headerlink" href="#baye-getterrainbygeneralindex-index" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-putpersonincity-city-person">
+<h4>baye.putPersonInCity(city, person)<a class="headerlink" href="#baye-putpersonincity-city-person" title="永久链接至标题">¶</a></h4>
+<p>往城池中添加人物，注意需要手动删除原城池中该人物</p>
+</div>
+<div class="section" id="baye-puttoolincity-city-tool-hide">
+<h4>baye.putToolInCity(city, tool, hide)<a class="headerlink" href="#baye-puttoolincity-city-tool-hide" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div>往城池中添加道具</div></blockquote>
+</div>
+<div class="section" id="baye-deletepersonincity-city-person">
+<h4>baye.deletePersonInCity(city, person)<a class="headerlink" href="#baye-deletepersonincity-city-person" title="永久链接至标题">¶</a></h4>
+<p>删除城池中的人物</p>
+</div>
+<div class="section" id="baye-deletetoolincity-city-tool">
+<h4>baye.deleteToolInCity(city, tool)<a class="headerlink" href="#baye-deletetoolincity-city-tool" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div>删除城中道具</div></blockquote>
+</div>
+<div class="section" id="baye-getpersonbygeneralindex-gindex">
+<h4>baye.getPersonByGeneralIndex(gIndex)<a class="headerlink" href="#baye-getpersonbygeneralindex-gindex" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-movehere-name">
+<h4>baye.moveHere(name)<a class="headerlink" href="#baye-movehere-name" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="baye-drawtext-x-y-text">
+<h4>baye.drawText(x, y, text)<a class="headerlink" href="#baye-drawtext-x-y-text" title="永久链接至标题">¶</a></h4>
+<p>绘文字</p>
+</div>
+<div class="section" id="baye-drawimage-x-y-resid-resitem-picindex">
+<h4>baye.drawImage(x, y, resid, resitem, picIndex)<a class="headerlink" href="#baye-drawimage-x-y-resid-resitem-picindex" title="永久链接至标题">¶</a></h4>
+<p>画图片</p>
+</div>
+<div class="section" id="baye-clearrect-left-top-right-bottom">
+<h4>baye.clearRect(left, top, right, bottom)<a class="headerlink" href="#baye-clearrect-left-top-right-bottom" title="永久链接至标题">¶</a></h4>
+<p>清除矩形</p>
+</div>
+<div class="section" id="baye-revertrect-left-top-right-bottom">
+<h4>baye.revertRect(left, top, right, bottom)<a class="headerlink" href="#baye-revertrect-left-top-right-bottom" title="永久链接至标题">¶</a></h4>
+<p>反显矩形</p>
+</div>
+<div class="section" id="baye-drawline-startx-starty-endx-endy">
+<h4>baye.drawLine(startX, startY, endX, endY)<a class="headerlink" href="#baye-drawline-startx-starty-endx-endy" title="永久链接至标题">¶</a></h4>
+<p>画直线</p>
+</div>
+<div class="section" id="baye-drawrect-left-top-right-bottom">
+<h4>baye.drawRect(left, top, right, bottom)<a class="headerlink" href="#baye-drawrect-left-top-right-bottom" title="永久链接至标题">¶</a></h4>
+<p>画矩形</p>
+</div>
+<div class="section" id="baye-drawdot-x-y-color">
+<h4>baye.drawDot(x, y, color)<a class="headerlink" href="#baye-drawdot-x-y-color" title="永久链接至标题">¶</a></h4>
+<p>画点</p>
+</div>
+<div class="section" id="baye-getnumber-min-max-then">
+<h4>baye.getNumber(min, max, then)<a class="headerlink" href="#baye-getnumber-min-max-then" title="永久链接至标题">¶</a></h4>
+<p>获取玩家输入一个数字（可用于输入密码等）</p>
+<p>示例:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">baye</span><span class="p">.</span><span class="n">hooks</span><span class="p">.</span><span class="n">showMainHelp</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">min</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="n">baye</span><span class="p">.</span><span class="n">getNumber</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;选择了：&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../demos/index.html" class="btn btn-neutral float-right" title="示范脚本" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="霸业技术文档中心" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2017, loong.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

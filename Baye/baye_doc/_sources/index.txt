@@ -1,0 +1,14 @@
+.. baye-script-doc documentation master file, created by
+   sphinx-quickstart on Tue Jan  3 15:35:39 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+霸业技术文档中心
+****************
+
+.. toctree::
+    :maxdepth: 1
+
+    script/index
+    demos/index
+

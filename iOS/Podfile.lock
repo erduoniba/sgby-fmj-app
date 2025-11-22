@@ -1,0 +1,20 @@
+PODS:
+  - SSZipArchive (2.4.3)
+  - Toast-Swift (5.1.1)
+
+DEPENDENCIES:
+  - SSZipArchive (~> 2.4.3)
+  - Toast-Swift (= 5.1.1)
+
+SPEC REPOS:
+  trunk:
+    - SSZipArchive
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
+
+PODFILE CHECKSUM: d752a8d399ca17641d0774ffe51606e606dee2d0
+
+COCOAPODS: 1.16.2

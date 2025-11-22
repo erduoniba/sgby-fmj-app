@@ -1,0 +1,23 @@
+{
+  "name": "baye",
+  "short_name": "baye",
+  "theme_color": "#FFFFFF",
+  "background_color": "#424242",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "./",
+  "start_url": "./index.html",
+  "description": "baye",
+  "icons": [
+    {
+      "src": "favicon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

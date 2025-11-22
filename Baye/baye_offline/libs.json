@@ -1,0 +1,53 @@
+[
+    {
+        "title": "三国霸业-词典原版",
+        "path": "libs/dat-v2-mod.lib",
+        "path2": "libs/dat-mod.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/baye_data_index.html"
+    },
+    {
+        "title": "群魔乱舞-血色华夏",
+        "path": "libs/qmlw-XSHX.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/qmlw-xshx_data_index.html"
+    },
+    {
+        "title": "群魔乱舞-水浒英豪",
+        "path": "libs/qmlw-SHYH.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/qmlw-shyh_data_index.html"
+    },
+    {
+        "title": "群魔乱舞-乱战三国",
+        "path": "libs/qmlw-LZSG.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/qmlw-lzsg_data_index.html"
+    },
+    {
+        "title": "平衡版2.0三国战纪",
+        "path": "libs/balance2.01.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/balance_data_index.html"
+    },
+    {
+        "title": "三国战略版",
+        "path": "libs/yhf-mod.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/yhf_data_index.html"
+    },
+    {
+        "title": "三国霸业-霸哥自制版",
+        "path": "libs/sc-mod.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/sc-mod_data_index.html"
+    },
+    {
+        "title": "三国杀",
+        "path": "libs/qmlw-SGS-300.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/qmlw-sgs_data_index.html"
+    },
+    {
+        "title": "群友猴子自制版",
+        "path": "libs/hz-mod.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/hz-mod_data_index.html"
+    },
+    {
+        "title": "小君王自制版",
+        "path": "libs/xjw-mod.lib",
+        "home": "http://harrydeng2025.xyz/baye_index/xjw-mod_data_index.html"
+    }
+]

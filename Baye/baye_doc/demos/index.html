@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>示范脚本 &mdash; 霸业技术文档中心 1.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="霸业技术文档中心 1.0 文档" href="../index.html"/>
+        <link rel="prev" title="脚本系统简易教程" href="../script/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> 霸业技术文档中心
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../script/index.html">脚本系统简易教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../script/index.html#javascript">Javascript简要基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id2">基本概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id3">注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id4">Javascript的数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id5">赋值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id6">条件判断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id7">遍历数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#function">函数（function）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../script/index.html#id8">霸业脚本系统原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/index.html#id9">霸业脚本编写向导</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script/index.html#id10">调试方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id11">实时查看和修改引擎数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id12">实时替换钩子函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id13">添加调试日志</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../script/index.html#api">霸业API手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#datas">数据手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-data">baye.data 属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#persontype">PersonType 人物数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#citytype">CityType城池数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#goods">GOODS 道具数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#skillef">SKILLEF技能数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#fgtjk">FGTJK战场数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#jlpos">JLPOS战场将领数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#jlatt">JLATT战斗双方将领数据定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-data-g-engineconfig">baye.data.g_engineConfig 数据定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#hooks">钩子函数手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-aifightcommand">baye.hooks.aiFightCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getskillids">baye.hooks.getSkillIds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-calcattackrange">baye.hooks.calcAttackRange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-showskill">baye.hooks.showSkill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-givetool">baye.hooks.giveTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-takeofftool">baye.hooks.takeOffTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-didopennewgame">baye.hooks.didOpenNewGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-didloadgame">baye.hooks.didLoadGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-willsavegame">baye.hooks.willSaveGame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-tacticstage1">baye.hooks.tacticStage1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-tacticstage2">baye.hooks.tacticStage2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-tacticstage3">baye.hooks.tacticStage3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-tacticstage4">baye.hooks.tacticStage4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-tacticstage5">baye.hooks.tacticStage5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-willaddorder">baye.hooks.willAddOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-willexecuteorder">baye.hooks.willExecuteOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-enterbattle">baye.hooks.enterBattle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlestage1">baye.hooks.battleStage1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlestage2">baye.hooks.battleStage2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlestage3">baye.hooks.battleStage3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlestage4">baye.hooks.battleStage4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlestage5">baye.hooks.battleStage5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-exitbattle">baye.hooks.exitBattle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-citymakecommand">baye.hooks.cityMakeCommand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-willgivetool">baye.hooks.willGiveTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-willtakeofftool">baye.hooks.willTakeOffTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-countattackhurt">baye.hooks.countAttackHurt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-countskillhurt">baye.hooks.countSkillHurt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battlebuildattackattriutes">baye.hooks.battleBuildAttackAttriutes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#id16">baye.hooks.getSkillIds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-battledrivepersonstate">baye.hooks.battleDrivePersonState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getmaxarms">baye.hooks.getMaxArms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-gettoolpropertyvalue">baye.hooks.getToolPropertyValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-gettoolpropertytitle">baye.hooks.getToolPropertyTitle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getpersonpropertyvalue">baye.hooks.getPersonPropertyValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getpersonpropertytitle">baye.hooks.getPersonPropertyTitle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getcitypropertydisplay">baye.hooks.getCityPropertyDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-hooks-getfighterinfo">baye.hooks.getFighterInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../script/index.html#id17">功能函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-getpersonname-index">baye.getPersonName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-gettoolname-index">baye.getToolName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-getskillname-index">baye.getSkillName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-getcityname-index">baye.getCityName(index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-setcustomdata-data">baye.setCustomData(data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../script/index.html#baye-getcustomdata">baye.getCustomData()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">示范脚本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">计算攻防</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">计算伤害</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">道具为人物加额外属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">不复用年龄数据，额外为人物增加统率属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">弹出提示，和对话</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">&#8220;工匠&#8221;人物</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">霸业技术文档中心</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>示范脚本</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/demos/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="id1">
+<h1>示范脚本<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>计算攻防<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">battleBuildAttackAttriutes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/*</span>
+<span class="cm">        脚本计算攻防示例</span>
+<span class="cm">        context.index: 计算结果存放位置序号</span>
+<span class="cm">        context.generalIndex: 战场将领序号</span>
+<span class="cm">    */</span>
+
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenAtt</span><span class="p">[</span><span class="nx">context</span><span class="p">.</span><span class="nx">index</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">pIndex</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_FgtParam</span><span class="p">.</span><span class="nx">GenArray</span><span class="p">[</span><span class="nx">context</span><span class="p">.</span><span class="nx">generalIndex</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">[</span><span class="nx">pIndex</span><span class="p">];</span>
+
+    <span class="c1">// 地形对兵种的影响</span>
+    <span class="kd">var</span> <span class="nx">terEffects</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1">//  草地, 平原, 山地, 森林, 村庄, 城池, 营寨, 河流</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 骑兵</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 步兵</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 弓兵</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 水兵</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 极兵</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1">// 玄兵</span>
+    <span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">AtkModulus</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>    <span class="cm">/* 各兵种攻击系数 */</span>
+    <span class="kd">var</span> <span class="nx">DfModulus</span> <span class="o">=</span>  <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">];</span>    <span class="cm">/* 各兵种防御系数 */</span>
+    <span class="kd">var</span> <span class="nx">TerrDfModu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">];</span>    <span class="cm">/* 各种地形防御系数 */</span>
+
+    <span class="c1">// 武力/等级/攻击系数影响攻击力</span>
+    <span class="kd">var</span> <span class="nx">at</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">Force</span> <span class="o">*</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="nx">AtkModulus</span><span class="p">[</span><span class="nx">person</span><span class="p">.</span><span class="nx">ArmsType</span><span class="p">];</span>
+
+    <span class="c1">// 智力/等级/防御系数影响防御力</span>
+    <span class="kd">var</span> <span class="nx">df</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">IQ</span> <span class="o">*</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Level</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="nx">DfModulus</span><span class="p">[</span><span class="nx">person</span><span class="p">.</span><span class="nx">ArmsType</span><span class="p">];</span>
+
+    <span class="c1">// 叠加地形对攻防的影响</span>
+    <span class="nx">at</span> <span class="o">=</span> <span class="nx">terEffects</span><span class="p">[</span><span class="nx">person</span><span class="p">.</span><span class="nx">ArmsType</span><span class="p">][</span><span class="nx">result</span><span class="p">.</span><span class="nx">ter</span><span class="p">]</span> <span class="o">*</span> <span class="nx">at</span><span class="p">;</span>
+
+    <span class="nx">df</span> <span class="o">=</span> <span class="nx">terEffects</span><span class="p">[</span><span class="nx">person</span><span class="p">.</span><span class="nx">ArmsType</span><span class="p">][</span><span class="nx">result</span><span class="p">.</span><span class="nx">ter</span><span class="p">]</span> <span class="o">*</span> <span class="nx">df</span><span class="p">;</span>
+
+    <span class="c1">// 地形固有防御系数</span>
+    <span class="nx">df</span> <span class="o">*=</span> <span class="nx">TerrDfModu</span><span class="p">[</span><span class="nx">result</span><span class="p">.</span><span class="nx">ter</span><span class="p">];</span>
+
+    <span class="c1">// 输出最终结果</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">at</span> <span class="o">=</span> <span class="nx">at</span><span class="p">;</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">df</span> <span class="o">=</span> <span class="nx">df</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>计算伤害<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt>查阅文档可知, 可以使用计算普通攻击伤害的钩子</dt>
+<dd><a class="reference external" href="http://bgwp.oschina.io/baye-doc/script/index.html#baye-hooks-countattackhurt">http://bgwp.oschina.io/baye-doc/script/index.html#baye-hooks-countattackhurt</a></dd>
+</dl>
+<p>baye.hooks.countAttackHurt 这个钩子是用来计算普通攻击兵力伤害的。</p>
+<p>进入这个钩子的时候，攻防双方的战力参数已经计算好，并放到了这：</p>
+<ol class="arabic simple">
+<li>攻击方：baye.data.g_GenAtt[0]</li>
+<li>防守方：baye.data.g_GenAtt[1]</li>
+</ol>
+<p>这是之前引擎内部或引擎调用钩子：baye.hooks.battleBuildAttackAttriutes 来算好的。</p>
+<p>g_GenAtt里面包含了攻防双方将领的战场序号，可用来提取双方将领的其它数据。</p>
+<p>那么baye.hooks.countAttackHurt要完成的目标就是根据攻防双方的战力参数或其它条件(如队友的特殊道具)来计算出对防守方造成多少伤害。
+引擎内置算法是完全根据g_GenAtt里面的战力参数来计算伤害值的。</p>
+<p>本示例扩展出逻辑是：查找我方队友是否有携带特殊道具的，如果有，则在原伤害基础上按比例加成。</p>
+<p>如下是引擎默认算法:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">countAttackHurt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">KeZhiMatrix</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+    <span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">p0</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenAtt</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//攻击方数据</span>
+    <span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenAtt</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//防守方数据</span>
+
+    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">getPersonByGeneralIndex</span><span class="p">(</span><span class="nx">p0</span><span class="p">.</span><span class="nx">generalIndex</span><span class="p">);</span>
+
+    <span class="cm">/* 基本伤害 hurt = (at / df) * arms / 8 */</span>
+    <span class="kd">var</span> <span class="nx">hurt</span> <span class="o">=</span> <span class="nx">p0</span><span class="p">.</span><span class="nx">at</span> <span class="o">/</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">df</span> <span class="o">*</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Arms</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="cm">/* 相克加层 hurt *= modu */</span>
+    <span class="nx">hurt</span> <span class="o">*=</span> <span class="nx">KeZhiMatrix</span><span class="p">[</span><span class="nx">p0</span><span class="p">.</span><span class="nx">armsType</span><span class="p">][</span><span class="nx">p1</span><span class="p">.</span><span class="nx">armsType</span><span class="p">];</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">hurt</span> <span class="o">=</span> <span class="nx">hurt</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>引入其它条件(如特殊道具)影响伤害输出:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">countAttackHurt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">KeZhiMatrix</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+    <span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">p0</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenAtt</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//攻击方数据</span>
+    <span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenAtt</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//防守方数据</span>
+
+    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">getPersonByGeneralIndex</span><span class="p">(</span><span class="nx">p0</span><span class="p">.</span><span class="nx">generalIndex</span><span class="p">);</span>
+
+    <span class="cm">/* 基本伤害 hurt = (at / df) * arms / 8 */</span>
+    <span class="kd">var</span> <span class="nx">hurt</span> <span class="o">=</span> <span class="nx">p0</span><span class="p">.</span><span class="nx">at</span> <span class="o">/</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">df</span> <span class="o">*</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Arms</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">);</span>
+
+    <span class="cm">/* 相克加层 hurt *= modu */</span>
+    <span class="nx">hurt</span> <span class="o">*=</span> <span class="nx">KeZhiMatrix</span><span class="p">[</span><span class="nx">p0</span><span class="p">.</span><span class="nx">armsType</span><span class="p">][</span><span class="nx">p1</span><span class="p">.</span><span class="nx">armsType</span><span class="p">];</span>
+
+    <span class="c1">// 查找攻击方是否携带有NB道具</span>
+    <span class="c1">// baye.data.g_GenAtt里面有20个位置, 前十个为攻城方, 后十个为守城方</span>
+    <span class="c1">//</span>
+    <span class="c1">// 首先需要判断攻击者是攻城方还是守城放</span>
+
+    <span class="kd">var</span> <span class="nx">startIndex</span> <span class="o">=</span> <span class="nx">p0</span><span class="p">.</span><span class="nx">generalIndex</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">hasNewBeeTool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">newBeeToolID</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">//NB道具的ID</span>
+
+    <span class="c1">// 查找攻击方有没有NB道具</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">ind</span> <span class="o">=</span> <span class="nx">startIndex</span><span class="p">;</span> <span class="nx">ind</span> <span class="o">&lt;</span> <span class="nx">startIndex</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">ind</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_GenPos</span><span class="p">[</span><span class="nx">ind</span><span class="p">].</span><span class="nx">state</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 8是死亡状态</span>
+            <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">getPersonByGeneralIndex</span><span class="p">(</span><span class="nx">ind</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">Tool1</span> <span class="o">==</span> <span class="nx">newBeeToolID</span> <span class="o">||</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Tool2</span> <span class="o">==</span> <span class="nx">newBeeToolID</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">hasNewBeeTool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// 找到NB道具</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">hasNewBeeTool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 攻击方团队有NB道具, 百倍伤害</span>
+        <span class="nx">hurt</span> <span class="o">*=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">hurt</span> <span class="o">=</span> <span class="nx">hurt</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>关于状态:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">STATE_ZC</span> <span class="o">=</span> <span class="mi">0</span>        <span class="cm">/* 正常 */</span>
+<span class="nx">STATE_HL</span> <span class="o">=</span> <span class="mi">1</span>        <span class="cm">/* 混乱 */</span>
+<span class="nx">STATE_JZ</span> <span class="o">=</span> <span class="mi">2</span>        <span class="cm">/* 禁咒 */</span>
+<span class="nx">STATE_DS</span> <span class="o">=</span> <span class="mi">3</span>        <span class="cm">/* 定身 */</span>
+<span class="nx">STATE_QM</span> <span class="o">=</span> <span class="mi">4</span>        <span class="cm">/* 奇门 */</span>
+<span class="nx">STATE_DJ</span> <span class="o">=</span> <span class="mi">5</span>        <span class="cm">/* 遁甲 */</span>
+<span class="nx">STATE_SZ</span> <span class="o">=</span> <span class="mi">6</span>        <span class="cm">/* 石阵 */</span>
+<span class="nx">STATE_QZ</span> <span class="o">=</span> <span class="mi">7</span>        <span class="cm">/* 潜踪 */</span>
+<span class="nx">STATE_SW</span> <span class="o">=</span> <span class="mi">8</span>        <span class="cm">/* 死亡 */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>道具为人物加额外属性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>群魔乱舞将年龄数据用作了统率</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// 禁止年龄自动增长</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_engineConfig</span><span class="p">.</span><span class="nx">disableAgeGrow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// 定义数据表</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">TOOL_AGE_TAB</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="cm">/* ... */</span> <span class="p">];</span>
+
+<span class="c1">// 赏赐时加属性</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">giveTool</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">TOOL_AGE_TAB</span><span class="p">[</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">toolIndex</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">up</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">[</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">];</span>
+        <span class="nx">person</span><span class="p">.</span><span class="nx">Age</span> <span class="o">+=</span> <span class="nx">up</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 没收时减属性</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">takeOffTool</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">TOOL_AGE_TAB</span><span class="p">[</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">toolIndex</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">up</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">[</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">];</span>
+        <span class="nx">person</span><span class="p">.</span><span class="nx">Age</span> <span class="o">-=</span> <span class="nx">up</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>进一步增加在道具表格中显示统率属性:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// 配置道具表格 列数量</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_uiCfg</span><span class="p">.</span><span class="nx">toolPropertiesCount</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+
+<span class="c1">// 配置表格 列宽度</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_uiCfg</span><span class="p">.</span><span class="nx">toolPropertiesDisplayWitdh</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+
+<span class="c1">// 定义道具表格表头</span>
+<span class="kd">var</span> <span class="nx">baye_tool_heads</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;类型&quot;</span><span class="p">,</span> <span class="s2">&quot;加武力&quot;</span><span class="p">,</span> <span class="s2">&quot;加智力&quot;</span><span class="p">,</span> <span class="s2">&quot;加统率&quot;</span><span class="p">,</span> <span class="s2">&quot;加移动&quot;</span><span class="p">,</span> <span class="s2">&quot;变兵种&quot;</span><span class="p">];</span>
+
+<span class="c1">// 填写表头的钩子</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">getToolPropertyTitle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">baye_tool_heads</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">propertyIndex</span><span class="p">];</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 填写单元格的钩子</span>
+<span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">getToolPropertyValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">tool</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Tools</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">toolIndex</span><span class="p">];</span>
+
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">baye_tool_heads</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">propertyIndex</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s2">&quot;类型&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;装备&quot;</span><span class="p">,</span> <span class="s2">&quot;使用&quot;</span><span class="p">][</span><span class="nx">tool</span><span class="p">.</span><span class="nx">useflag</span><span class="p">];</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;加武力&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">tool</span><span class="p">.</span><span class="nx">at</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;加智力&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">tool</span><span class="p">.</span><span class="nx">iq</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;加统率&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">TOOL_AGE_TAB</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">toolIndex</span><span class="p">];</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;加移动&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">tool</span><span class="p">.</span><span class="nx">move</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">&quot;变兵种&quot;</span><span class="o">:</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;无&#39;</span><span class="p">,</span> <span class="s1">&#39;水&#39;</span><span class="p">,</span> <span class="s1">&#39;玄&#39;</span><span class="p">,</span> <span class="s1">&#39;极&#39;</span><span class="p">,</span> <span class="s2">&quot;骑兵&quot;</span><span class="p">,</span> <span class="s2">&quot;步兵&quot;</span><span class="p">,</span> <span class="s2">&quot;弓兵&quot;</span><span class="p">,</span> <span class="s2">&quot;水兵&quot;</span><span class="p">,</span> <span class="s2">&quot;极兵&quot;</span><span class="p">,</span> <span class="s2">&quot;玄兵&quot;</span><span class="p">][</span><span class="nx">tool</span><span class="p">.</span><span class="nx">arm</span><span class="p">];</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>不复用年龄数据，额外为人物增加统率属性<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>引擎已经固定人物有哪些属性, 因此不能修改固有的人物属性。
+要增加属性，只能采用&#8221;外挂式&#8221;, 将属性值存储于引擎外（脚本环境中)。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//待续...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>弹出提示，和对话<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>目前脚本系统支持两个UI相关API</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>baye.alert</td>
+<td>弹出文字提示</td>
+</tr>
+<tr class="row-even"><td>baye.say</td>
+<td>人物对话</td>
+</tr>
+</tbody>
+</table>
+<p>部分钩子支持调用这些API。</p>
+<p>示例, 没收物品时拒绝, 并对话:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">willTakeOffTool</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">personIndex</span> <span class="o">==</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_PlayerKing</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nx">baye</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">,</span> <span class="s2">&quot;你算哪根葱?\n我的宝贝岂是你想拿走就拿走?&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">baye</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;没收失败!&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>&#8220;工匠&#8221;人物<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>可利用&#8221;赏赐&#8221;功能打造类似工匠的人物。</p>
+<p>以马腾作为示例:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">baye</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">willGiveTool</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 1号道具 + 2号道具 + 3000金钱 可合成 3号道具</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">baye</span><span class="p">.</span><span class="nx">getPersonName</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;马腾&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Persons</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">city</span> <span class="o">=</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">g_Cities</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">cityIndex</span><span class="p">];</span>
+
+    <span class="c1">// 检查道具是否满足条件</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Tool1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toolIndex</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// 限制条件</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">city</span><span class="p">.</span><span class="nx">Money</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">baye</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">,</span> <span class="s2">&quot;城池不够富足,无法开工!&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">city</span><span class="p">.</span><span class="nx">PeopleDevotion</span> <span class="o">&lt;</span> <span class="mi">99</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">baye</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">,</span> <span class="s2">&quot;城民们对你的治理不太满意,无法开工!&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">city</span><span class="p">.</span><span class="nx">State</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">baye</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">,</span> <span class="s2">&quot;城池灾害,无法开工!&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">city</span><span class="p">.</span><span class="nx">Money</span> <span class="o">-=</span> <span class="mi">3000</span><span class="p">;</span> <span class="c1">// 扣除3000钱</span>
+        <span class="nx">baye</span><span class="p">.</span><span class="nx">deleteToolInCity</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">cityIndex</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toolIndex</span><span class="p">);</span> <span class="c1">// 删除材料道具</span>
+        <span class="nx">baye</span><span class="p">.</span><span class="nx">putToolInCity</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">cityIndex</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// 生产出新道具</span>
+        <span class="nx">baye</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">personIndex</span><span class="p">,</span> <span class="s2">&quot;全新[&quot;</span> <span class="o">+</span> <span class="nx">baye</span><span class="p">.</span><span class="nx">getToolName</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;]已打造成功!&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../script/index.html" class="btn btn-neutral" title="脚本系统简易教程" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2017, loong.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

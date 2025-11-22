@@ -1,0 +1,1148 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		361F5943A749FE98C477B42D /* Pods_HDBayeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB1DD775C88FC829B75A772 /* Pods_HDBayeApp.framework */; };
+		99C92180A470D2670D1DA780 /* Pods_HDBayeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB1DD775C88FC829B75A772 /* Pods_HDBayeApp.framework */; };
+		AD0479712E126ABC00B164A3 /* HDStrategyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0479702E126ABC00B164A3 /* HDStrategyWebViewController.swift */; };
+		AD0479722E126ABC00B164A3 /* HDStrategyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0479702E126ABC00B164A3 /* HDStrategyWebViewController.swift */; };
+		AD0B2FDC2E3707D1005AE3D6 /* HDSaveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B2FDB2E3707D1005AE3D6 /* HDSaveListViewController.swift */; };
+		AD0B2FDD2E3707D1005AE3D6 /* HDSaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B2FDA2E3707D1005AE3D6 /* HDSaveDetailViewController.swift */; };
+		AD0B2FDE2E3707D1005AE3D6 /* HDSaveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B2FDB2E3707D1005AE3D6 /* HDSaveListViewController.swift */; };
+		AD0B2FDF2E3707D1005AE3D6 /* HDSaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B2FDA2E3707D1005AE3D6 /* HDSaveDetailViewController.swift */; };
+		AD4A2B1F2E26419C003EFFBB /* ColorFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2B1E2E26419C003EFFBB /* ColorFilterCell.swift */; };
+		AD4A2B202E26419C003EFFBB /* ColorFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2B1E2E26419C003EFFBB /* ColorFilterCell.swift */; };
+		AD4A2C9E2E27775C003EFFBB /* GameSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2C9D2E27775C003EFFBB /* GameSpeedCell.swift */; };
+		AD4A2C9F2E27775C003EFFBB /* GameSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2C9D2E27775C003EFFBB /* GameSpeedCell.swift */; };
+		AD4A2CA52E280AB1003EFFBB /* HDWebViewController+Libs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2CA42E280AA5003EFFBB /* HDWebViewController+Libs.swift */; };
+		AD4A2CA62E280AB2003EFFBB /* HDWebViewController+Libs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2CA42E280AA5003EFFBB /* HDWebViewController+Libs.swift */; };
+		AD4A2CB02E28A8FF003EFFBB /* HDWebViewController+JS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2CAF2E28A8F9003EFFBB /* HDWebViewController+JS.swift */; };
+		AD4A2CB12E28A8FF003EFFBB /* HDWebViewController+JS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2CAF2E28A8F9003EFFBB /* HDWebViewController+JS.swift */; };
+		AD4A2D1A2E27885D003EFFBB /* EngineSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2D192E27885D003EFFBB /* EngineSelectionCell.swift */; };
+		AD4A2D1B2E27885D003EFFBB /* EngineSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A2D192E27885D003EFFBB /* EngineSelectionCell.swift */; };
+		AD601A812E3E165600E7D929 /* HDFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD601A802E3E165600E7D929 /* HDFeedbackViewController.swift */; };
+		AD601A822E3E165600E7D929 /* HDFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD601A7F2E3E165600E7D929 /* HDFeedbackService.swift */; };
+		AD601A832E3E165600E7D929 /* HDFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD601A802E3E165600E7D929 /* HDFeedbackViewController.swift */; };
+		AD601A842E3E165600E7D929 /* HDFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD601A7F2E3E165600E7D929 /* HDFeedbackService.swift */; };
+		AD6943EB2EB1A95A004B0BBC /* CommerceMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943EA2EB1A95A004B0BBC /* CommerceMultiplierCell.swift */; };
+		AD6943EC2EB1A95A004B0BBC /* AllItemsTripleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943E92EB1A95A004B0BBC /* AllItemsTripleCell.swift */; };
+		AD6943ED2EB1A95A004B0BBC /* AgricultureMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943E82EB1A95A004B0BBC /* AgricultureMultiplierCell.swift */; };
+		AD6943EE2EB1A95A004B0BBC /* CommerceMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943EA2EB1A95A004B0BBC /* CommerceMultiplierCell.swift */; };
+		AD6943EF2EB1A95A004B0BBC /* AllItemsTripleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943E92EB1A95A004B0BBC /* AllItemsTripleCell.swift */; };
+		AD6943F02EB1A95A004B0BBC /* AgricultureMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6943E82EB1A95A004B0BBC /* AgricultureMultiplierCell.swift */; };
+		AD909F3F2DA63F4F0072A8A8 /* HDAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD909F3E2DA63F4F0072A8A8 /* HDAboutViewController.swift */; };
+		ADA546C02E54B3230082791F /* HDSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA546BF2E54B3230082791F /* HDSaveManager.swift */; };
+		ADA546C12E54B3230082791F /* HDSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA546BF2E54B3230082791F /* HDSaveManager.swift */; };
+		ADA70B4D2E311C1C00EB3146 /* HDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA70B4C2E311C1C00EB3146 /* HDConstants.swift */; };
+		ADA70B4E2E311C1C00EB3146 /* HDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA70B4C2E311C1C00EB3146 /* HDConstants.swift */; };
+		ADA70B4F2E312CFB00EB3146 /* HDVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2154E32E32147100EB3146 /* HDVersionChecker.swift */; };
+		ADB9B7992E9FA44900BA8ACC /* GoldMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7972E9FA44900BA8ACC /* GoldMultiplierCell.swift */; };
+		ADB9B79A2E9FA44900BA8ACC /* ExpMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7962E9FA44900BA8ACC /* ExpMultiplierCell.swift */; };
+		ADB9B79B2E9FA44900BA8ACC /* ItemMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */; };
+		ADB9B79C2E9FA44900BA8ACC /* GoldMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7972E9FA44900BA8ACC /* GoldMultiplierCell.swift */; };
+		ADB9B79D2E9FA44900BA8ACC /* ExpMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7962E9FA44900BA8ACC /* ExpMultiplierCell.swift */; };
+		ADB9B79E2E9FA44900BA8ACC /* ItemMultiplierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */; };
+		ADC616172E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */; };
+		ADC616182E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */; };
+		ADDF9EC72EC8891B0088F0DD /* fmj-offline-2025111501.zip in Resources */ = {isa = PBXBuildFile; fileRef = ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */; };
+		ADE2000B2DA6071D00B64179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200012DA6071D00B64179 /* AppDelegate.swift */; };
+		ADE2000C2DA6071D00B64179 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200082DA6071D00B64179 /* SceneDelegate.swift */; };
+		ADE2000D2DA6071D00B64179 /* HDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200092DA6071D00B64179 /* HDWebViewController.swift */; };
+		ADE2000E2DA6071D00B64179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE200022DA6071D00B64179 /* Assets.xcassets */; };
+		ADE200102DA6071D00B64179 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200052DA6071D00B64179 /* LaunchScreen.storyboard */; };
+		ADE200112DA6071D00B64179 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200072DA6071D00B64179 /* Main.storyboard */; };
+		ADE57DBB2EB64BD9006D0DCA /* baye-offline-2025110101.zip in Resources */ = {isa = PBXBuildFile; fileRef = ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */; };
+		ADEB7CEF2E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */; };
+		ADEB7CF02E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */; };
+		ADF1C6682DA8F4E70091AAC4 /* HDWebJSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */; };
+		ADF1C66A2DA91DE40091AAC4 /* HDWebURLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C6692DA91DC70091AAC4 /* HDWebURLSchemeHandler.swift */; };
+		ADF1C66E2DA921E40091AAC4 /* HDBayeHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C66D2DA921DB0091AAC4 /* HDBayeHooks.swift */; };
+		ADF2094D2E7686A500D51424 /* HDGameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2094C2E7686A500D51424 /* HDGameSelectionViewController.swift */; };
+		ADF2094E2E7686A500D51424 /* HDGameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2094C2E7686A500D51424 /* HDGameSelectionViewController.swift */; };
+		ADF209522E76F1A200D51424 /* HDGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF209502E76F1A200D51424 /* HDGameCollectionViewCell.swift */; };
+		ADF209532E76F1A200D51424 /* HDSectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF209512E76F1A200D51424 /* HDSectionBackgroundView.swift */; };
+		ADF209542E76F1A200D51424 /* HDGameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF209502E76F1A200D51424 /* HDGameCollectionViewCell.swift */; };
+		ADF209552E76F1A200D51424 /* HDSectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF209512E76F1A200D51424 /* HDSectionBackgroundView.swift */; };
+		ADF2D4172E02AE7400A8D915 /* HDWebURLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C6692DA91DC70091AAC4 /* HDWebURLSchemeHandler.swift */; };
+		ADF2D4192E02AE7400A8D915 /* HDAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD909F3E2DA63F4F0072A8A8 /* HDAboutViewController.swift */; };
+		ADF2D41A2E02AE7400A8D915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200012DA6071D00B64179 /* AppDelegate.swift */; };
+		ADF2D41C2E02AE7400A8D915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200082DA6071D00B64179 /* SceneDelegate.swift */; };
+		ADF2D41D2E02AE7400A8D915 /* HDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE200092DA6071D00B64179 /* HDWebViewController.swift */; };
+		ADF2D41E2E02AE7400A8D915 /* HDBayeHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C66D2DA921DB0091AAC4 /* HDBayeHooks.swift */; };
+		ADF2D41F2E02AE7400A8D915 /* HDWebJSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */; };
+		ADF2D4242E02AE7400A8D915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200052DA6071D00B64179 /* LaunchScreen.storyboard */; };
+		ADF2D4252E02AE7400A8D915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE200072DA6071D00B64179 /* Main.storyboard */; };
+		ADF2D4312E02B05200A8D915 /* HDAppsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2D4302E02B05200A8D915 /* HDAppsTool.swift */; };
+		ADF2D4322E02B05200A8D915 /* HDAppsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2D4302E02B05200A8D915 /* HDAppsTool.swift */; };
+		ADF32F022E7A475100332735 /* PortraitModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF32F002E7A475100332735 /* PortraitModeCell.swift */; };
+		ADF32F042E7A475100332735 /* PortraitModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF32F002E7A475100332735 /* PortraitModeCell.swift */; };
+		ADF3C5F22E07AB9000558121 /* HDAppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5F12E07AB9000558121 /* HDAppData.swift */; };
+		ADF3C5F32E07AB9000558121 /* HDAppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5F12E07AB9000558121 /* HDAppData.swift */; };
+		ADF3C5F92E07EBC600558121 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5F72E07EBC600558121 /* IAPManager.swift */; };
+		ADF3C5FA2E07EBC600558121 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5F72E07EBC600558121 /* IAPManager.swift */; };
+		ADF3C6032E07EDD800558121 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6002E07EDD800558121 /* Extensions.swift */; };
+		ADF3C6042E07EDD800558121 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5FE2E07EDD800558121 /* Configuration.swift */; };
+		ADF3C6052E07EDD800558121 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6012E07EDD800558121 /* ImageGenerator.swift */; };
+		ADF3C6062E07EDD800558121 /* EasyConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5FF2E07EDD800558121 /* EasyConfetti.swift */; };
+		ADF3C6072E07EDD800558121 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6002E07EDD800558121 /* Extensions.swift */; };
+		ADF3C6082E07EDD800558121 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5FE2E07EDD800558121 /* Configuration.swift */; };
+		ADF3C6092E07EDD800558121 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6012E07EDD800558121 /* ImageGenerator.swift */; };
+		ADF3C60A2E07EDD800558121 /* EasyConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C5FF2E07EDD800558121 /* EasyConfetti.swift */; };
+		ADF3C60C2E0844DA00558121 /* HDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C60B2E0844DA00558121 /* HDBaseViewController.swift */; };
+		ADF3C60D2E0844DA00558121 /* HDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C60B2E0844DA00558121 /* HDBaseViewController.swift */; };
+		ADF3C6132E084E3700558121 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6122E084E3700558121 /* UIDevice+Extension.swift */; };
+		ADF3C6142E084E3700558121 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3C6122E084E3700558121 /* UIDevice+Extension.swift */; };
+		D95EA27D2E065860001AF54A /* HDAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95EA27C2E06585B001AF54A /* HDAppColor.swift */; };
+		D95EA27E2E065860001AF54A /* HDAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95EA27C2E06585B001AF54A /* HDAppColor.swift */; };
+		D96CCC1D2E0649DC00D8C46C /* HDFMJApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = D96CCC1C2E0649DC00D8C46C /* HDFMJApp.plist */; };
+		D96CCC1F2E064A9D00D8C46C /* AssetsFMJ.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96CCC1E2E064A9D00D8C46C /* AssetsFMJ.xcassets */; };
+		E54FD3C82E32147200EB3146 /* HDVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2154E32E32147100EB3146 /* HDVersionChecker.swift */; };
+		FA7A5429E0DDD60588F51456 /* Pods_HDFMJApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1490B0760B241C2167F1162D /* Pods_HDFMJApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A2154E32E32147100EB3146 /* HDVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDVersionChecker.swift; sourceTree = "<group>"; };
+		1490B0760B241C2167F1162D /* Pods_HDFMJApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HDFMJApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216156D8476FA2692E7ACB6C /* Pods-HDFMJApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDFMJApp.release.xcconfig"; path = "Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp.release.xcconfig"; sourceTree = "<group>"; };
+		39EEA9A16F31F4FC81DDCEAD /* Pods-HDFMJApp.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDFMJApp.adhoc.xcconfig"; path = "Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp.adhoc.xcconfig"; sourceTree = "<group>"; };
+		92463E6A7E1BEC352338EFE8 /* Pods-HDBayeApp.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDBayeApp.adhoc.xcconfig"; path = "Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp.adhoc.xcconfig"; sourceTree = "<group>"; };
+		9D71814F73A8DC590DED38B7 /* Pods-HDBayeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDBayeApp.debug.xcconfig"; path = "Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AD0479702E126ABC00B164A3 /* HDStrategyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDStrategyWebViewController.swift; sourceTree = "<group>"; };
+		AD0B2FDA2E3707D1005AE3D6 /* HDSaveDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDSaveDetailViewController.swift; sourceTree = "<group>"; };
+		AD0B2FDB2E3707D1005AE3D6 /* HDSaveListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDSaveListViewController.swift; sourceTree = "<group>"; };
+		AD4A2B1E2E26419C003EFFBB /* ColorFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilterCell.swift; sourceTree = "<group>"; };
+		AD4A2C9D2E27775C003EFFBB /* GameSpeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSpeedCell.swift; sourceTree = "<group>"; };
+		AD4A2CA42E280AA5003EFFBB /* HDWebViewController+Libs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDWebViewController+Libs.swift"; sourceTree = "<group>"; };
+		AD4A2CAF2E28A8F9003EFFBB /* HDWebViewController+JS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HDWebViewController+JS.swift"; sourceTree = "<group>"; };
+		AD4A2D192E27885D003EFFBB /* EngineSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineSelectionCell.swift; sourceTree = "<group>"; };
+		AD601A7F2E3E165600E7D929 /* HDFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFeedbackService.swift; sourceTree = "<group>"; };
+		AD601A802E3E165600E7D929 /* HDFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFeedbackViewController.swift; sourceTree = "<group>"; };
+		AD6943E82EB1A95A004B0BBC /* AgricultureMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgricultureMultiplierCell.swift; sourceTree = "<group>"; };
+		AD6943E92EB1A95A004B0BBC /* AllItemsTripleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemsTripleCell.swift; sourceTree = "<group>"; };
+		AD6943EA2EB1A95A004B0BBC /* CommerceMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceMultiplierCell.swift; sourceTree = "<group>"; };
+		AD909F3E2DA63F4F0072A8A8 /* HDAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDAboutViewController.swift; sourceTree = "<group>"; };
+		ADA546BF2E54B3230082791F /* HDSaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDSaveManager.swift; sourceTree = "<group>"; };
+		ADA70B4C2E311C1C00EB3146 /* HDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDConstants.swift; sourceTree = "<group>"; };
+		ADB9B7962E9FA44900BA8ACC /* ExpMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpMultiplierCell.swift; sourceTree = "<group>"; };
+		ADB9B7972E9FA44900BA8ACC /* GoldMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldMultiplierCell.swift; sourceTree = "<group>"; };
+		ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMultiplierCell.swift; sourceTree = "<group>"; };
+		ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDOfflinePackageUpdateManager.swift; sourceTree = "<group>"; };
+		ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "fmj-offline-2025111501.zip"; sourceTree = "<group>"; };
+		ADE200012DA6071D00B64179 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ADE200022DA6071D00B64179 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADE200032DA6071D00B64179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADE200042DA6071D00B64179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ADE200062DA6071D00B64179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ADE200082DA6071D00B64179 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ADE200092DA6071D00B64179 /* HDWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebViewController.swift; sourceTree = "<group>"; };
+		ADE2FFB02DA6046000B64179 /* HDBayeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDBayeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "baye-offline-2025110101.zip"; sourceTree = "<group>"; };
+		ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatProbabilityCell.swift; sourceTree = "<group>"; };
+		ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebJSBridge.swift; sourceTree = "<group>"; };
+		ADF1C6692DA91DC70091AAC4 /* HDWebURLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWebURLSchemeHandler.swift; sourceTree = "<group>"; };
+		ADF1C66D2DA921DB0091AAC4 /* HDBayeHooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDBayeHooks.swift; sourceTree = "<group>"; };
+		ADF2094C2E7686A500D51424 /* HDGameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDGameSelectionViewController.swift; sourceTree = "<group>"; };
+		ADF209502E76F1A200D51424 /* HDGameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDGameCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADF209512E76F1A200D51424 /* HDSectionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDSectionBackgroundView.swift; sourceTree = "<group>"; };
+		ADF2D42E2E02AED200A8D915 /* HDFMJApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDFMJApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF2D4302E02B05200A8D915 /* HDAppsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDAppsTool.swift; sourceTree = "<group>"; };
+		ADF32F002E7A475100332735 /* PortraitModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitModeCell.swift; sourceTree = "<group>"; };
+		ADF3C5F12E07AB9000558121 /* HDAppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDAppData.swift; sourceTree = "<group>"; };
+		ADF3C5F72E07EBC600558121 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		ADF3C5FE2E07EDD800558121 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		ADF3C5FF2E07EDD800558121 /* EasyConfetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyConfetti.swift; sourceTree = "<group>"; };
+		ADF3C6002E07EDD800558121 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ADF3C6012E07EDD800558121 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		ADF3C60B2E0844DA00558121 /* HDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDBaseViewController.swift; sourceTree = "<group>"; };
+		ADF3C6122E084E3700558121 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		D95EA27C2E06585B001AF54A /* HDAppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDAppColor.swift; sourceTree = "<group>"; };
+		D96CCC1C2E0649DC00D8C46C /* HDFMJApp.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HDFMJApp.plist; sourceTree = "<group>"; };
+		D96CCC1E2E064A9D00D8C46C /* AssetsFMJ.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsFMJ.xcassets; sourceTree = "<group>"; };
+		E3D24CB5F23AB52E49190958 /* Pods-HDBayeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDBayeApp.release.xcconfig"; path = "Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp.release.xcconfig"; sourceTree = "<group>"; };
+		ED7382A163DD59C3551501F3 /* Pods-HDFMJApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDFMJApp.debug.xcconfig"; path = "Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EEB1DD775C88FC829B75A772 /* Pods_HDBayeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HDBayeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADE2FFAD2DA6046000B64179 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				361F5943A749FE98C477B42D /* Pods_HDBayeApp.framework in Frameworks */,
+				99C92180A470D2670D1DA780 /* Pods_HDBayeApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADF2D4202E02AE7400A8D915 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7A5429E0DDD60588F51456 /* Pods_HDFMJApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07521057EB3C26A87C1BE8F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D71814F73A8DC590DED38B7 /* Pods-HDBayeApp.debug.xcconfig */,
+				E3D24CB5F23AB52E49190958 /* Pods-HDBayeApp.release.xcconfig */,
+				92463E6A7E1BEC352338EFE8 /* Pods-HDBayeApp.adhoc.xcconfig */,
+				ED7382A163DD59C3551501F3 /* Pods-HDFMJApp.debug.xcconfig */,
+				216156D8476FA2692E7ACB6C /* Pods-HDFMJApp.release.xcconfig */,
+				39EEA9A16F31F4FC81DDCEAD /* Pods-HDFMJApp.adhoc.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		99E0A9871598BF9A804E96EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEB1DD775C88FC829B75A772 /* Pods_HDBayeApp.framework */,
+				1490B0760B241C2167F1162D /* Pods_HDFMJApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD0B2FE02E3707D6005AE3D6 /* Save */ = {
+			isa = PBXGroup;
+			children = (
+				ADA546BF2E54B3230082791F /* HDSaveManager.swift */,
+				AD0B2FDA2E3707D1005AE3D6 /* HDSaveDetailViewController.swift */,
+				AD0B2FDB2E3707D1005AE3D6 /* HDSaveListViewController.swift */,
+			);
+			path = Save;
+			sourceTree = "<group>";
+		};
+		AD601A7E2E3E163500E7D929 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				AD601A7F2E3E165600E7D929 /* HDFeedbackService.swift */,
+				AD601A802E3E165600E7D929 /* HDFeedbackViewController.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		ADE2000A2DA6071D00B64179 /* HDBayeApp */ = {
+			isa = PBXGroup;
+			children = (
+				ADE200012DA6071D00B64179 /* AppDelegate.swift */,
+				ADE200082DA6071D00B64179 /* SceneDelegate.swift */,
+				ADF3C60B2E0844DA00558121 /* HDBaseViewController.swift */,
+				ADEB7CF22E46642D0052DC64 /* Modules */,
+				ADE200122DA6074600B64179 /* Resources */,
+				ADF3C5F62E07EBA500558121 /* ThirdParts */,
+				ADF2D42F2E02B00900A8D915 /* Tools */,
+			);
+			path = HDBayeApp;
+			sourceTree = "<group>";
+		};
+		ADE200122DA6074600B64179 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADE57DBA2EB64BD9006D0DCA /* baye-offline-2025110101.zip */,
+				ADDF9EC62EC8891B0088F0DD /* fmj-offline-2025111501.zip */,
+				D96CCC1E2E064A9D00D8C46C /* AssetsFMJ.xcassets */,
+				D96CCC1C2E0649DC00D8C46C /* HDFMJApp.plist */,
+				ADE200032DA6071D00B64179 /* Info.plist */,
+				ADE200022DA6071D00B64179 /* Assets.xcassets */,
+				ADE200052DA6071D00B64179 /* LaunchScreen.storyboard */,
+				ADE200072DA6071D00B64179 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADE2FFA72DA6046000B64179 = {
+			isa = PBXGroup;
+			children = (
+				ADE2000A2DA6071D00B64179 /* HDBayeApp */,
+				ADE2FFB12DA6046000B64179 /* Products */,
+				07521057EB3C26A87C1BE8F3 /* Pods */,
+				99E0A9871598BF9A804E96EB /* Frameworks */,
+				ADE53F822E4CF881007B158C /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		ADE2FFB12DA6046000B64179 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADE2FFB02DA6046000B64179 /* HDBayeApp.app */,
+				ADF2D42E2E02AED200A8D915 /* HDFMJApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADE53F822E4CF881007B158C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		ADEB7CF12E465B8F0052DC64 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD6943E82EB1A95A004B0BBC /* AgricultureMultiplierCell.swift */,
+				AD6943E92EB1A95A004B0BBC /* AllItemsTripleCell.swift */,
+				AD6943EA2EB1A95A004B0BBC /* CommerceMultiplierCell.swift */,
+				ADB9B7962E9FA44900BA8ACC /* ExpMultiplierCell.swift */,
+				ADB9B7972E9FA44900BA8ACC /* GoldMultiplierCell.swift */,
+				ADB9B7982E9FA44900BA8ACC /* ItemMultiplierCell.swift */,
+				ADF32F002E7A475100332735 /* PortraitModeCell.swift */,
+				ADEB7CEE2E465B8C0052DC64 /* CombatProbabilityCell.swift */,
+				AD4A2C9D2E27775C003EFFBB /* GameSpeedCell.swift */,
+				AD4A2D192E27885D003EFFBB /* EngineSelectionCell.swift */,
+				AD4A2B1E2E26419C003EFFBB /* ColorFilterCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADEB7CF22E46642D0052DC64 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B2FE02E3707D6005AE3D6 /* Save */,
+				AD601A7E2E3E163500E7D929 /* Feedback */,
+				ADF1C66C2DA921B90091AAC4 /* About */,
+				ADF1C66B2DA921A70091AAC4 /* WebView */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		ADF1C66B2DA921A70091AAC4 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				ADF1C66D2DA921DB0091AAC4 /* HDBayeHooks.swift */,
+				ADF1C6672DA8F4E70091AAC4 /* HDWebJSBridge.swift */,
+				ADF1C6692DA91DC70091AAC4 /* HDWebURLSchemeHandler.swift */,
+				ADE200092DA6071D00B64179 /* HDWebViewController.swift */,
+				AD4A2CAF2E28A8F9003EFFBB /* HDWebViewController+JS.swift */,
+				AD4A2CA42E280AA5003EFFBB /* HDWebViewController+Libs.swift */,
+				ADF2094F2E76F0D700D51424 /* GameList */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		ADF1C66C2DA921B90091AAC4 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				AD909F3E2DA63F4F0072A8A8 /* HDAboutViewController.swift */,
+				AD0479702E126ABC00B164A3 /* HDStrategyWebViewController.swift */,
+				ADEB7CF12E465B8F0052DC64 /* Cells */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		ADF2094F2E76F0D700D51424 /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				ADF209502E76F1A200D51424 /* HDGameCollectionViewCell.swift */,
+				ADF209512E76F1A200D51424 /* HDSectionBackgroundView.swift */,
+				ADF2094C2E7686A500D51424 /* HDGameSelectionViewController.swift */,
+			);
+			path = GameList;
+			sourceTree = "<group>";
+		};
+		ADF2D42F2E02B00900A8D915 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ADC616162E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift */,
+				ADA70B4C2E311C1C00EB3146 /* HDConstants.swift */,
+				0A2154E32E32147100EB3146 /* HDVersionChecker.swift */,
+				ADF3C6122E084E3700558121 /* UIDevice+Extension.swift */,
+				D95EA27C2E06585B001AF54A /* HDAppColor.swift */,
+				ADF2D4302E02B05200A8D915 /* HDAppsTool.swift */,
+				ADF3C5F12E07AB9000558121 /* HDAppData.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ADF3C5F62E07EBA500558121 /* ThirdParts */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C6022E07EDD800558121 /* EasyConfetti   */,
+				ADF3C5F82E07EBC600558121 /* IAP */,
+			);
+			path = ThirdParts;
+			sourceTree = "<group>";
+		};
+		ADF3C5F82E07EBC600558121 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C5F72E07EBC600558121 /* IAPManager.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		ADF3C6022E07EDD800558121 /* EasyConfetti   */ = {
+			isa = PBXGroup;
+			children = (
+				ADF3C5FE2E07EDD800558121 /* Configuration.swift */,
+				ADF3C5FF2E07EDD800558121 /* EasyConfetti.swift */,
+				ADF3C6002E07EDD800558121 /* Extensions.swift */,
+				ADF3C6012E07EDD800558121 /* ImageGenerator.swift */,
+			);
+			path = "EasyConfetti  ";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADE2FFAF2DA6046000B64179 /* HDBayeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADE2FFC32DA6046100B64179 /* Build configuration list for PBXNativeTarget "HDBayeApp" */;
+			buildPhases = (
+				95D334934133AF4417322230 /* [CP] Check Pods Manifest.lock */,
+				ADE2FFAC2DA6046000B64179 /* Sources */,
+				ADE2FFAD2DA6046000B64179 /* Frameworks */,
+				ADE2FFAE2DA6046000B64179 /* Resources */,
+				8FC93B4D8F9E6BF8666A01AE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HDBayeApp;
+			productName = HDBayeApp;
+			productReference = ADE2FFB02DA6046000B64179 /* HDBayeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ADF2D4142E02AE7400A8D915 /* HDFMJApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADF2D4282E02AE7400A8D915 /* Build configuration list for PBXNativeTarget "HDFMJApp" */;
+			buildPhases = (
+				0AD26C6BB1C1423C97B468E6 /* [CP] Check Pods Manifest.lock */,
+				ADF2D4162E02AE7400A8D915 /* Sources */,
+				ADF2D4202E02AE7400A8D915 /* Frameworks */,
+				ADF2D4222E02AE7400A8D915 /* Resources */,
+				A63942539F94BEF1FEA5D0F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HDFMJApp;
+			productName = HDBayeApp;
+			productReference = ADF2D42E2E02AED200A8D915 /* HDFMJApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADE2FFA82DA6046000B64179 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					ADE2FFAF2DA6046000B64179 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = ADE2FFAB2DA6046000B64179 /* Build configuration list for PBXProject "HDBayeApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADE2FFA72DA6046000B64179;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ADE2FFB12DA6046000B64179 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADE2FFAF2DA6046000B64179 /* HDBayeApp */,
+				ADF2D4142E02AE7400A8D915 /* HDFMJApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADE2FFAE2DA6046000B64179 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADE2000E2DA6071D00B64179 /* Assets.xcassets in Resources */,
+				ADE200102DA6071D00B64179 /* LaunchScreen.storyboard in Resources */,
+				ADE200112DA6071D00B64179 /* Main.storyboard in Resources */,
+				ADE57DBB2EB64BD9006D0DCA /* baye-offline-2025110101.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADF2D4222E02AE7400A8D915 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96CCC1D2E0649DC00D8C46C /* HDFMJApp.plist in Resources */,
+				ADF2D4242E02AE7400A8D915 /* LaunchScreen.storyboard in Resources */,
+				D96CCC1F2E064A9D00D8C46C /* AssetsFMJ.xcassets in Resources */,
+				ADF2D4252E02AE7400A8D915 /* Main.storyboard in Resources */,
+				ADDF9EC72EC8891B0088F0DD /* fmj-offline-2025111501.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AD26C6BB1C1423C97B468E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HDFMJApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FC93B4D8F9E6BF8666A01AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HDBayeApp/Pods-HDBayeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95D334934133AF4417322230 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HDBayeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63942539F94BEF1FEA5D0F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HDFMJApp/Pods-HDFMJApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADE2FFAC2DA6046000B64179 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADF1C66A2DA91DE40091AAC4 /* HDWebURLSchemeHandler.swift in Sources */,
+				AD4A2C9F2E27775C003EFFBB /* GameSpeedCell.swift in Sources */,
+				AD4A2D1B2E27885D003EFFBB /* EngineSelectionCell.swift in Sources */,
+				ADF3C6132E084E3700558121 /* UIDevice+Extension.swift in Sources */,
+				ADA546C02E54B3230082791F /* HDSaveManager.swift in Sources */,
+				AD0479722E126ABC00B164A3 /* HDStrategyWebViewController.swift in Sources */,
+				ADF3C6032E07EDD800558121 /* Extensions.swift in Sources */,
+				ADF3C6042E07EDD800558121 /* Configuration.swift in Sources */,
+				ADF3C6052E07EDD800558121 /* ImageGenerator.swift in Sources */,
+				ADF3C6062E07EDD800558121 /* EasyConfetti.swift in Sources */,
+				ADA70B4D2E311C1C00EB3146 /* HDConstants.swift in Sources */,
+				E54FD3C82E32147200EB3146 /* HDVersionChecker.swift in Sources */,
+				AD909F3F2DA63F4F0072A8A8 /* HDAboutViewController.swift in Sources */,
+				ADE2000B2DA6071D00B64179 /* AppDelegate.swift in Sources */,
+				ADF3C5FA2E07EBC600558121 /* IAPManager.swift in Sources */,
+				ADB9B7992E9FA44900BA8ACC /* GoldMultiplierCell.swift in Sources */,
+				ADB9B79A2E9FA44900BA8ACC /* ExpMultiplierCell.swift in Sources */,
+				ADB9B79B2E9FA44900BA8ACC /* ItemMultiplierCell.swift in Sources */,
+				ADF3C5F22E07AB9000558121 /* HDAppData.swift in Sources */,
+				ADF209522E76F1A200D51424 /* HDGameCollectionViewCell.swift in Sources */,
+				ADF209532E76F1A200D51424 /* HDSectionBackgroundView.swift in Sources */,
+				AD4A2CA62E280AB2003EFFBB /* HDWebViewController+Libs.swift in Sources */,
+				AD0B2FDC2E3707D1005AE3D6 /* HDSaveListViewController.swift in Sources */,
+				AD6943EE2EB1A95A004B0BBC /* CommerceMultiplierCell.swift in Sources */,
+				AD6943EF2EB1A95A004B0BBC /* AllItemsTripleCell.swift in Sources */,
+				AD6943F02EB1A95A004B0BBC /* AgricultureMultiplierCell.swift in Sources */,
+				AD0B2FDD2E3707D1005AE3D6 /* HDSaveDetailViewController.swift in Sources */,
+				ADF32F022E7A475100332735 /* PortraitModeCell.swift in Sources */,
+				ADEB7CF02E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */,
+				ADE2000C2DA6071D00B64179 /* SceneDelegate.swift in Sources */,
+				D95EA27E2E065860001AF54A /* HDAppColor.swift in Sources */,
+				ADE2000D2DA6071D00B64179 /* HDWebViewController.swift in Sources */,
+				ADF2094D2E7686A500D51424 /* HDGameSelectionViewController.swift in Sources */,
+				ADF2D4312E02B05200A8D915 /* HDAppsTool.swift in Sources */,
+				ADF1C66E2DA921E40091AAC4 /* HDBayeHooks.swift in Sources */,
+				ADC616182E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */,
+				AD4A2CB12E28A8FF003EFFBB /* HDWebViewController+JS.swift in Sources */,
+				ADF1C6682DA8F4E70091AAC4 /* HDWebJSBridge.swift in Sources */,
+				AD601A812E3E165600E7D929 /* HDFeedbackViewController.swift in Sources */,
+				AD601A822E3E165600E7D929 /* HDFeedbackService.swift in Sources */,
+				AD4A2B202E26419C003EFFBB /* ColorFilterCell.swift in Sources */,
+				ADF3C60D2E0844DA00558121 /* HDBaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADF2D4162E02AE7400A8D915 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADF2D4172E02AE7400A8D915 /* HDWebURLSchemeHandler.swift in Sources */,
+				AD4A2C9E2E27775C003EFFBB /* GameSpeedCell.swift in Sources */,
+				AD4A2D1A2E27885D003EFFBB /* EngineSelectionCell.swift in Sources */,
+				ADF3C6142E084E3700558121 /* UIDevice+Extension.swift in Sources */,
+				ADA546C12E54B3230082791F /* HDSaveManager.swift in Sources */,
+				AD0479712E126ABC00B164A3 /* HDStrategyWebViewController.swift in Sources */,
+				ADF3C6072E07EDD800558121 /* Extensions.swift in Sources */,
+				ADF3C6082E07EDD800558121 /* Configuration.swift in Sources */,
+				ADF3C6092E07EDD800558121 /* ImageGenerator.swift in Sources */,
+				ADF3C60A2E07EDD800558121 /* EasyConfetti.swift in Sources */,
+				ADA70B4E2E311C1C00EB3146 /* HDConstants.swift in Sources */,
+				ADF2D4192E02AE7400A8D915 /* HDAboutViewController.swift in Sources */,
+				ADF2D41A2E02AE7400A8D915 /* AppDelegate.swift in Sources */,
+				ADF3C5F92E07EBC600558121 /* IAPManager.swift in Sources */,
+				ADF3C5F32E07AB9000558121 /* HDAppData.swift in Sources */,
+				ADB9B79C2E9FA44900BA8ACC /* GoldMultiplierCell.swift in Sources */,
+				ADB9B79D2E9FA44900BA8ACC /* ExpMultiplierCell.swift in Sources */,
+				ADB9B79E2E9FA44900BA8ACC /* ItemMultiplierCell.swift in Sources */,
+				AD4A2CA52E280AB1003EFFBB /* HDWebViewController+Libs.swift in Sources */,
+				ADF209542E76F1A200D51424 /* HDGameCollectionViewCell.swift in Sources */,
+				ADF209552E76F1A200D51424 /* HDSectionBackgroundView.swift in Sources */,
+				ADA70B4F2E312CFB00EB3146 /* HDVersionChecker.swift in Sources */,
+				AD0B2FDE2E3707D1005AE3D6 /* HDSaveListViewController.swift in Sources */,
+				AD6943EB2EB1A95A004B0BBC /* CommerceMultiplierCell.swift in Sources */,
+				AD6943EC2EB1A95A004B0BBC /* AllItemsTripleCell.swift in Sources */,
+				AD6943ED2EB1A95A004B0BBC /* AgricultureMultiplierCell.swift in Sources */,
+				AD0B2FDF2E3707D1005AE3D6 /* HDSaveDetailViewController.swift in Sources */,
+				ADF32F042E7A475100332735 /* PortraitModeCell.swift in Sources */,
+				ADEB7CEF2E465B8C0052DC64 /* CombatProbabilityCell.swift in Sources */,
+				ADF2D41C2E02AE7400A8D915 /* SceneDelegate.swift in Sources */,
+				D95EA27D2E065860001AF54A /* HDAppColor.swift in Sources */,
+				ADF2D41D2E02AE7400A8D915 /* HDWebViewController.swift in Sources */,
+				ADF2094E2E7686A500D51424 /* HDGameSelectionViewController.swift in Sources */,
+				ADF2D4322E02B05200A8D915 /* HDAppsTool.swift in Sources */,
+				ADF2D41E2E02AE7400A8D915 /* HDBayeHooks.swift in Sources */,
+				ADC616172E431FFD009B2A15 /* HDOfflinePackageUpdateManager.swift in Sources */,
+				AD4A2CB02E28A8FF003EFFBB /* HDWebViewController+JS.swift in Sources */,
+				ADF2D41F2E02AE7400A8D915 /* HDWebJSBridge.swift in Sources */,
+				AD601A832E3E165600E7D929 /* HDFeedbackViewController.swift in Sources */,
+				AD601A842E3E165600E7D929 /* HDFeedbackService.swift in Sources */,
+				AD4A2B1F2E26419C003EFFBB /* ColorFilterCell.swift in Sources */,
+				ADF3C60C2E0844DA00558121 /* HDBaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ADE200052DA6071D00B64179 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADE200042DA6071D00B64179 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ADE200072DA6071D00B64179 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADE200062DA6071D00B64179 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD909F402DA649E60072A8A8 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Adhoc;
+		};
+		AD909F412DA649E60072A8A8 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92463E6A7E1BEC352338EFE8 /* Pods-HDBayeApp.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "三国霸业";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.sgbaye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = sgbaye_adhoc;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Adhoc;
+		};
+		ADE2FFC42DA6046100B64179 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D71814F73A8DC590DED38B7 /* Pods-HDBayeApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jiong zhang (55WYX9RNTD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiong zhang (55WYX9RNTD)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "三国霸业";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.sgbaye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = sgbaye_dev;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADE2FFC52DA6046100B64179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D24CB5F23AB52E49190958 /* Pods-HDBayeApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "三国霸业";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.sgbaye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = sgbaye_appstore;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADE2FFC62DA6046100B64179 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ADE2FFC72DA6046100B64179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADF2D4292E02AE7400A8D915 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED7382A163DD59C3551501F3 /* Pods-HDFMJApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jiong zhang (55WYX9RNTD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiong zhang (55WYX9RNTD)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/HDFMJApp.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "伏魔记";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.fmj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fmj_dev;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADF2D42A2E02AE7400A8D915 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 216156D8476FA2692E7ACB6C /* Pods-HDFMJApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/HDFMJApp.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "伏魔记";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.fmj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fmj_appstore;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADF2D42B2E02AE7400A8D915 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39EEA9A16F31F4FC81DDCEAD /* Pods-HDFMJApp.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2025111533;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = TKRM4J3XJV;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HDBayeApp/Resources/HDFMJApp.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "伏魔记";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.fmj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fmj_adhoc;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Adhoc;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADE2FFAB2DA6046000B64179 /* Build configuration list for PBXProject "HDBayeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADE2FFC62DA6046100B64179 /* Debug */,
+				ADE2FFC72DA6046100B64179 /* Release */,
+				AD909F402DA649E60072A8A8 /* Adhoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADE2FFC32DA6046100B64179 /* Build configuration list for PBXNativeTarget "HDBayeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADE2FFC42DA6046100B64179 /* Debug */,
+				ADE2FFC52DA6046100B64179 /* Release */,
+				AD909F412DA649E60072A8A8 /* Adhoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADF2D4282E02AE7400A8D915 /* Build configuration list for PBXNativeTarget "HDFMJApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADF2D4292E02AE7400A8D915 /* Debug */,
+				ADF2D42A2E02AE7400A8D915 /* Release */,
+				ADF2D42B2E02AE7400A8D915 /* Adhoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADE2FFA82DA6046000B64179 /* Project object */;
+}

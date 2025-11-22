@@ -1,0 +1,12 @@
+*.xcuserstate
+iOS/Build/
+
+build/
+
+iOS/Pods
+
+*.MOV
+
+server/data/
+
+baye/baye_offline/scripts/build.config.json

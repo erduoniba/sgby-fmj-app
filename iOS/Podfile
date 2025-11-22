@@ -1,0 +1,29 @@
+# 使用静态链接
+use_frameworks! :linkage => :static
+
+min_version = '13.0'
+
+# 隐藏所有的警告
+inhibit_all_warnings!
+platform :ios, min_version
+
+def common
+  pod 'Toast-Swift', '5.1.1'
+  pod 'SSZipArchive', '~> 2.4.3'
+end
+
+target 'HDBayeApp' do
+  common
+end
+
+target 'HDFMJApp' do
+  common
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = min_version
+    end
+  end
+end

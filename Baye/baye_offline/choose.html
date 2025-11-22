@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Package Version: 2025110101 -->
+    <meta charset="UTF-8">
+    <title>选择版本</title>
+    <link rel="stylesheet" type="text/css" href="css/baye.css" />
+    <link rel="icon" href="favicon.png">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+
+    
+    <script src="js/idbkvstore.min.js?ver=20231117"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/lcd.js?ver=2023111705"></script>
+    <script src="js/base64.js"></script>
+
+    <style>
+        html {
+            background-color: transparent !important;
+            background: transparent !important;
+        }
+        body {
+            background-color: transparent !important;
+            background: transparent !important;
+            margin: 0;
+            padding: 0;
+        }
+        /* 确保所有容器也是透明的 */
+        .container {
+            background-color: transparent !important;
+            background: transparent !important;
+        }
+    </style>
+    
+    <script>
+        $(function(){ loadLibLists("#list"); });
+        
+        // 获取离线包版本号的函数
+        function getOfflinePackageVersion() {
+          const htmlContent = document.documentElement.outerHTML;
+          const versionMatch = htmlContent.match(/<!-- Package Version: (\d+) -->/);
+          return versionMatch ? versionMatch[1] : "unknown";
+        }
+        
+        // 开发时可以调用 window.getOfflinePackageVersion() 查看版本
+        window.getOfflinePackageVersion = getOfflinePackageVersion;
+    </script>
+
+    <script type="text/html" id="item_temp">
+        <div class="container" style="margin-top:2px">
+            <button class="btn menu" style="width:80%" type="button" onclick="chooseLib('{title}', '{libpath}', this)">{title}</button>
+            <button class="btn menu detail" style="width:20%;" type="button" onclick="loadDetail('#desc{descid}', '{descpath}')">详情</button>
+            <div id="desc{descid}" style="display:none;">Loading...</div>
+        </div>
+    </script>
+</head>
+<body>
+
+<div id="list"></div>
+
+<div class="container" style="margin-top:2px">
+	<!-- <button class="btn menu" style="width:80%" type="button" onclick="window.location='/mt.html'">魔塔</button>
+	<button class="btn menu detail" style="width:20%" type="button" onclick=""></button> -->
+</div>
+
+</body>
+</html>

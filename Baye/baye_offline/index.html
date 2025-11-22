@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 设置文档编码为UTF-8 -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>三国霸业</title>
+        <!-- 引入主要样式表 -->
+        <link rel="stylesheet" type="text/css" href="css/baye.css" />
+        <!-- 网站图标设置 -->
+        <link rel="icon" href="favicon.png">
+        <!-- PWA(Progressive Web App)相关配置 -->
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="favicon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- 移动端视口设置，禁用缩放 -->
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+        <script>
+        // 路径重定向处理
+        if (window.location.pathname == '/baye') {
+            window.location = '/baye/'
+        }
+        
+        </script>
+        <!-- 引入jQuery库 -->
+        <script src="js/jquery.min.js"></script>
+        <!-- 引入游戏核心逻辑脚本 -->
+        <script src="js/lcd.js?ver=202111140022"></script>
+        <!-- 引入性能监控模块 -->
+        <script src="js/performance-monitor.js"></script>
+        <!-- 页面局部样式定义 -->
+        <style>
+            .index-tip {
+                color: red;
+            }
+            select {
+                font-size: 16px;
+            }
+            .config-item {
+                margin-top: 8px;
+            }
+        </style>
+    </head>
+    <body >
+        <!-- 版本选择按钮 -->
+        <div class="container" style="margin-top:2px">
+            <button class="btn menu" type="button" onclick="location='choose.html';">选择版本</button>
+        </div>
+        <!-- 进入游戏按钮 -->
+        <div class="container" style="margin-top:2px">
+            <button class="btn menu" type="button" onclick="redirect()">进入游戏</button>
+        </div>
+        <!-- 存档管理按钮 -->
+        <div class="container" style="margin-top:10px">
+            <button class="btn menu" type="button" onclick="location='online-save.html';">存档管理(新)</button>
+        </div>
+        <div class="container" style="margin-top:10px"></div>
+        <!-- 游戏配置选项区域 -->
+        <div>
+            <!-- 操作模式选择 -->
+            <div class="config-item">
+                操作模式:
+                <select name="" id="mode-select">
+                    <option value="0">横屏&触控</option>
+                    <option value="2">横屏&手势</option>
+                    <option value="1">竖屏&键盘</option>
+                    <option value="3">竖屏&键盘&触控</option>
+                </select>
+            </div>
+            <!-- 分辨率选择 -->
+            <div class="config-item">
+                分辨率:
+                <select name="" id="resolution-select">
+                    <option value="0">4988</option>
+                    <option value="1">加大</option>
+                </select>
+            </div>
+            <!-- 终端类型选择 -->
+            <div class="config-item">
+                终端:
+                <select name="" id="device-select">
+                    <option value="" selected="selected">自动检测</option>
+                    <option value="mobile">移动端</option>
+                    <option value="desktop">桌面端</option>
+                </select>
+            </div>
+            <!-- 联系方式 -->
+            <div class="config-item">
+                交流QQ群: 526266208<br>
+            </div>
+        </div>
+        <!-- 配置选项本地存储处理脚本 -->
+        <script>
+                $(function(){
+                    // 绑定选择器值到localStorage
+                    function bind(id, key) {
+                        // 从localStorage获取已保存的值，如果没有则默认为'0'
+                        $(id).val(window.localStorage[key] || '0');
+                        // 监听change事件，将新值保存到localStorage
+                        $(id).change(function () {
+                            window.localStorage[key] = $(this).val();
+                        });
+                    }
+                    // 绑定各个配置项
+                    bind("#mode-select", "baye/mpage");
+                    bind("#resolution-select", "baye/resolution");
+                    bind("#device-select", "baye/uiKind");
+                });
+            </script>
+    </body>
+</html>

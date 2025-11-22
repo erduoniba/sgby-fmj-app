@@ -1,0 +1,327 @@
+
+示范脚本
+========
+
+.. highlight:: javascript
+
+计算攻防
+--------
+
+::
+
+    baye.hooks.battleBuildAttackAttriutes = function(context) {
+        /*
+            脚本计算攻防示例
+            context.index: 计算结果存放位置序号
+            context.generalIndex: 战场将领序号
+        */
+
+        var result = baye.data.g_GenAtt[context.index];
+        var pIndex = baye.data.g_FgtParam.GenArray[context.generalIndex] - 1;
+        var person = baye.data.g_Persons[pIndex];
+
+        // 地形对兵种的影响
+        var terEffects = [
+        //  草地, 平原, 山地, 森林, 村庄, 城池, 营寨, 河流
+            [1, 1, 1, 1, 1, 1, 1, 1], // 骑兵
+            [1, 1, 1, 1, 1, 1, 1, 1], // 步兵
+            [1, 1, 1, 1, 1, 1, 1, 1], // 弓兵
+            [1, 1, 1, 1, 1, 1, 1, 1], // 水兵
+            [1, 1, 1, 1, 1, 1, 1, 1], // 极兵
+            [1, 1, 1, 1, 1, 1, 1, 1], // 玄兵
+        ];
+
+        var AtkModulus = [1.0, 0.8, 0.9, 0.8, 1.3, 0.4];    /* 各兵种攻击系数 */
+        var DfModulus =  [0.7, 1.2, 1.0, 1.1, 1.2, 0.6];    /* 各兵种防御系数 */
+        var TerrDfModu = [1.0, 1.0, 1.3, 1.15, 1.1, 1.5, 1.2, 0.8];    /* 各种地形防御系数 */
+
+        // 武力/等级/攻击系数影响攻击力
+        var at = person.Force * (person.Level + 10) * AtkModulus[person.ArmsType];
+
+        // 智力/等级/防御系数影响防御力
+        var df = person.IQ * (person.Level + 10) * DfModulus[person.ArmsType];
+
+        // 叠加地形对攻防的影响
+        at = terEffects[person.ArmsType][result.ter] * at;
+
+        df = terEffects[person.ArmsType][result.ter] * df;
+
+        // 地形固有防御系数
+        df *= TerrDfModu[result.ter];
+
+        // 输出最终结果
+        result.at = at;
+        result.df = df;
+    };
+
+
+
+计算伤害
+--------
+
+查阅文档可知, 可以使用计算普通攻击伤害的钩子
+     http://bgwp.oschina.io/baye-doc/script/index.html#baye-hooks-countattackhurt
+
+baye.hooks.countAttackHurt 这个钩子是用来计算普通攻击兵力伤害的。
+
+进入这个钩子的时候，攻防双方的战力参数已经计算好，并放到了这：
+
+1. 攻击方：baye.data.g_GenAtt[0]
+2. 防守方：baye.data.g_GenAtt[1]
+
+这是之前引擎内部或引擎调用钩子：baye.hooks.battleBuildAttackAttriutes 来算好的。
+
+g_GenAtt里面包含了攻防双方将领的战场序号，可用来提取双方将领的其它数据。
+
+那么baye.hooks.countAttackHurt要完成的目标就是根据攻防双方的战力参数或其它条件(如队友的特殊道具)来计算出对防守方造成多少伤害。
+引擎内置算法是完全根据g_GenAtt里面的战力参数来计算伤害值的。
+
+本示例扩展出逻辑是：查找我方队友是否有携带特殊道具的，如果有，则在原伤害基础上按比例加成。
+
+如下是引擎默认算法::
+
+    baye.hooks.countAttackHurt = function(context) {
+        var KeZhiMatrix = [
+            [1.0, 1.2, 0.8, 1.0, 0.7, 1.3],
+            [0.8, 1.0, 1.2, 1.0, 0.6, 1.2],
+            [1.2, 0.8, 1.0, 1.0, 1.1, 1.2],
+            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            [1.1, 1.3, 0.9, 1.0, 1.0, 1.5],
+            [0.6, 0.6, 0.6, 0.6, 0.6, 0.6]
+        ];
+
+        var p0 = baye.data.g_GenAtt[0]; //攻击方数据
+        var p1 = baye.data.g_GenAtt[1]; //防守方数据
+
+        var person = baye.getPersonByGeneralIndex(p0.generalIndex);
+
+        /* 基本伤害 hurt = (at / df) * arms / 8 */
+        var hurt = p0.at / p1.df * (person.Arms >> 3);
+
+        /* 相克加层 hurt *= modu */
+        hurt *= KeZhiMatrix[p0.armsType][p1.armsType];
+        context.hurt = hurt;
+    };
+
+
+引入其它条件(如特殊道具)影响伤害输出::
+
+    baye.hooks.countAttackHurt = function(context) {
+        var KeZhiMatrix = [
+            [1.0, 1.2, 0.8, 1.0, 0.7, 1.3],
+            [0.8, 1.0, 1.2, 1.0, 0.6, 1.2],
+            [1.2, 0.8, 1.0, 1.0, 1.1, 1.2],
+            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            [1.1, 1.3, 0.9, 1.0, 1.0, 1.5],
+            [0.6, 0.6, 0.6, 0.6, 0.6, 0.6]
+        ];
+
+        var p0 = baye.data.g_GenAtt[0]; //攻击方数据
+        var p1 = baye.data.g_GenAtt[1]; //防守方数据
+
+        var person = baye.getPersonByGeneralIndex(p0.generalIndex);
+
+        /* 基本伤害 hurt = (at / df) * arms / 8 */
+        var hurt = p0.at / p1.df * (person.Arms >> 3);
+
+        /* 相克加层 hurt *= modu */
+        hurt *= KeZhiMatrix[p0.armsType][p1.armsType];
+
+        // 查找攻击方是否携带有NB道具
+        // baye.data.g_GenAtt里面有20个位置, 前十个为攻城方, 后十个为守城方
+        //
+        // 首先需要判断攻击者是攻城方还是守城放
+
+        var startIndex = p0.generalIndex < 10 ? 0 : 10;
+
+        var hasNewBeeTool = false;
+        var newBeeToolID = 5; //NB道具的ID
+
+        // 查找攻击方有没有NB道具
+        for (var ind = startIndex; ind < startIndex + 10; ind++) {
+            if (baye.data.g_GenPos[ind].state != 8) { // 8是死亡状态
+                var p = baye.getPersonByGeneralIndex(ind);
+                if (p.Tool1 == newBeeToolID || p.Tool2 == newBeeToolID) {
+                    hasNewBeeTool = true; // 找到NB道具
+                    break;
+                }
+            }
+        }
+
+        if (hasNewBeeTool) {
+            // 攻击方团队有NB道具, 百倍伤害
+            hurt *= 100;
+        }
+        context.hurt = hurt;
+    };
+
+关于状态::
+
+    STATE_ZC = 0        /* 正常 */
+    STATE_HL = 1        /* 混乱 */
+    STATE_JZ = 2        /* 禁咒 */
+    STATE_DS = 3        /* 定身 */
+    STATE_QM = 4        /* 奇门 */
+    STATE_DJ = 5        /* 遁甲 */
+    STATE_SZ = 6        /* 石阵 */
+    STATE_QZ = 7        /* 潜踪 */
+    STATE_SW = 8        /* 死亡 */
+
+
+道具为人物加额外属性
+--------------------
+
+群魔乱舞将年龄数据用作了统率
+
+::
+
+    // 禁止年龄自动增长
+    baye.data.g_engineConfig.disableAgeGrow = 1;
+
+    // 定义数据表
+    baye.TOOL_AGE_TAB = [10, 10, 0, 10 /* ... */ ];
+
+    // 赏赐时加属性
+    baye.hooks.giveTool = function(ctx) {
+        var up = baye.TOOL_AGE_TAB[ctx.toolIndex];
+        if (up > 0) {
+            var person = baye.data.g_Persons[ctx.personIndex];
+            person.Age += up;
+        }
+        ctx.result = 1;
+    };
+
+    // 没收时减属性
+    baye.hooks.takeOffTool = function(ctx) {
+        var up = baye.TOOL_AGE_TAB[ctx.toolIndex];
+        if (up > 0) {
+            var person = baye.data.g_Persons[ctx.personIndex];
+            person.Age -= up;
+        }
+        ctx.result = 1;
+    };
+
+
+进一步增加在道具表格中显示统率属性::
+
+    // 配置道具表格 列数量
+    baye.data.g_uiCfg.toolPropertiesCount = 6;
+
+    // 配置表格 列宽度
+    baye.data.g_uiCfg.toolPropertiesDisplayWitdh = [4, 6, 6, 6, 6, 6];
+
+    // 定义道具表格表头
+    var baye_tool_heads = ["类型", "加武力", "加智力", "加统率", "加移动", "变兵种"];
+
+    // 填写表头的钩子
+    baye.hooks.getToolPropertyTitle = function(c) {
+        c.title = baye_tool_heads[c.propertyIndex];
+        return 0;
+    };
+
+    // 填写单元格的钩子
+    baye.hooks.getToolPropertyValue = function(c) {
+
+        var tool = baye.data.g_Tools[c.toolIndex];
+
+        switch (baye_tool_heads[c.propertyIndex]) {
+            case "类型":
+                c.value = ["装备", "使用"][tool.useflag];
+                break;
+            case "加武力":
+                c.value = tool.at;
+                break;
+            case "加智力":
+                c.value = tool.iq;
+                break;
+            case "加统率":
+                c.value = baye.TOOL_AGE_TAB[c.toolIndex];
+                break;
+            case "加移动":
+                c.value = tool.move;
+                break;
+            case "变兵种":
+                c.value = ['无', '水', '玄', '极', "骑兵", "步兵", "弓兵", "水兵", "极兵", "玄兵"][tool.arm];
+                break;
+        }
+        return 0;
+    };
+
+
+
+不复用年龄数据，额外为人物增加统率属性
+--------------------------------------
+
+引擎已经固定人物有哪些属性, 因此不能修改固有的人物属性。
+要增加属性，只能采用"外挂式", 将属性值存储于引擎外（脚本环境中)。
+
+::
+
+    //待续...
+
+
+弹出提示，和对话
+----------------
+
+目前脚本系统支持两个UI相关API
+
+=========== ============
+baye.alert  弹出文字提示
+baye.say    人物对话
+=========== ============
+
+部分钩子支持调用这些API。
+
+示例, 没收物品时拒绝, 并对话::
+
+    baye.hooks.willTakeOffTool = function(ctx) {
+        if (ctx.personIndex == baye.data.g_PlayerKing) return -1;
+        baye.say(ctx.personIndex, "你算哪根葱?\n我的宝贝岂是你想拿走就拿走?", function() {
+            baye.alert("没收失败!");
+            return 0;
+        });
+    };
+
+
+"工匠"人物
+----------
+
+可利用"赏赐"功能打造类似工匠的人物。
+
+以马腾作为示例::
+
+    baye.hooks.willGiveTool = function(c) {
+        // 1号道具 + 2号道具 + 3000金钱 可合成 3号道具
+
+        if (baye.getPersonName(c.personIndex) != "马腾") {
+            return -1;
+        }
+
+        var person = baye.data.g_Persons[c.personIndex];
+        var city = baye.data.g_Cities[c.cityIndex];
+
+        // 检查道具是否满足条件
+        if (person.Tool1 - 1 == 1 && c.toolIndex == 2) {
+
+            // 限制条件
+            if (city.Money < 10000) {
+                baye.say(c.personIndex, "城池不够富足,无法开工!");
+                return 0;
+            }
+            if (city.PeopleDevotion < 99) {
+                baye.say(c.personIndex, "城民们对你的治理不太满意,无法开工!");
+                return 0;
+            }
+            if (city.State != 0) {
+                baye.say(c.personIndex, "城池灾害,无法开工!");
+                return 0;
+            }
+            city.Money -= 3000; // 扣除3000钱
+            baye.deleteToolInCity(c.cityIndex, c.toolIndex); // 删除材料道具
+            baye.putToolInCity(c.cityIndex, 3); // 生产出新道具
+            baye.say(c.personIndex, "全新[" + baye.getToolName(3) + "]已打造成功!");
+            return 0;
+        }
+        return -1;
+    };
+

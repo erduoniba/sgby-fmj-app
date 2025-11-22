@@ -1,0 +1,1508 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>伏魔记</title>
+    <link rel="icon" href="favicon.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="伏魔记" />
+    <meta name="full-screen" content="yes" />
+    <!-- UC强制全屏 -->
+    <meta name="x5-fullscreen" content="true" />
+    <!-- QQ强制全屏 -->
+    <meta name="browsermode" content="application" />
+    <!-- UC应用模式 -->
+    <meta name="x5-page-mode" content="app" />
+    <!-- QQ应用模式 -->
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- windows phone 点击无高光 -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon.png" />
+    <!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="favicon.png" />
+    <!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="favicon.png" />
+    <!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
+    <!-- iOS 图标 end -->
+    <link rel="stylesheet" href="style/joystick.css" />
+    <link rel="stylesheet" type="text/css" href="style/baye.css" />
+    <script src="js/m-native-bridge.js"></script>
+    <script src="js/iap-devtools.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/encoding-indexes.js"></script>
+    <script src="js/encoding.js"></script>
+    <script src="js/sys.js"></script>
+    <script src="js/kotlin.js"></script>
+    <script src="js/keyboard.js"></script>
+    <script src="js/font.js"></script>
+    <script src="js/nipplejs.min.js"></script>
+    <script src="js/jquery.mobile-events.js"></script>
+    <script src="js/libs/fmj.lib.js"></script>
+    <script src="js/libs/fmj_wmb.lib.js"></script>
+    <script src="js/libs/jyqxz.lib.js"></script>
+    <script src="js/libs/xkx.lib.js"></script>
+    <script src="js/libs/cbzzzsyzf.lib.js"></script>
+    <script src="js/libs/yzcq2.lib.js"></script>
+    <script src="js/libs/xxjwmb.lib.js"></script>
+    <script src="js/libs/xjqxzezhjfj.lib.js"></script>
+    <script src="js/libs/xjqxzszlhqy.lib.js"></script>
+    <script src="js/libs/xjqxzshymyx.lib.js"></script>
+    <script src="js/libs/lgscq.lib.js"></script>
+    <script src="js/libs/fmjfyj.lib.js"></script>
+    <script src="js/libs/yxts.lib.js"></script>
+    <script src="js/libs/wdsj.lib.js"></script>
+    <script src="js/libs/fmj_ymqzq.lib.js"></script>
+    <script src="js/libs/fmj_snlwq.lib.js"></script>
+    <script src="js/libs/fmj_mvkxq.lib.js"></script>
+    <script src="js/libs/fmj_hmahq.lib.js"></script>
+    <script src="js/libs/fmjll.lib.js"></script>
+    <script src="js/libs/xbmt.lib.js"></script>
+    <script src="js/box-mapping-storage.js"></script>
+    <script src="js/devtools.js"></script>
+    <script src="js/m.js"></script>
+    <script>
+      // 获取离线包版本号的函数
+      function getOfflinePackageVersion() {
+        // 从打包时注入的HTML注释中获取版本信息
+        const htmlContent = document.documentElement.outerHTML;
+        const versionMatch = htmlContent.match(/<!-- Package Version: (\d+) -->/);
+        if (versionMatch && versionMatch[1]) {
+          return versionMatch[1];
+        }
+        return "";
+      }
+      
+      // 开发时可以调用 window.getOfflinePackageVersion() 查看版本
+      window.getOfflinePackageVersion = getOfflinePackageVersion;
+      
+      // 页面加载时自动打印版本号
+      window.addEventListener('DOMContentLoaded', function() {
+        const version = getOfflinePackageVersion();
+        console.log('🎮 伏魔记离线包版本 FMJ Offline Package Version:', version);
+      });
+    </script>
+    <style>
+      .fill {
+        background-color: #1a1a2e;
+        width: 320px;
+        height: 192px;
+        /* 移除边框，避免和app容器的边框重复 */
+        /* border: 2px solid #4d80e4; */
+        border-radius: 8px;
+        /* box-shadow: 0 0 10px rgba(77, 128, 228, 0.6); */
+      }
+
+      /* 添加滤镜层样式 */
+      .filter-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1000;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        border-radius: 8px;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 地图滤镜层样式 */
+      .map-filter-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 12;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        border-radius: 5px;
+        transition: opacity 0.3s ease;
+      }
+
+      .button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 16px/100% "Microsoft yahei", Arial, Helvetica, sans-serif;
+        padding: 0.5em 2em 0.55em;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0.5em;
+        border-radius: 0.5em;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      .button:hover {
+        text-decoration: none;
+      }
+      .button:active {
+        position: relative;
+        top: 1px;
+      }
+      .small {
+        font-size: 22px;
+        padding: 0.2em 1em 0.275em;
+      }
+      /* green */
+      .green {
+        color: #e8f0de;
+        border: solid 1px #538312;
+        background: #64991e;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(#7db72f),
+          to(#4e7d0e)
+        );
+        background: -moz-linear-gradient(top, #7db72f, #4e7d0e);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+      }
+      .green:hover {
+        background: #538018;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(#6b9d28),
+          to(#436b0c)
+        );
+        background: -moz-linear-gradient(top, #6b9d28, #436b0c);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b9d28', endColorstr='#436b0c');
+      }
+      .green:active {
+        color: #a9c08c;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(#4e7d0e),
+          to(#7db72f)
+        );
+        background: -moz-linear-gradient(top, #4e7d0e, #7db72f);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e7d0e', endColorstr='#7db72f');
+      }
+
+      body {
+        background: rgb(19, 39, 72);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        min-height: -webkit-fill-available; /* 解决iOS Safari底部空白问题 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        touch-action: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      
+
+      /* 基础 app 样式 */
+      #app {
+        position: relative;
+        margin: auto;
+        padding: 0px;
+        overflow: hidden !important;  /* 强制确保内容被圆角裁剪 */
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5),
+          inset 0 0 15px rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        filter: none;
+        z-index: 1;
+      }
+      
+      /* 横屏模式下的 app 尺寸 */
+      @media screen and (orientation: landscape) {
+        /* 默认横屏样式 - 当启用自定义缩放时会被内联样式覆盖 */
+        #app {
+          /* 基础样式，会被JS缩放覆盖 */
+          position: relative;
+          margin: auto;
+          margin-top: 0px;
+        }
+
+        #app.no-scale {
+          /* 只有没有启用缩放时才使用默认样式 */
+          /* 以高度为基准，保持 320:192 (5:3) 比例 */
+          height: min(70vh, 500px);
+          width: calc(min(70vh, 500px) * 1.6667);
+          margin-top: 0;
+          padding: 0;  /* 横屏模式去掉内边距，确保游戏画面完整显示 */
+          border-radius: 8px;  /* 减小圆角以适配无padding */
+        }
+      }
+      
+      /* 竖屏模式下的 app 尺寸 */
+      @media screen and (orientation: portrait) {
+        #app {
+          /* 宽度占满屏幕，高度按 320:192 比例计算 */
+          width: 100vw !important;
+          height: calc(100vw * 0.6) !important;  /* 高度 = 宽度 * (192/320) */
+          margin-top: 0 !important;  /* 贴顶部 */
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          border-radius: 0 !important;  /* 全宽时去掉圆角 */
+          padding: 0 !important;  /* 全宽时去掉内边距 */
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+          z-index: 1002 !important;
+          background-color: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+      
+      /* 小屏幕手机优化 */
+      @media screen and (max-width: 480px) {
+        #app {
+          padding: 8px;
+          border-radius: 8px;
+        }
+        
+        #lcd {
+          border-radius: 8px;  /* 统一圆角 */
+        }
+      }
+      
+      /* 小屏幕横屏 */
+      @media screen and (max-width: 480px) and (orientation: landscape) {
+        /* 默认小屏幕横屏样式 */
+        #app {
+          position: relative;
+          margin: auto;
+          margin-top: 0px;
+        }
+
+        #app.no-scale {
+          height: min(85vh, 400px);
+          width: calc(min(85vh, 400px) * 1.6667);
+          padding: 0;  /* 小屏幕横屏也去掉内边距 */
+          border-radius: 8px;
+        }
+      }
+      
+      /* 小屏幕竖屏 - 同样占满宽度 */
+      @media screen and (max-width: 480px) and (orientation: portrait) {
+        #app {
+          width: 100vw !important;
+          height: calc(100vw * 0.6) !important;
+          margin-top: 0 !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+        }
+      }
+      
+      /* Canvas 样式 - 确保填充容器并继承圆角 */
+      #lcd {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+        transform: none !important;
+        -webkit-transform: none !important;
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+        border-radius: 8px;  /* 统一圆角 */
+        box-sizing: border-box;
+        object-fit: cover;  /* 确保填充整个容器 */
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 横屏模式下的LCD圆角 */
+      @media screen and (orientation: landscape) {
+        #lcd {
+          border-radius: 8px;  /* 统一圆角 */
+          border: none !important;  /* 确保canvas没有边框 */
+        }
+
+        #app {
+          overflow: hidden;  /* 强制在横屏模式下也裁剪内容 */
+        }
+      }
+      
+      /* 竖屏模式下的LCD圆角 */
+      @media screen and (orientation: portrait) {
+        #lcd {
+          border-radius: 0 !important;  /* 竖屏全屏显示，无圆角 */
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
+      
+      /* 小屏幕横屏LCD圆角 */
+      @media screen and (max-width: 480px) and (orientation: landscape) {
+        #lcd {
+          border-radius: 8px;  /* 统一圆角 */
+        }
+        
+        #app {
+          overflow: hidden;  /* 确保小屏幕横屏也正确裁剪 */
+        }
+      }
+      
+      /* 小屏幕竖屏LCD圆角 */
+      @media screen and (max-width: 480px) and (orientation: portrait) {
+        #lcd {
+          border-radius: 0;  /* 竖屏全屏显示，无圆角 */
+        }
+      }
+
+      .btn {
+        position: absolute;
+        display: block;
+        opacity: 0.8;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        transition: all 0.2s ease;
+      }
+      .btn img {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+      }
+      .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      }
+
+      /* 保留span样式 */
+      #btn_repeat span,
+      #btn_help span {
+        display: inline-block;
+      }
+
+      .active {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* 为有transform属性的按钮特别处理active状态 */
+      #btn_enter.active {
+        transform: translateY(-50%) scale(1.2) !important;
+      }
+      
+      #btn_exit.active {
+        transform: translateX(-50%) scale(1.2) !important;
+      }
+      
+      #btn_up.active {
+        transform: translateX(-50%) scale(1.2) !important;
+      }
+      
+      #btn_down.active {
+        transform: translateY(-50%) scale(1.2) !important;
+      }
+
+      /* portrait-controls中的按钮active状态 */
+      .portrait-controls .action-pad #btn_enter.active {
+        transform: translateY(-50%) scale(1.2) !important;
+      }
+      
+      .portrait-controls .action-pad #btn_exit.active {
+        transform: translateX(-50%) scale(1.2) !important;
+      }
+      
+      .portrait-controls .action-pad #btn_up.active {
+        transform: translateX(-50%) scale(1.2) !important;
+      }
+      
+      .portrait-controls .action-pad #btn_down.active {
+        transform: translateY(-50%) scale(1.2) !important;
+      }
+
+      #zone {
+        z-index: 9999;
+        pointer-events: auto;
+      }
+      
+      /* 确保nipplejs创建的元素也在最上层 */
+      .nipple {
+        z-index: 9999 !important;
+      }
+
+      /* 方向按钮样式 */
+      .direction-pad {
+        display: none;
+        position: fixed;
+        width: 120px;
+        height: 120px;
+        z-index: 9999;
+      }
+      
+      /* 横屏模式下的方向键位置 - 左下角 */
+      @media screen and (orientation: landscape) {
+        .direction-pad {
+          left: 10px;
+          bottom: 10px;
+          right: auto;
+          transform: none;
+          width: 160px;
+          height: 160px;
+        }
+      }
+      
+      /* 竖屏模式下的方向键位置 - 左下角 */
+      @media screen and (orientation: portrait) {
+        .direction-pad {
+          left: 10px;
+          bottom: 50px;
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      .direction-btn {
+        position: absolute;
+        opacity: 0.6;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease;
+      }
+
+      .direction-btn img {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+      }
+
+      .direction-btn:active {
+        transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+
+      #dir_up {
+        right: 50px;
+        top: 0px;
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+      }
+
+      #dir_down {
+        right: 50px;
+        bottom: 0px;
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+      }
+
+      #dir_left {
+        left: 0;
+        top: 48px;
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+      }
+
+      #dir_right {
+        right: 2px;
+        top: 48px;
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+      }
+
+      /* 禁用长按选择 */
+      .btn, .direction-btn {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .btn img, .direction-btn img {
+        pointer-events: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+      }
+
+      /* 禁用图片拖动 */
+      img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        pointer-events: none;
+        user-select: none;
+      }
+
+/* 调整竖屏模式下按钮的位置 */
+.portrait-controls .direction-pad #dir_up {
+  right: 50px;
+  top: 0px;
+}
+
+.portrait-controls .direction-pad #dir_down {
+  right: 50px;
+  bottom: 0px;
+}
+
+.portrait-controls .direction-pad #dir_left {
+  left: 0;
+  top: 49px;
+}
+
+.portrait-controls .direction-pad #dir_right {
+  right: 2px;
+  top: 49px;
+}
+
+.portrait-controls .action-pad #btn_enter {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.portrait-controls .action-pad #btn_exit {
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+}
+
+.portrait-controls .action-pad #btn_up {
+  left: 50%;
+  top: 0px;
+  transform: translateX(-50%);
+}
+
+.portrait-controls .action-pad #btn_down {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* 统一 action_pad 的样式结构 */
+.action-pad {
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  z-index: 9999;
+}
+
+/* 横屏模式下的操作键位置 - 右下角 */
+@media screen and (orientation: landscape) {
+  .action-pad {
+    right: 10px;
+    bottom: 10px;
+    left: auto;
+  }
+}
+
+/* 竖屏模式下的操作键位置 - 右下角 */
+@media screen and (orientation: portrait) {
+  .action-pad {
+    right: 10px;
+    bottom: 50px;
+    left: auto;
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* 统一按钮基础样式 */
+.action-btn {
+  position: absolute;
+  opacity: 0.6;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.action-btn img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+}
+
+.action-btn:active {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#btn_enter {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+#btn_exit {
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+#btn_up {
+  left: 50%;
+  top: 0px;
+  transform: translateX(-50%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+#btn_down {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* R键按钮容器 - 默认就显示 */
+.repeat-btn-container {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+}
+
+/* 横屏模式下R键位置 - 中间偏右 */
+@media screen and (orientation: landscape) {
+  .repeat-btn-container {
+    left: 65%;
+    bottom: 50px;
+    transform: translateX(-50%) translateY(50%);
+    -webkit-transform: translateX(-50%) translateY(50%);
+  }
+}
+
+/* 竖屏模式下R键位置 - H键上方 */
+@media screen and (orientation: portrait) {
+  .repeat-btn-container {
+    left: 50%;
+    bottom: 160px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+/* 竖屏模式下在portrait-controls内部的特殊处理 */
+.portrait-controls .repeat-btn-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  display: block !important;
+}
+
+/* R键按钮样式 */
+.repeat-btn-container #btn_repeat {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  transition: all 0.2s ease;
+}
+
+.repeat-btn-container #btn_repeat:active {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* H键按钮容器 - 默认就显示 */
+.help-btn-container {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  z-index: 2000;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  display: block;
+}
+
+/* 横屏模式下H键位置 - 中间偏左 */
+@media screen and (orientation: landscape) {
+  .help-btn-container {
+    left: 35%;
+    bottom: 50px;
+    transform: translateX(-50%) translateY(50%);
+    -webkit-transform: translateX(-50%) translateY(50%);
+  }
+}
+
+/* 竖屏模式下H键位置 - 底部居中 */
+@media screen and (orientation: portrait) {
+  .help-btn-container {
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+/* 竖屏模式下H键位置 - 在portrait-controls内部 */
+.portrait-controls .help-btn-container {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  display: block !important;
+}
+
+/* H键按钮样式 */
+.help-btn-container #btn_help {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  transition: all 0.2s ease;
+}
+
+.help-btn-container #btn_help:active {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 竖屏模式下的控制面板样式 */
+.portrait-controls {
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  bottom: 240px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center center;
+  z-index: 9999;
+}
+
+.portrait-controls .direction-pad {
+  position: relative;
+  display: flex;
+  transform-origin: center center;
+  width: 160px;
+  height: 160px;
+}
+
+.portrait-controls .action-pad {
+  position: relative;
+  display: flex;
+  transform-origin: center center;
+  width: 160px;
+  height: 160px;
+}
+
+/* 禁用长按选择 */
+.action-btn {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.action-btn img {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* 玩家位置闪烁动画 */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+#player-dot {
+  animation: blink 1s infinite;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="app" class="no-scale">
+      <!-- canvas将通过JavaScript动态创建，根据window.fmjcorev2设置尺寸 -->
+      <!-- 添加滤镜层 -->
+      <div id="filterOverlay" class="filter-overlay"></div>
+      <!-- <div id="version" style="position: absolute; background-color: rgba(0, 0, 0, 0.6); color: #fff; top: 10px; left: 10px; padding: 5px 10px; border-radius: 15px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); font-family: Arial, sans-serif; font-size: 14px; letter-spacing: 1px;"></div> -->
+    </div>
+
+    <!-- 地图调试区域 - 完全对齐app元素的所有样式属性 -->
+    <div id="map-container" style="position: fixed; bottom: 5px; left: 50%; transform: translateX(-50%); margin: 0px; padding: 2px; overflow: hidden !important; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); filter: none; transition: filter 0.3s ease; color: #fff; font-family: 'Courier New', monospace; display: none; max-width: calc(100% - 4px); box-sizing: border-box; z-index: 1000;">
+      <div style="background: #000; padding: 0px; border-radius: 5px; margin: 0px; position: relative; overflow: hidden;">
+        <img id="map-preview" src="" alt="地图预览" style="width: 100%; max-width: 100%; height: auto; max-height: 100%; border: none; image-rendering: pixelated; display: block; object-fit: contain; border-radius: 5px;" />
+        <div id="player-dot" style="position: absolute; background: red; border-radius: 50%; display: none; z-index: 10; box-shadow: 0 0 4px rgba(255,0,0,0.8);"></div>
+        <div id="player-coords" style="position: absolute; color: #ffff00; font-size: 10px; font-weight: bold; text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000; display: none; z-index: 11; white-space: nowrap;"></div>
+        <!-- 地图滤镜层 -->
+        <div id="mapFilterOverlay" class="map-filter-overlay"></div>
+      </div>
+    </div>
+
+    <div id="zone"></div>
+
+    <!-- 方向按钮 -->
+    <div class="direction-pad" id="direction_pad">
+      <div class="direction-btn" id="dir_up">
+        <img src="images/up.png" alt="上" />
+      </div>
+      <div class="direction-btn" id="dir_down">
+        <img src="images/down.png" alt="下" />
+      </div>
+      <div class="direction-btn" id="dir_left">
+        <img src="images/left.png" alt="左" />
+      </div>
+      <div class="direction-btn" id="dir_right">
+        <img src="images/right.png" alt="右" />
+      </div>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="action-pad" id="action_pad">
+      <div class="action-btn" id="btn_enter">
+        <img src="images/enter.png" alt="确认" />
+      </div>
+      <div class="action-btn" id="btn_exit">
+        <img src="images/exit.png" alt="取消" />
+      </div>
+      <div class="action-btn" id="btn_up">
+        <img src="images/up.png" alt="上一个" />
+      </div>
+      <div class="action-btn" id="btn_down">
+        <img src="images/down.png" alt="下一个" />
+      </div>
+    </div>
+
+    <!-- R键按钮 - 独立放置在方向键和操作键之间 -->
+    <div class="repeat-btn-container" id="repeat_btn_container">
+      <div class="action-btn" id="btn_repeat">
+        <span style="color: white; font-size: 20px; font-weight: bold;">R</span>
+      </div>
+    </div>
+    
+    <!-- H键按钮 - 内置功能按钮 -->
+    <div class="help-btn-container" id="help_btn_container">
+      <div class="action-btn" id="btn_help">
+        <span style="color: white; font-size: 20px; font-weight: bold;">H</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+    // 动态创建canvas - 根据引擎版本设置尺寸
+    (function() {
+      var canvas = document.createElement('canvas');
+      canvas.className = 'fill';
+      canvas.id = 'lcd';
+      
+      if (window.fmjcorev2) {
+        // v2引擎使用320x192尺寸
+        canvas.width = 320;
+        canvas.height = 192;
+        console.log('Creating canvas with v2 dimensions: 320x192');
+      } else {
+        // v1引擎使用160x96尺寸
+        canvas.width = 160;
+        canvas.height = 96;
+        console.log('Creating canvas with v1 dimensions: 160x96');
+      }
+      
+      // 将canvas插入到app div的开头
+      var appDiv = document.getElementById('app');
+      var firstChild = appDiv.firstChild;
+      appDiv.insertBefore(canvas, firstChild);
+    })();
+  </script>
+
+  <script>
+    // 动态加载游戏引擎 - 根据iOS注入的变量决定加载哪个版本
+    (function() {
+      var script = document.createElement('script');
+      if (window.fmjcorev2) {
+        // 加载v2引擎
+        script.src = 'js/fmj.core.v2.js';
+        console.log('Loading fmj.core.v2.js (v2 engine)');
+      } else {
+        // 加载v1引擎
+        script.src = 'js/fmj.core.js';
+        console.log('Loading fmj.core.js (v1 engine)');
+      }
+      
+      script.onload = function() {
+        console.log('Game engine loaded successfully:', script.src);
+      };
+      
+      script.onerror = function() {
+        console.error('Failed to load game engine:', script.src);
+      };
+      
+      document.head.appendChild(script);
+    })();
+  </script>
+  <script>
+    var core;
+    
+    // 等待游戏引擎加载完成后初始化
+    function waitForEngine() {
+      if (window["fmj.core"] && window["fmj.core"].fmj) {
+        core = window["fmj.core"].fmj;
+        console.log('Game engine initialized successfully');
+      } else {
+        // 如果引擎还没加载完成，继续等待
+        setTimeout(waitForEngine, 100);
+      }
+    }
+    
+    // 开始等待引擎加载
+    waitForEngine();
+    
+    // 存储当前玩家位置数据，用于窗口大小变化时重新计算
+    window.currentPlayerPosition = null;
+
+    // 添加一个标志来跟踪初始化状态
+    let isInitializing = false;
+    let lastOrientation = null;
+
+    function initScreen() {
+      // 防止重复初始化
+      if (isInitializing) return;
+
+      // 检测屏幕方向
+      const isPortrait = window.innerHeight > window.innerWidth;
+      const currentOrientation = isPortrait ? 'portrait' : 'landscape';
+
+      // 如果方向没有改变，不需要重新初始化
+      if (lastOrientation === currentOrientation) {
+        return;
+      }
+
+      isInitializing = true;
+      lastOrientation = currentOrientation;
+
+      // 初始化横屏模式的缩放功能
+      if (!isPortrait) {
+        // 每次切换到横屏都重新初始化，确保应用保存的缩放
+        if (typeof initLandscapeScaling === 'function') {
+          // 不需要在这里再次读取localStorage
+          // 因为m.js的初始化代码已经处理了
+          console.log('initScreen - 当前 window.landscapeScale:', window.landscapeScale);
+          initLandscapeScaling();
+        }
+      } else {
+        // 竖屏模式下重置所有横屏缩放设置
+        if (typeof resetPortraitStyles === 'function') {
+          resetPortraitStyles();
+        }
+      }
+
+      // 初始化竖屏模式下的编辑功能
+      if (isPortrait) {
+        // 创建编辑按钮
+        if (!document.querySelector('.portrait-edit-btn')) {
+          const editBtn = $('<div class="portrait-edit-btn">⋮</div>');
+          $('body').append(editBtn);
+          editBtn.css('display', 'block');
+        } else {
+          $('.portrait-edit-btn').css('display', 'block');
+        }
+        
+        // 初始化编辑模式
+        if (typeof initPortraitEditMode === 'function') {
+          initPortraitEditMode();
+        }
+        
+        // 竖屏模式下app不可拖拽，保持固定位置
+        
+        // 为LCD元素添加独立拖拽功能
+        if ($('#lcd').length > 0) {
+          $('#lcd').addClass('draggable-element');
+          if (typeof initDraggable === 'function') {
+            initDraggable(document.getElementById('lcd'), 'lcd');
+          }
+        }
+        
+        if ($('#map-container').length > 0) {
+          $('#map-container').addClass('draggable-element');
+          // 确保map-container正确居中
+          $('#map-container').css('transform', 'translateX(-50%)');
+          if (typeof initDraggable === 'function') {
+            initDraggable(document.getElementById('map-container'), 'mapContainer');
+          }
+        }
+        
+        // 竖屏模式下恢复所有元素的拖拽位置
+        restorePortraitPositions();
+        
+        // 竖屏模式下更新地图容器显示状态
+        if (typeof updateMapContainerDisplay === 'function') {
+          updateMapContainerDisplay();
+        }
+      } else {
+        // 横屏模式下隐藏编辑按钮
+        $('.portrait-edit-btn').hide();
+        
+        // 横屏模式下移除拖拽功能
+        $('#app').removeClass('draggable-element');
+        $('#lcd').removeClass('draggable-element');
+        $('#map-container').removeClass('draggable-element');
+        
+        // 重置拖拽元素的位置，但不清除app的transform（因为横屏缩放需要）
+        $('#lcd').css('transform', '');  // 清除lcd的transform
+        $('#map-container').css('transform', 'translateX(-50%)');  // map-container保持居中
+        
+        // 移除拖拽事件监听器
+        const appElement = document.getElementById('app');
+        const lcdElement = document.getElementById('lcd');
+        const mapElement = document.getElementById('map-container');
+        
+        if (appElement && appElement._handleStart) {
+          appElement.removeEventListener('touchstart', appElement._handleStart);
+          appElement.removeEventListener('mousedown', appElement._handleStart);
+          document.removeEventListener('touchmove', appElement._handleMove);
+          document.removeEventListener('mousemove', appElement._handleMove);
+          document.removeEventListener('touchend', appElement._handleEnd);
+          document.removeEventListener('mouseup', appElement._handleEnd);
+        }
+        
+        if (lcdElement && lcdElement._handleStart) {
+          lcdElement.removeEventListener('touchstart', lcdElement._handleStart);
+          lcdElement.removeEventListener('mousedown', lcdElement._handleStart);
+          document.removeEventListener('touchmove', lcdElement._handleMove);
+          document.removeEventListener('mousemove', lcdElement._handleMove);
+          document.removeEventListener('touchend', lcdElement._handleEnd);
+          document.removeEventListener('mouseup', lcdElement._handleEnd);
+        }
+        
+        if (mapElement && mapElement._handleStart) {
+          mapElement.removeEventListener('touchstart', mapElement._handleStart);
+          mapElement.removeEventListener('mousedown', mapElement._handleStart);
+          document.removeEventListener('touchmove', mapElement._handleMove);
+          document.removeEventListener('mousemove', mapElement._handleMove);
+          document.removeEventListener('touchend', mapElement._handleEnd);
+          document.removeEventListener('mouseup', mapElement._handleEnd);
+        }
+        
+        // 横屏模式下隐藏地图容器
+        if (typeof updateMapContainerDisplay === 'function') {
+          updateMapContainerDisplay();
+        }
+      }
+      
+      // 更新 body 类名以便 CSS 选择器工作
+      if (isPortrait) {
+        document.body.classList.add('portrait');
+        document.body.classList.remove('landscape');
+        // 竖屏模式：不做任何尺寸修改，让 CSS 控制
+      } else {
+        document.body.classList.add('landscape');
+        document.body.classList.remove('portrait');
+        // 横屏模式：不做任何尺寸修改，让 CSS 控制
+      }
+      
+      // 只在竖屏模式下清除内联样式
+      const app = document.getElementById('app');
+      if (app && isPortrait) {
+        // 竖屏模式：清除横屏设置的内联样式
+        app.style.width = '';
+        app.style.height = '';
+        app.style.marginTop = '';
+        app.style.transform = '';
+        app.style.position = '';
+        app.style.top = '';
+        app.style.left = '';
+      }
+      // 横屏模式下不清除样式，让initLandscapeScaling处理
+
+      // 更新filterOverlay的大小和位置
+      const overlay = document.getElementById('filterOverlay');
+      if (overlay) {
+        // 同步overlay的位置和大小
+        overlay.style.position = 'absolute';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+      }
+
+      // 获取窗口尺寸
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // LCD 画布样式处理
+      const lcd = document.getElementById('lcd');
+      if (lcd) {
+        if (isPortrait) {
+          // 竖屏模式：清除横屏的内联样式，让CSS接管
+          lcd.style.width = '100%';
+          lcd.style.height = '100%';
+          lcd.style.transform = 'none';
+          lcd.style.webkitTransform = 'none';
+          lcd.style.border = 'none';
+        }
+        // 横屏模式：不修改样式，让applyLandscapeScale处理
+      }
+
+      if (isPortrait) {
+        console.log("竖屏状态");
+        lcdRotateMode = 2;
+      } else {
+        console.log("横屏状态");
+        lcdRotateMode = 0;
+      }
+
+      // 重置初始化标志
+      setTimeout(() => {
+        isInitializing = false;
+      }, 50); // 减少延迟，避免阻塞
+    }
+
+    (function () {
+      document.getElementById("lcd").addEventListener(
+        "touchmove",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+      document.getElementById("btn_enter").addEventListener(
+        "touchmove",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+      document.getElementById("btn_exit").addEventListener(
+        "touchmove",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+      document.getElementById("btn_repeat").addEventListener(
+        "touchmove",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+      $("#btn_enter").on("tapstart", function (e) {
+        console.log("User tapped");
+        $(this).addClass("active");
+        onKeyDown(7);
+      });
+
+      $("#btn_exit").on("tapstart", function (e) {
+        console.log("User tapped");
+        $(this).addClass("active");
+        onKeyDown(8);
+      });
+
+      $("#btn_up").on("tapstart", function (e) {
+        $(this).addClass("active");
+        onKeyDown(5);
+      });
+
+      $("#btn_down").on("tapstart", function (e) {
+        $(this).addClass("active");
+        onKeyDown(6);
+      });
+
+      $("#btn_repeat").on("tapstart", function (e) {
+        console.log("R key pressed");
+        $(this).addClass("active");
+        onKeyDown(9);
+      });
+
+      $("#btn_enter,#btn_exit,#btn_up,#btn_down").on("tapend", function (e) {
+        $(this).removeClass("active");
+        e.preventDefault();
+      });
+
+      // R键单独处理tapend
+      $("#btn_repeat").on("tapend", function (e) {
+        $(this).removeClass("active");
+        e.preventDefault();
+      });
+      
+      // H键事件处理
+      $("#btn_help").on("tapstart", function (e) {
+        console.log("H key pressed - opening game settings");
+        $(this).addClass("active");
+        onKeyDown(11); // 发送H键事件 (KEY_HELP = 11)
+        e.preventDefault();
+      });
+      
+      $("#btn_help").on("tapend", function (e) {
+        $(this).removeClass("active");
+        e.preventDefault();
+      });
+      
+      // H键防止默认触摸事件
+      document.getElementById("btn_help").addEventListener(
+        "touchmove",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+
+      // 方向按钮事件处理
+      $("#dir_up").on("tapstart", function(e) {
+        $(this).addClass("active");
+        setIntervalKeyDown(1); // 统一发送上键
+      });
+
+      $("#dir_down").on("tapstart", function(e) {
+        $(this).addClass("active");
+        setIntervalKeyDown(2); // 统一发送下键
+      });
+
+      $("#dir_left").on("tapstart", function(e) {
+        $(this).addClass("active");
+        setIntervalKeyDown(3); // 统一发送左键
+      });
+
+      $("#dir_right").on("tapstart", function(e) {
+        $(this).addClass("active");
+        setIntervalKeyDown(4); // 统一发送右键
+      });
+
+      // 方向按钮释放事件
+      $("#dir_up, #dir_down, #dir_left, #dir_right").on("tapend", function(e) {
+        $(this).removeClass("active");
+        clearInterval(interval);
+        e.preventDefault();
+      });
+
+      // 防止方向按钮的触摸事件传播
+      $("#direction_pad").on("touchmove", function(e) {
+        e.preventDefault();
+      });
+
+      // 初始化时隐藏方向按钮（默认使用摇杆模式）
+      $("#direction_pad").hide();
+      
+      var init = function () {
+        var updateOrientation = function () {
+          // 方向改变执行的函数
+          var orientation = window.orientation;
+          
+          // 设置全局 modal 变量
+          if (orientation === 90 || orientation === -90) {
+            modal = "landscape";
+          } else {
+            modal = "portrait";
+          }
+          
+          // 调用初始化函数
+          initScreen();
+          
+          // 重新初始化摇杆（如果需要）
+          if (typeof initJoystick === 'function') {
+            initJoystick();
+          }
+          
+          // 为 html 元素添加方向类
+          document.documentElement.setAttribute("class", modal);
+          
+        };
+        // 屏幕旋转事件
+        window.addEventListener("orientationchange", updateOrientation, false);
+        // 事件的初始化
+        updateOrientation();
+      };
+      window.addEventListener("DOMContentLoaded", init, false);
+    })();
+
+    var interval;
+    var modal;
+    var joystickHold = false;
+    var joystick;
+    function setIntervalKeyDown(key) {
+      onKeyDown(key);
+      clearInterval(interval);
+      //setTimeout(function(){
+
+      // 根据游戏速度计算延时：一倍速300ms，两倍速150ms，三倍速100ms
+      var gameSpeed = window.gameSpeedMultiple || 1.0;
+      var delay;
+      if (gameSpeed <= 1.0) {
+        delay = 300; // 一倍速及以下
+      } else if (gameSpeed <= 2.0) {
+        delay = 150; // 两倍速
+      } else {
+        delay = 100; // 三倍速及以上
+      }
+
+      interval = setInterval("onKeyDown(" + key + ")", delay);
+      //}, 600)
+    }
+
+    joystickModeChanged(1);
+
+    function initJoystick() {
+      var position = {
+        left: "15%",
+        top: "75%",
+      };
+
+      if (modal == "portrait") {
+        position = {
+          left: "81%",  // 使用百分比替代固定像素
+          top: "85%",   // 使用百分比替代固定像素
+        };
+      }
+
+      var options = {
+        zone: document.getElementById("zone"),
+        //threshold : 1,
+        mode: "static",
+        position: position,
+        color: "#e94560",
+        size: 140,
+        fadeTime: 100,
+        lockX: false,
+        lockY: false,
+        dynamicPage: true,
+        restJoystick: true,
+        restOpacity: 0.8,
+      };
+      if (joystick) {
+        joystick.destroy();
+      }
+      joystick = nipplejs.create(options);
+      joystick
+        .on("dir:up", function (evt, nipple) {
+          setIntervalKeyDown(1); // 统一发送上键
+        })
+        .on("dir:down", function (evt, nipple) {
+          setIntervalKeyDown(2); // 统一发送下键
+        })
+        .on("dir:left", function (evt, nipple) {
+          setIntervalKeyDown(3); // 统一发送左键
+        })
+        .on("dir:right", function (evt, nipple) {
+          setIntervalKeyDown(4); // 统一发送右键
+        })
+        .on("end", function (evt, nipple) {
+          console.log("end");
+          clearInterval(interval);
+        });
+    }
+
+    document.addEventListener('dblclick', function(event) {
+      event.preventDefault(); // 阻止默认的双击缩放行为
+      window.scrollTo(0, 0); // 滚动到页面顶部
+    }, {passive: false}); // 避免passive模式下无法阻止默认事件
+    
+    // 防抖函数，避免频繁调用
+    let resizeTimer;
+    function debounceInitScreen() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        initScreen();
+      }, 150);
+    }
+
+    // 监听屏幕方向变化和窗口大小变化
+    window.addEventListener('resize', function() {
+      // 使用防抖避免频繁调用
+      debounceInitScreen();
+    });
+
+    // orientationchange事件已经在上面的init函数中处理了，这里不需要重复监听
+    
+    // 页面加载完成后初始化屏幕
+    document.addEventListener('DOMContentLoaded', function() {
+      // 确保从localStorage恢复缩放值
+      const savedScale = localStorage.getItem('landscape_scale');
+      if (savedScale) {
+        window.landscapeScale = parseFloat(savedScale);
+        console.log('DOMContentLoaded - 恢复缩放值:', window.landscapeScale);
+      }
+
+      setTimeout(function() {
+        initScreen();
+      }, 100);
+    });
+  </script>
+</html>

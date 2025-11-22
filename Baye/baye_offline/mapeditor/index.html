@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/myjs.js"></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background: #18344B
+		}
+
+		header {
+			width: 100%
+		}
+
+		section {
+			width: 100%
+		}
+
+		footer {
+			width: 15%;
+		}
+
+		.kongbai5 {
+			width: 100%;
+			height: 5px;
+		}
+
+		.kongbai10 {
+			width: 100%;
+			height: 10px;
+		}
+
+		.kongbai30 {
+			width: 100%;
+			height: 30px;
+		}
+
+		#toubu {
+			width: 90%;
+			height: 50px;
+			background: #171A21;
+			color: #C6C4C2;
+			text-align: center;
+			font-size: 32px;
+			line-height: 50px;
+		}
+
+		#weibu {
+			position: fixed;
+			right: 0;
+			top: 0;
+			width: 10%;
+			height: 1080px;
+			background: #366F95;
+			color: white;
+			text-align: center;
+			font-size: 48px;
+			line-height: 60px;
+			border-left: 2px solid #C4C2C0;
+			box-sizing: border-box;
+		}
+
+		#weibu input {
+			width: 90%;
+			height: 40px;
+			font-size: 16px;
+			font-weight: bold;
+			color: #366F95;
+		}
+
+		#weibu input:nth-child(6) {
+			color: #999;
+		}
+
+		#weibu input:hover {
+			box-shadow: 0px 1px 5px white;
+		}
+
+		#content {
+			text-align: center;
+			width: 50%;
+			height: 1030px;
+			position: absolute;
+			left: 0;
+			background: #D6D6D6
+		}
+
+		li {
+			list-style: none;
+		}
+
+		#side {
+			color: white;
+			width: 35%;
+			height: 1030px;
+			position: absolute;
+			margin-left: 53%;
+			background: #18344B;
+		}
+
+		#side p {
+			margin-left: 5%;
+
+		}
+
+		#side ul li {
+			margin-right: 5px;
+			;
+			width: 35px;
+			height: 35px;
+			background: pink;
+			float: left;
+		}
+
+		#side input {
+
+			width: 35px;
+			height: 35px;
+
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		.shili {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			margin-left: 10px;
+			;
+		}
+
+		.shili img {
+			width: 35px;
+			height: 35px;
+		}
+
+		#side_top {
+			width: 100%;
+			height: 60px;
+			position: absolute;
+			top: 0;
+			margin-left: -20px;
+		}
+
+
+		#side_top a {
+			color: white;
+			font-style: italic
+		}
+
+		#side_left {
+			margin-top: 70px;
+			width: 20%;
+			height: 760px;
+			position: absolute;
+		}
+
+		#side_center {
+			margin-top: 70px;
+			margin-left: 30%;
+			;
+			width: 35%;
+			height: 760px;
+			position: absolute;
+		}
+
+		#side_right {
+			margin-top: 70px;
+			margin-left: 60%;
+			;
+			width: 45%;
+			height: 760px;
+			position: absolute;
+		}
+
+		#huabu {
+			margin: 0 auto;
+			margin-top: 2%;
+			width: 640px;
+			height: 640px;
+			border: 1px solid #366F95;
+			padding: 0;
+		}
+
+		#huabu ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		#huabu li {
+			width: 20px;
+			height: 20px;
+			float: left;
+			border: 1px solid #366F95;
+			box-sizing: border-box;
+		}
+
+		#huabu img {
+			width: 19px;
+			height: 19px;
+		}
+
+		#xy {
+			color: white;
+			font-size: 16px;
+			margin-left: 25px;
+			margin-top: -10px;
+		}
+
+		.scrollobj {
+			min-width: 300px;
+			color: #366F95;
+			font-size: 14px;
+		}
+
+		#gongjuxiang {
+			width: 100%;
+			height: 48px;
+			font-size: 24px;
+			line-height: 48px;
+			border-bottom: 2px solid #C6C4C2;
+		}
+	</style>
+	<script>
+		var zuojian = 0;
+		var dizhi = "img/0 (1).bmp";
+		var xuhao = 1;
+
+		var width = 32;
+		var height = 32;
+
+		function pingyuan() {
+			dizhi = "img/0 (1).bmp";
+			xuhao = 1;
+		}
+		function caodi() {
+			dizhi = "img/0 (2).bmp";
+			xuhao = 2;
+		}
+		function chengchi() {
+			dizhi = "img/0 (3).bmp";
+			xuhao = 3
+		}
+		function cunzhuang() {
+			dizhi = "img/0 (4).bmp";
+			xuhao = 4
+		}
+		function senlin() {
+			dizhi = "img/0 (5).bmp";
+			xuhao = 5
+		}
+		function yingzhai() {
+			dizhi = "img/0 (41).bmp";
+			xuhao = 41
+		}
+
+		function shandi6() {
+			dizhi = "img/0 (6).bmp";
+			xuhao = 6
+		}
+		function shandi7() {
+			dizhi = "img/0 (7).bmp";
+			xuhao = 7
+		}
+		function shandi8() {
+			dizhi = "img/0 (8).bmp";
+			xuhao = 8
+		}
+		function shandi9() {
+			dizhi = "img/0 (9).bmp";
+			xuhao = 9
+		}
+		function shandi10() {
+			dizhi = "img/0 (10).bmp";
+			xuhao = 10
+		}
+		function shandi11() {
+			dizhi = "img/0 (11).bmp";
+			xuhao = 11
+		}
+		function shandi12() {
+			dizhi = "img/0 (12).bmp";
+			xuhao = 12
+		}
+		function shandi13() {
+			dizhi = "img/0 (13).bmp";
+			xuhao = 13
+		}
+		function shandi14() {
+			dizhi = "img/0 (14).bmp";
+			xuhao = 14
+		}
+		function shandi15() {
+			dizhi = "img/0 (15).bmp";
+			xuhao = 15
+		}
+
+
+
+		function heliu16() {
+			dizhi = "img/0 (16).bmp";
+			xuhao = 16
+		}
+		function heliu17() {
+			dizhi = "img/0 (17).bmp";
+			xuhao = 17
+		}
+		function heliu18() {
+			dizhi = "img/0 (18).bmp";
+			xuhao = 18
+		}
+		function heliu19() {
+			dizhi = "img/0 (19).bmp";
+			xuhao = 19
+		}
+		function heliu20() {
+			dizhi = "img/0 (20).bmp";
+			xuhao = 20
+		}
+		function heliu21() {
+			dizhi = "img/0 (21).bmp";
+			xuhao = 21
+		}
+		function heliu22() {
+			dizhi = "img/0 (22).bmp";
+			xuhao = 22
+		}
+		function heliu23() {
+			dizhi = "img/0 (23).bmp";
+			xuhao = 23
+		}
+		function heliu24() {
+			dizhi = "img/0 (24).bmp";
+			xuhao = 24
+		}
+		function heliu25() {
+			dizhi = "img/0 (25).bmp";
+			xuhao = 25
+		}
+		function heliu26() {
+			dizhi = "img/0 (26).bmp";
+			xuhao = 26
+		}
+		function heliu27() {
+			dizhi = "img/0 (27).bmp";
+			xuhao = 27
+		}
+		function heliu28() {
+			dizhi = "img/0 (28).bmp";
+			xuhao = 28
+		}
+		function heliu29() {
+			dizhi = "img/0 (29).bmp";
+			xuhao = 29
+		}
+		function heliu30() {
+			dizhi = "img/0 (30).bmp";
+			xuhao = 30
+		}
+		function heliu31() {
+			dizhi = "img/0 (31).bmp";
+			xuhao = 31
+		}
+		function heliu32() {
+			dizhi = "img/0 (32).bmp";
+			xuhao = 32
+		}
+		function heliu33() {
+			dizhi = "img/0 (33).bmp";
+			xuhao = 33
+		}
+		function heliu34() {
+			dizhi = "img/0 (34).bmp";
+			xuhao = 34
+		}
+		function heliu35() {
+			dizhi = "img/0 (35).bmp";
+			xuhao = 35
+		}
+		function heliu36() {
+			dizhi = "img/0 (36).bmp";
+			xuhao = 36
+		}
+		function heliu37() {
+			dizhi = "img/0 (37).bmp";
+			xuhao = 37
+		}
+		function heliu38() {
+			dizhi = "img/0 (38).bmp";
+			xuhao = 38
+		}
+		function heliu39() {
+			dizhi = "img/0 (39).bmp";
+			xuhao = 39
+		}
+		function heliu40() {
+			dizhi = "img/0 (40).bmp";
+			xuhao = 40
+		}
+		function heliu42() {
+			dizhi = "img/0 (42).bmp";
+			xuhao = 42
+		}
+		function heliu43() {
+			dizhi = "img/0 (43).bmp";
+			xuhao = 43
+		}
+		function heliu44() {
+			dizhi = "img/0 (44).bmp";
+			xuhao = 44
+		}
+		function heliu45() {
+			dizhi = "img/0 (45).bmp";
+			xuhao = 45
+		}
+
+		function auto_river() {
+			xuhao = "auto";
+		}
+
+		function is_river(row, col) {
+			if (row < 0 || row >= height || col < 0 || col >= width)
+				return true;
+			var n = document.getElementById("newImg" + (row * width + col)).shuzi;
+			if (16 <= n && n <= 45 && n != 41) {
+				return true;
+			}
+			return false;
+		}
+
+		function surround(row, col) {
+			var rv = [];
+			for (var i = row - 1; i <= row + 1; i++)
+				for (var j = col - 1; j <= col + 1; j++)
+					if (i != row || j != col)
+						rv.push(is_river(i, j) ? '0' : '1');
+			return rv;
+		}
+
+		function get_tileid_by_surround(srr) {
+			var river_map = [
+				[16, 'x1x00x1x'],
+				[17, 'x0x11x0x'],
+				[18, 'x1x10x00'],
+				[19, 'x1x0100x'],
+				[20, 'x1x10x0x'],
+				[21, '10x01x1x'],
+				[22, '00000000'],
+				[23, 'x0110x1x'],
+				[24, 'x1x0110x'],
+				[25, 'x1x11x0x'],
+				[26, 'x0x11x1x'],
+				[27, 'x1x00101'],
+				[28, '10100x1x'],
+				[29, 'x0010x1x'],
+				[30, '00x01x1x'],
+				[31, 'x1x00000'],
+				[32, '00000x1x'],
+				[33, 'x0010x00'],
+				[34, '00x0100x'],
+				[35, '10000000'],
+				[36, '00000001'],
+				[37, '10000001'],
+				[38, '00100100'],
+				[39, '00100000'],
+				[40, '00000100'],
+				[42, '00000101'],
+				[43, '10100000'],
+				[44, 'x1x10x1x'],
+				[45, 'x1x01x1x'],
+			];
+			function match_mask(mask, surr) {
+				var n = 0;
+				var weights = [1, 3, 1, 3, 3, 1, 3, 1];
+
+				for (var j = 0; j < 8; j++) {
+					if (mask[j] == 'x') {
+						n += 1;
+						continue;
+					}
+					if (mask[j] == surr[j]) {
+						n += weights[j];
+					}
+				}
+				return n;
+			}
+			var max_score = 0;
+			var curid = 0;
+			for (var i = 0; i < river_map.length; i++) {
+				var id = river_map[i][0];
+				var mask = river_map[i][1];
+				var score = match_mask(mask, srr);
+				if (score > max_score) {
+					max_score = score;
+					curid = id;
+				}
+			}
+			return curid;
+		}
+
+		function set_tile(e, tileid) {
+			e.src = "img/0 (" + tileid + ").bmp";
+			e.shuzi = tileid;
+		}
+
+		function fill_auto_river(e, force) {
+			var srr = surround(e.row, e.col);
+			var tileid = get_tileid_by_surround(srr);
+
+			if (tileid == 0 && force) tileid = 22;
+
+			if (tileid != 0) {
+				set_tile(e, tileid);
+			}
+		}
+
+		function fill_one(e) {
+			if (xuhao == "auto") {
+				fill_auto_river(e, true);
+				for (var r = -1; r <= 1; r++) {
+					for (var c = -1; c <= 1; c++) {
+						if (c == 0 && r == 0) continue;
+						var row = e.row + r;
+						var col = e.col + c;
+						if (row < 0 || col < 0 || row >= height || col >= width) continue;
+						if (!is_river(row, col)) continue;
+						var elementId = "newImg" + (row * width + col);
+						fill_auto_river(document.getElementById(elementId));
+					}
+				}
+			} else {
+				set_tile(e, xuhao);
+			}
+		}
+
+		function aaa() {
+			fill_one(this);
+		}
+
+		function bbb() {
+			if (zuojian == 1) {
+				fill_one(this);
+			}
+			document.getElementById('xy').innerHTML = 'xy坐标(' + this.row + ',' + this.col + ')';
+		}
+		//生成空白地图
+		function addElementLi() {
+			for (var i = 0; i < height; i++)
+				for (var j = 0; j < width; j++) {
+					var ul = document.getElementById('parentUl');
+
+					//添加 li
+					var li = document.createElement("li");
+
+					//设置 li 属性，如 id
+					li.setAttribute("id", "newli" + i + "_" + j);
+					ul.appendChild(li);
+					//					var cc=new Image();
+					//					cc.src="img/0 (3).bmp";
+					//					document.getElementById("newli"+i).appendChild(cc);
+				}
+			for (var i = 0; i < height; i++)
+				for (var j = 0; j < width; j++) {
+					var cc = new Image();
+					cc.src = "img/0 (1).bmp";
+					cc.shuzi = 1;
+					cc.onclick = aaa;
+					cc.onmousemove = bbb;
+					cc.id = "newImg" + (i * width + j);
+					cc.row = i;
+					cc.col = j;
+					document.getElementById("newli" + i + "_" + j).appendChild(cc);
+				}
+		}
+
+		//刷新当前页面
+		function shuaxin() {
+			location.replace(document.referrer);
+		}
+
+		function gengxin() {
+			alert('等编辑器用坏了再更新\n                              ——半夏\n（当然，准确来说，这个编辑器是用不坏的，O(∩_∩)O哈哈~）')
+		}
+
+		window.onload = function () {
+			//去掉默认的contextmenu事件，否则会和右键事件同时出现。
+			document.oncontextmenu = function (e) {
+				e.preventDefault();
+			};
+
+			//刷子切换
+			document.getElementById("huabu").onmousedown = function (e) {
+				if (e.button == 2) {
+					if (zuojian == 0) {
+						zuojian = 1;
+						var bod = document.getElementById('parentUl');
+						bod.style.cursor = 'url(img/shuazi.ico),auto';
+					} else {
+						zuojian = 0;
+						var bod = document.getElementById('parentUl');
+						bod.style.cursor = 'default';
+					}
+				}
+			}
+		}
+
+
+		//保存为TXT文本的代码----------------------------------------------------------------------------------------------------------
+		/* FileSaver.js
+* A saveAs() FileSaver implementation.
+* 1.3.2
+* 2016-06-16 18:25:19
+*
+* By Eli Grey, http://eligrey.com
+* License: MIT
+*   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
+*/
+
+		/*global self */
+		/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
+
+		/*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
+
+		var saveAs = saveAs || (function (view) {
+			"use strict";
+			// IE <10 is explicitly unsupported
+			if (typeof view === "undefined" || typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
+				return;
+			}
+			var
+				doc = view.document
+				// only get URL when necessary in case Blob.js hasn't overridden it yet
+				, get_URL = function () {
+					return view.URL || view.webkitURL || view;
+				}
+				, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
+				, can_use_save_link = "download" in save_link
+				, click = function (node) {
+					var event = new MouseEvent("click");
+					node.dispatchEvent(event);
+				}
+				, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
+				, is_chrome_ios = /CriOS\/[\d]+/.test(navigator.userAgent)
+				, throw_outside = function (ex) {
+					(view.setImmediate || view.setTimeout)(function () {
+						throw ex;
+					}, 0);
+				}
+				, force_saveable_type = "application/octet-stream"
+				// the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
+				, arbitrary_revoke_timeout = 1000 * 40 // in ms
+				, revoke = function (file) {
+					var revoker = function () {
+						if (typeof file === "string") { // file is an object URL
+							get_URL().revokeObjectURL(file);
+						} else { // file is a File
+							file.remove();
+						}
+					};
+					setTimeout(revoker, arbitrary_revoke_timeout);
+				}
+				, dispatch = function (filesaver, event_types, event) {
+					event_types = [].concat(event_types);
+					var i = event_types.length;
+					while (i--) {
+						var listener = filesaver["on" + event_types[i]];
+						if (typeof listener === "function") {
+							try {
+								listener.call(filesaver, event || filesaver);
+							} catch (ex) {
+								throw_outside(ex);
+							}
+						}
+					}
+				}
+				, auto_bom = function (blob) {
+					// prepend BOM for UTF-8 XML and text/* types (including HTML)
+					// note: your browser will automatically convert UTF-16 U+FEFF to EF BB BF
+					if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
+						return new Blob([String.fromCharCode(0xFEFF), blob], { type: blob.type });
+					}
+					return blob;
+				}
+				, FileSaver = function (blob, name, no_auto_bom) {
+					if (!no_auto_bom) {
+						blob = auto_bom(blob);
+					}
+					// First try a.download, then web filesystem, then object URLs
+					var
+						filesaver = this
+						, type = blob.type
+						, force = type === force_saveable_type
+						, object_url
+						, dispatch_all = function () {
+							dispatch(filesaver, "writestart progress write writeend".split(" "));
+						}
+						// on any filesys errors revert to saving with object URLs
+						, fs_error = function () {
+							if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
+								// Safari doesn't allow downloading of blob urls
+								var reader = new FileReader();
+								reader.onloadend = function () {
+									var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
+									var popup = view.open(url, '_blank');
+									if (!popup) view.location.href = url;
+									url = undefined; // release reference before dispatching
+									filesaver.readyState = filesaver.DONE;
+									dispatch_all();
+								};
+								reader.readAsDataURL(blob);
+								filesaver.readyState = filesaver.INIT;
+								return;
+							}
+							// don't create more object URLs than needed
+							if (!object_url) {
+								object_url = get_URL().createObjectURL(blob);
+							}
+							if (force) {
+								view.location.href = object_url;
+							} else {
+								var opened = view.open(object_url, "_blank");
+								if (!opened) {
+									// Apple does not allow window.open, see https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/WorkingwithWindowsandTabs/WorkingwithWindowsandTabs.html
+									view.location.href = object_url;
+								}
+							}
+							filesaver.readyState = filesaver.DONE;
+							dispatch_all();
+							revoke(object_url);
+						}
+						;
+					filesaver.readyState = filesaver.INIT;
+
+					if (can_use_save_link) {
+						object_url = get_URL().createObjectURL(blob);
+						setTimeout(function () {
+							save_link.href = object_url;
+							save_link.download = name;
+							click(save_link);
+							dispatch_all();
+							revoke(object_url);
+							filesaver.readyState = filesaver.DONE;
+						});
+						return;
+					}
+
+					fs_error();
+				}
+				, FS_proto = FileSaver.prototype
+				, saveAs = function (blob, name, no_auto_bom) {
+					return new FileSaver(blob, name || blob.name || "download", no_auto_bom);
+				}
+				;
+			// IE 10+ (native saveAs)
+			if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
+				return function (blob, name, no_auto_bom) {
+					name = name || blob.name || "download";
+
+					if (!no_auto_bom) {
+						blob = auto_bom(blob);
+					}
+					return navigator.msSaveOrOpenBlob(blob, name);
+				};
+			}
+
+			FS_proto.abort = function () { };
+			FS_proto.readyState = FS_proto.INIT = 0;
+			FS_proto.WRITING = 1;
+			FS_proto.DONE = 2;
+
+			FS_proto.error =
+				FS_proto.onwritestart =
+				FS_proto.onprogress =
+				FS_proto.onwrite =
+				FS_proto.onabort =
+				FS_proto.onerror =
+				FS_proto.onwriteend =
+				null;
+
+			return saveAs;
+		}(
+			typeof self !== "undefined" && self
+			|| typeof window !== "undefined" && window
+			|| this.content
+		));
+		// `self` is undefined in Firefox for Android content script context
+		// while `this` is nsIContentFrameMessageManager
+		// with an attribute `content` that corresponds to the window
+
+		if (typeof module !== "undefined" && module.exports) {
+			module.exports.saveAs = saveAs;
+		} else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
+			define("FileSaver.js", function () {
+				return saveAs;
+			});
+		}
+
+
+
+
+		//生成地图按钮
+		function shengcheng() {
+			var br = '\r\n';
+			var mapDaima = ['// 地图测试网址：http://baye.bbkgames.com/designer.html', br, '// 技术支持：半夏，交流QQ群：526266208', br, br, 'baye.drawMap(32, 32,[']
+			var len = width * height;
+			for (var i = 0; i < len; i++) {
+				var ddd = document.getElementById("newImg" + i).shuzi
+				if (ddd <= 9) { ddd = ' ' + ddd }
+				if (i % 32 == 0) { mapDaima.push(br) }
+				if (i == len - 1) { ddd += '])' } else { ddd += ',' }
+				mapDaima.push(ddd)
+			}
+			var blob = new Blob(mapDaima, { type: "text/plain;charset=utf-8" });
+			saveAs(blob, "自定义地图代码.txt");
+
+		}
+
+
+
+	</script>
+</head>
+
+<body>
+	<header>
+		<div id="toubu">
+			三国霸业地图编辑器-网页版
+		</div>
+	</header>
+	<section>
+		<div id="content">
+			<div id="huabu">
+				<ul id="parentUl">
+				</ul>
+			</div>
+			<div class="kongbai5"></div>
+			<div class="scrollobj">温馨提示：鼠标右键可切换'画笔/刷子'模式，有任何新想法可以及时与半夏进行联系。
+				<br />（透露一个秘密，因为半夏很懒，所以联系他也没什么用……）</div>
+		</div>
+		<div id="side">
+
+			<div class="kongbai5"></div>
+			<div id="side_top">
+				<p id="ppp">选择地图刷子
+					<span style='color:#888'>&nbsp;(最后更新于2018-5-2，技术：半夏)
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=549784837&site=qq&menu=yes">点击QQ交谈</a>
+					</span>
+				</p>
+				<div id="xy">xy坐标(0,0)</div>
+			</div>
+
+			<div id="side_left">
+				<label onclick="pingyuan()">
+					<input name="ditu" type="radio" value="" checked="checked" />
+					<div class='shili'>
+						<img src="img/0 (1).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="caodi()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (2).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="chengchi()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (3).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="cunzhuang()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (4).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="senlin()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (5).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="yingzhai()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (41).bmp"></img>
+					</div>
+				</label>
+				<br />
+			</div>
+			<div id="side_center">
+				<label onclick="shandi6()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (6).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi7()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (7).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi8()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (8).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi9()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (9).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi10()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (10).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi11()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (11).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi12()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (12).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi13()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (13).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi14()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (14).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="shandi15()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (15).bmp"></img>
+					</div>
+				</label>
+				<br />
+			</div>
+			<div id="side_right">
+				<label onclick="heliu44()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (44).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu25()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (25).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu16()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (16).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu17()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (17).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu45()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (45).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu26()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (26).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu18()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (18).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu19()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (19).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu29()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (29).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu30()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (30).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu20()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (20).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu24()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (24).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu23()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (23).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu21()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (21).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu33()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (33).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu34()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (34).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu31()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (31).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu32()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (32).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu28()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (28).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu27()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (27).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu36()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (36).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu40()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (40).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu39()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (39).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu35()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (35).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu42()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (42).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu37()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (37).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu43()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (43).bmp"></img>
+					</div>
+				</label>
+				<label onclick="heliu38()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (38).bmp"></img>
+					</div>
+				</label>
+				<br />
+				<label onclick="heliu22()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (22).bmp"></img>
+					</div>
+				</label>
+				<label onclick="auto_river()">
+					<input name="ditu" type="radio" value="" />
+					<div class='shili'>
+						<img src="img/0 (22).bmp"></img>
+					</div>
+				</label>
+
+			</div>
+
+		</div>
+	</section>
+	<footer>
+
+		<div id="weibu">
+			<div id="gongjuxiang">工具箱</div>
+			<input type="button" id='shengcheng' value="生成空白地图" onclick="addElementLi()">
+			<input id="chongzhi" type="button" value="重置地图" onclick="shuaxin()">
+			<input type="button" value="导出地图" onclick="shengcheng()">
+			<input type="button" value="显示/隐藏边框" id="biankuang" onclick="biankuang()">
+			<input type="button" value="更新编辑器" onclick="gengxin()">
+		</div>
+	</footer>
+</body>
+
+</html>

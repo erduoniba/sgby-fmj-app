@@ -1,0 +1,9 @@
+[submodule "js/web"]
+	path = js/web
+	url = https://gitee.com/harrydeng/baye-alpha.git
+[submodule "js/engine"]
+	path = js/baye-engine
+	url = https://gitee.com/harrydeng/baye-engine.git
+[submodule "submodules/msgpack-c"]
+	path = submodules/msgpack-c
+	url = https://github.com/msgpack/msgpack-c.git

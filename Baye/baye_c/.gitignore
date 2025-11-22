@@ -1,0 +1,5 @@
+*.a
+src/baye/version.h
+/build
+.vscode
+

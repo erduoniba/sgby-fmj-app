@@ -1,0 +1,1563 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伏魔记</title>
+<style>
+:root {
+  --bg-color: #ffffff;
+  --text-color: rgb(55, 53, 47);
+  --border-color: rgba(55, 53, 47, 0.09);
+  --link-color: inherit;
+  --code-bg: rgba(135, 131, 120, 0.15);
+  --code-color: #eb5757;
+  --blockquote-color: rgb(55, 53, 47);
+  --highlight-bg: rgba(248, 248, 247, 1);
+  --font-size-base: 16px;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-p: 1.2rem;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --link-color: #4d80e4;
+  --code-bg: rgba(255, 255, 255, 0.1);
+  --code-color: #ff6b6b;
+  --blockquote-color: #e0e0e0;
+  --highlight-bg: rgba(255, 255, 255, 0.05);
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: var(--font-size-base);
+}
+
+#theme-toggle:hover {
+  opacity: 0.8;
+}
+
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-size: var(--font-size-base);
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: var(--text-color);
+		background-color: var(--bg-color);
+	}
+}
+
+body {
+	line-height: 1.6;
+	white-space: pre-wrap;
+	font-size: var(--font-size-p);
+	transition: background-color 0.3s, color 0.3s;
+}
+
+a,
+a.visited {
+	color: var(--link-color);
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: calc(var(--font-size-base) * 0.9);
+	color: var(--text-color);
+	opacity: 0.7;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.3;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+	color: var(--text-color);
+}
+
+.page-title {
+	font-size: var(--font-size-h1);
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+	margin-top: 2rem;
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+	margin-top: 1.8rem;
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+	margin-top: 1.5rem;
+}
+
+.source {
+	border: 1px solid var(--border-color);
+	border-radius: 6px;
+	padding: 1.5em;
+	word-break: break-all;
+	background-color: var(--code-bg);
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid var(--border-color);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+	margin: 1.5em 0;
+	font-size: var(--font-size-base);
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.5em 1em;
+	line-height: 1.6;
+	min-height: 1.6em;
+	text-align: left;
+}
+
+th {
+	color: var(--text-color);
+	opacity: 0.8;
+	background-color: var(--highlight-bg);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.8em;
+	margin-block-end: 0.8em;
+	font-size: var(--font-size-p);
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.8em;
+}
+
+ul > li {
+	list-style: disc;
+	margin-bottom: 0.5em;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 2em;
+}
+
+ul > li {
+	padding-left: 0.2em;
+}
+
+ol {
+	padding-inline-start: 2em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+	margin-bottom: 0.5em;
+}
+
+.mono ol {
+	padding-inline-start: 2.2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0;
+	list-style-type: none;
+}
+
+/* 优化details和summary样式 */
+details {
+	margin: 1em 0;
+	padding: 0.5em 1em;
+	background: var(--highlight-bg);
+	border-radius: 6px;
+	border: 1px solid var(--border-color);
+}
+
+summary {
+	cursor: pointer;
+	padding: 0.5em 0;
+}
+
+summary:hover {
+	opacity: 0.8;
+}
+
+/* 优化滚动条样式 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--border-color);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--text-color);
+	opacity: 0.6;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 8px;
+	text-align: center;
+	max-width: 100%;
+	height: auto;
+}
+
+[data-theme="dark"] .image {
+	opacity: 0.9;
+	filter: brightness(0.8) contrast(1.2);
+}
+
+/* 选中文本的样式 */
+::selection {
+	background: var(--highlight-bg);
+	color: var(--text-color);
+}
+
+.code,
+code {
+	background: var(--code-bg);
+	border-radius: 4px;
+	padding: 0.2em 0.4em;
+	font-size: calc(var(--font-size-base) * 0.95);
+	tab-size: 2;
+	transition: background-color 0.3s;
+}
+
+/* 全局过渡效果 */
+* {
+	transition: background-color 0.3s ease, 
+							color 0.3s ease, 
+							border-color 0.3s ease, 
+							opacity 0.3s ease;
+}
+
+/* 优化滚动条样式 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--border-color);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--text-color);
+	opacity: 0.6;
+}
+
+/* 暗黑模式下的代码块优化 */
+[data-theme="dark"] .code,
+[data-theme="dark"] code {
+	background: rgba(255, 255, 255, 0.1);
+	color: #e6e6e6;
+}
+
+/* 辅助类 */
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.mt-1 {
+	margin-top: 0.5rem;
+}
+
+.mt-2 {
+	margin-top: 1rem;
+}
+
+.mb-1 {
+	margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+	margin-bottom: 1rem;
+}
+
+.hidden {
+	display: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* 页面加载时的渐入效果 */
+body {
+	opacity: 0;
+	animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* 主题切换按钮动画 */
+#theme-toggle {
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#theme-toggle:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 优化链接悬停效果 */
+a:hover {
+	opacity: 0.8;
+	text-decoration-thickness: 2px;
+}
+
+/* 确保details内容的平滑展开 */
+details[open] > *:not(summary) {
+	animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+code {
+	color: var(--code-color);
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: var(--text-color);
+}
+
+blockquote {
+	font-size: calc(var(--font-size-base) * 1.1);
+	margin: 1.5em 0;
+	padding-left: 1.2em;
+	border-left: 4px solid var(--blockquote-color);
+	color: var(--text-color);
+	opacity: 0.9;
+}
+
+mark {
+	background-color: var(--highlight-bg);
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+}
+
+</style>
+<script>
+// 创建搜索框
+const createSearchBox = () => {
+  const searchContainer = document.createElement('div');
+  searchContainer.id = 'search-container';
+  searchContainer.className = 'search-container';
+
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.id = 'search-input';
+  searchInput.placeholder = '搜索攻略内容...';
+
+  const searchResults = document.createElement('div');
+  searchResults.id = 'search-results';
+  searchResults.className = 'search-results';
+
+  searchContainer.appendChild(searchInput);
+  searchContainer.appendChild(searchResults);
+  document.body.appendChild(searchContainer);
+
+  // 添加搜索功能
+  let searchTimeout;
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      const searchText = e.target.value.toLowerCase();
+      if (searchText.length < 2) {
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      // 获取所有文本内容
+      const content = document.querySelector('.page-body').textContent;
+      const paragraphs = document.querySelectorAll('.page-body p, .page-body summary');
+      const results = [];
+
+      paragraphs.forEach(p => {
+        const text = p.textContent.toLowerCase();
+        if (text.includes(searchText)) {
+          const index = text.indexOf(searchText);
+          const start = Math.max(0, index - 20);
+          const end = Math.min(text.length, index + searchText.length + 20);
+          let snippet = text.substring(start, end);
+          if (start > 0) snippet = '...' + snippet;
+          if (end < text.length) snippet += '...';
+
+          // 高亮搜索词
+          const highlightedSnippet = snippet.replace(
+            new RegExp(searchText, 'gi'),
+            match => `<mark>${match}</mark>`
+          );
+
+          results.push({
+            element: p,
+            snippet: highlightedSnippet
+          });
+        }
+      });
+
+      // 显示搜索结果
+      if (results.length > 0) {
+        searchResults.innerHTML = results.map(result => `
+          <div class="search-result-item">
+            <div class="search-result-snippet">${result.snippet}</div>
+          </div>
+        `).join('');
+
+        // 为每个结果添加点击事件
+        const resultItems = searchResults.querySelectorAll('.search-result-item');
+        resultItems.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            results[index].element.scrollIntoView({ behavior: 'smooth' });
+            // 添加高亮效果
+            results[index].element.classList.add('highlight-search');
+            setTimeout(() => {
+              results[index].element.classList.remove('highlight-search');
+            }, 2000);
+            // 清空搜索
+            searchInput.value = '';
+            searchResults.style.display = 'none';
+          });
+        });
+
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.innerHTML = '<div class="no-results">未找到相关内容</div>';
+        searchResults.style.display = 'block';
+      }
+    }, 300);
+  });
+
+  // 点击其他地方时隐藏搜索结果
+  document.addEventListener('click', (e) => {
+    if (!searchContainer.contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
+  });
+};
+
+// 检查本地存储中的主题设置
+const currentTheme = localStorage.getItem('theme') || 
+  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', currentTheme);
+
+// 创建主题切换按钮
+const button = document.createElement('button');
+button.id = 'theme-toggle';
+button.textContent = currentTheme === 'light' ? '切换暗色模式' : '切换亮色模式';
+
+// 添加切换功能
+button.addEventListener('click', () => {
+  const theme = document.documentElement.getAttribute('data-theme');
+  const newTheme = theme === 'light' ? 'dark' : 'light';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  button.textContent = newTheme === 'light' ? '切换暗色模式' : '切换亮色模式';
+});
+
+// 监听系统主题变化
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    const newTheme = e.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    button.textContent = newTheme === 'light' ? '切换暗色模式' : '切换亮色模式';
+  }
+});
+
+// 创建目录导航
+document.addEventListener('DOMContentLoaded', () => {
+  // 将按钮添加到页面
+  document.body.appendChild(button);
+  
+  // 创建目录容器
+  const tocContainer = document.createElement('div');
+  tocContainer.id = 'toc-container';
+  tocContainer.className = 'toc-container';
+  
+  // 创建目录标题
+  const tocTitle = document.createElement('h3');
+  tocTitle.textContent = '目录导航';
+  tocContainer.appendChild(tocTitle);
+  
+  // 创建目录列表
+  const tocList = document.createElement('ul');
+  tocList.id = 'toc-list';
+  tocContainer.appendChild(tocList);
+  
+  // 获取所有标题
+  const headings = document.querySelectorAll('h1, summary');
+  
+  // 为每个标题创建目录项
+  headings.forEach((heading, index) => {
+    if (heading.textContent.trim() !== '') {
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      
+      // 为标题添加ID，如果没有的话
+      if (!heading.id) {
+        heading.id = `heading-${index}`;
+      }
+      
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent;
+      
+      // 根据标题类型添加不同的样式
+      if (heading.tagName === 'H1') {
+        listItem.className = 'toc-h1';
+      } else if (heading.parentElement && heading.parentElement.tagName === 'DETAILS') {
+        if (heading.style.fontSize === '1.5em') {
+          listItem.className = 'toc-h2';
+        } else {
+          listItem.className = 'toc-h3';
+        }
+      }
+      
+      // 添加点击事件，点击目录项后隐藏目录导航
+      link.addEventListener('click', () => {
+        tocContainer.classList.remove('toc-visible');
+        tocToggle.textContent = '显示目录';
+      });
+      
+      listItem.appendChild(link);
+      tocList.appendChild(listItem);
+    }
+  });
+  
+  // 创建目录切换按钮
+  const tocToggle = document.createElement('button');
+  tocToggle.id = 'toc-toggle';
+  tocToggle.textContent = '显示目录';
+  tocToggle.addEventListener('click', () => {
+    if (tocContainer.classList.contains('toc-visible')) {
+      tocContainer.classList.remove('toc-visible');
+      tocToggle.textContent = '显示目录';
+    } else {
+      tocContainer.classList.add('toc-visible');
+      tocToggle.textContent = '隐藏目录';
+    }
+  });
+  
+  // 创建回到顶部按钮
+  const backToTop = document.createElement('button');
+  backToTop.id = 'back-to-top';
+  backToTop.textContent = '回到顶部';
+  backToTop.style.display = 'none';
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  // 监听滚动事件，显示/隐藏回到顶部按钮
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+  
+  // 将目录和按钮添加到页面
+  document.body.appendChild(tocContainer);
+  document.body.appendChild(tocToggle);
+  document.body.appendChild(backToTop);
+  
+  // 为图片添加点击放大功能
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+      const modal = document.createElement('div');
+      modal.className = 'image-modal';
+      
+      const modalImg = document.createElement('img');
+      modalImg.src = img.src;
+      modalImg.className = 'modal-content';
+      
+      const closeBtn = document.createElement('span');
+      closeBtn.className = 'close-modal';
+      closeBtn.innerHTML = '&times;';
+      
+      modal.appendChild(modalImg);
+      modal.appendChild(closeBtn);
+      document.body.appendChild(modal);
+      
+      // 添加动画效果
+      setTimeout(() => {
+        modal.style.opacity = '1';
+      }, 10);
+      
+      closeBtn.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+          document.body.removeChild(modal);
+        }, 300);
+      });
+      
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.opacity = '0';
+          setTimeout(() => {
+            document.body.removeChild(modal);
+          }, 300);
+        }
+      });
+    });
+  });
+});
+</script>
+
+<style>
+/* 目录样式 */
+.toc-container {
+  position: fixed;
+  top: 120px; /* 调整顶部距离，避免被按钮遮挡 */
+  right: -300px;
+  width: 280px;
+  max-height: calc(100vh - 140px); /* 调整最大高度，留出按钮空间 */
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.toc-container.toc-visible {
+  right: 10px;
+}
+
+.toc-container h3 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.toc-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-container li {
+  margin: 8px 0;
+}
+
+.toc-container a {
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  padding: 5px 0;
+  transition: all 0.2s;
+}
+
+.toc-container a:hover {
+  opacity: 0.7;
+  padding-left: 5px;
+}
+
+.toc-h1 {
+  font-weight: bold;
+}
+
+.toc-h2 {
+  padding-left: 15px;
+}
+
+.toc-h3 {
+  padding-left: 30px;
+  font-size: 0.9em;
+}
+
+#toc-toggle {
+  position: fixed;
+  top: 70px; /* 放在暗色模式按钮下方 */
+  right: 20px; /* 与暗色模式按钮对齐 */
+  padding: 10px 20px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: var(--font-size-base);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#toc-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+  #toc-toggle {
+    top: 45px;
+    right: 5px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: var(--font-size-base);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 图片模态框样式 */
+.image-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #bbb;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  #toc-toggle {
+    top: 45px; /* 放在暗色模式按钮下方 */
+    right: 5px; /* 与暗色模式按钮对齐 */
+    padding: 6px 12px;
+    font-size: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .toc-container {
+    width: 240px;
+    max-height: 70vh;
+  }
+  
+  .toc-container.toc-visible {
+    right: 5px;
+  }
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+/* 高亮颜色适配暗黑模式 */
+[data-theme="light"] {
+    --highlight-default-color: rgba(50, 48, 44, 1);
+    --highlight-gray-color: rgba(115, 114, 110, 1);
+    --highlight-brown-color: rgba(159, 107, 83, 1);
+    --highlight-orange-color: rgba(217, 115, 13, 1);
+    --highlight-yellow-color: rgba(203, 145, 47, 1);
+    --highlight-teal-color: rgba(68, 131, 97, 1);
+    --highlight-blue-color: rgba(51, 126, 169, 1);
+    --highlight-purple-color: rgba(144, 101, 176, 1);
+    --highlight-pink-color: rgba(193, 76, 138, 1);
+    --highlight-red-color: rgba(205, 60, 58, 1);
+}
+
+[data-theme="dark"] {
+    --highlight-default-color: rgba(220, 218, 214, 1);
+    --highlight-gray-color: rgba(175, 174, 170, 1);
+    --highlight-brown-color: rgba(209, 157, 133, 1);
+    --highlight-orange-color: rgba(255, 165, 63, 1);
+    --highlight-yellow-color: rgba(253, 195, 97, 1);
+    --highlight-teal-color: rgba(108, 171, 137, 1);
+    --highlight-blue-color: rgba(91, 166, 209, 1);
+    --highlight-purple-color: rgba(184, 141, 216, 1);
+    --highlight-pink-color: rgba(233, 116, 178, 1);
+    --highlight-red-color: rgba(245, 100, 98, 1);
+}
+
+.highlight-default {
+    color: var(--highlight-default-color);
+}
+.highlight-gray {
+    color: var(--highlight-gray-color);
+    fill: var(--highlight-gray-color);
+}
+.highlight-brown {
+    color: var(--highlight-brown-color);
+    fill: var(--highlight-brown-color);
+}
+.highlight-orange {
+    color: var(--highlight-orange-color);
+    fill: var(--highlight-orange-color);
+}
+.highlight-yellow {
+    color: var(--highlight-yellow-color);
+    fill: var(--highlight-yellow-color);
+}
+.highlight-teal {
+    color: var(--highlight-teal-color);
+    fill: var(--highlight-teal-color);
+}
+.highlight-blue {
+    color: var(--highlight-blue-color);
+    fill: var(--highlight-blue-color);
+}
+.highlight-purple {
+    color: var(--highlight-purple-color);
+    fill: var(--highlight-purple-color);
+}
+.highlight-pink {
+    color: var(--highlight-pink-color);
+    fill: var(--highlight-pink-color);
+}
+.highlight-red {
+    color: var(--highlight-red-color);
+    fill: var(--highlight-red-color);
+}
+
+/* 响应式布局优化 */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 14px;
+        --font-size-h1: 1.8rem;
+        --font-size-h2: 1.5rem;
+        --font-size-h3: 1.3rem;
+        --font-size-p: 1rem;
+    }
+
+    body {
+        margin: 0.5em;
+        padding: 0 5px;
+        line-height: 1.5;
+    }
+
+    #theme-toggle {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        padding: 6px 12px;
+        font-size: 12px;
+        z-index: 1000;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.9em;
+    }
+    
+    th, td {
+        padding: 0.3em 0.5em;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-h1);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .indented {
+        padding-left: 1em;
+    }
+    
+    .code {
+        padding: 1em 0.5em;
+        font-size: 0.9em;
+    }
+    
+    blockquote {
+        font-size: 1em;
+        margin: 1em 0;
+        padding-left: 1em;
+    }
+    
+    details {
+        margin: 0.5em 0;
+    }
+    
+    summary {
+        font-size: 1.1em;
+    }
+    
+    .image {
+        margin: 1em 0;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    #theme-toggle {
+        display: none;
+    }
+
+    body {
+        color: black !important;
+        background: white !important;
+        margin: 0;
+        padding: 0.5in;
+        font-size: 12pt;
+    }
+
+    a {
+        color: blue !important;
+        text-decoration: underline;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    table, figure, img {
+        page-break-inside: avoid;
+    }
+    
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    .image {
+        max-width: 100% !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+    
+    details {
+        page-break-inside: avoid;
+    }
+    
+    details > summary {
+        display: block;
+        font-weight: bold;
+    }
+    
+    details > div {
+        display: block !important;
+    }
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+</style>
+
+
+	
+</style></head><body><article id="220be46c-4ec1-806b-a7d5-f1a19b62be1b" class="page sans"><header><h1 class="page-title">伏魔记</h1><p class="page-description"></p></header><div class="page-body"><p id="220be46c-4ec1-80e0-b3fb-cf6253e231d5" class=""><a href="https://zhuanlan.zhihu.com/p/111489443">17年前，在电子词典上做《伏魔记》的开发者的故事</a></p><p id="220be46c-4ec1-809c-bf1e-f49a8262e422" class="">
+</p><p id="220be46c-4ec1-80fa-9d0c-dfdaf2dbe85f" class=""><a href="http://w-m-l.ysepan.com/">攻略来源</a></p><p id="220be46c-4ec1-800e-bbf9-ecf67cc8b34e" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">伏魔记攻略故事全线（通宵虫，渊流，游戏王）</summary><div class="indented"><p id="220be46c-4ec1-8031-b4c7-d3b2559d93e6" class=""><mark class="highlight-red">主线+支线由通宵虫，渊流，游戏王共同完成！！！<br/>主线（作者：通宵虫And游戏王）+支线（作者：渊流）<br/></mark></p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">一、伏魔洞取宝剑</summary><div class="indented"><p id="220be46c-4ec1-80a4-9491-ee5d99bb4e02" class="">我，柳清风，正在百草地捉蝴蝶，玩的不亦乐乎。突然，小师弟来报信，说师傅在无机阁大发雷霆，让我赶快去见他。没办法，赶快到无机阁去见师傅吧。<br/>到了无机阁后，和师傅对话，得知师傅想让我下山降妖，又怕我学艺不精，给师门丢脸。要我必须通过一个考验——替他拿一把什么“伏魔”破剑，才能下山。这个容易，不就是一把破剑吗？当然难不倒我柳大仙，出发！！！我又跑到了百草地那边。<br/></p><p id="220be46c-4ec1-802a-a84e-dea4cbe1b6e8" class=""><br/>原来这把剑藏在三清山后山的伏魔洞中。来到伏魔洞中却发现有两个小门子挡住了去路，这时才想起来师傅曾说要过三道考验，才能拿到剑。打开机关门的方法师傅又不肯说。哎，这个可恶的爱买关子的臭师傅。<br/>经过我仔细的调查，发现伏魔洞中有八个地洞有点可疑，二话不说，我往下跳——！跳下去后，发现是个山洞，有一盏忽闪忽闪的灯，有点可疑！对着灯我调查一翻，没想到却和一只猩猩打了一架，打完后，游戏提示我“搞定灯一”，看来有门儿。我就像切萝卜似的，一个一个将剩下的7个猩猩的脑袋全给揪了下来。上来到伏魔洞中一看，哇塞，门儿开了！（注意，有两个灯被石头包围了，好象够不到，没法打。我就拿我的头和石头一撞，呵呵，没想到石头没我头硬，竟然让我从石头上过去了！）<br/></p><p id="220be46c-4ec1-806e-80df-c49038554dc7" class=""><br/>到伏魔阵中一看，哇！好大的一把剑！我收起来。又来了一个大头，竟然有三头六臂，我打！<br/>打败护剑神后，被乱石砸伤，慌忙逃回无机阁，将无极乾坤剑交给师傅后，就可以下山了。<br/></p><p id="220be46c-4ec1-8033-afdb-d1ce843ac736" class="">
+</p><p id="220be46c-4ec1-80eb-a0d6-ef6f9d0ad3c7" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">二、下山除蛇妖（遇慕容小梅）</summary><div class="indented"><p id="220be46c-4ec1-8082-ad6f-f74ad9739b26" class=""><br/>下山的路好长呀，不过路上有好多东西可以拣，多绕绕路吧。好不容易来到了一个村庄，却发现村中没有一个人。来到村长家打听消息得知有一个人首蛇身的妖怪到村中作怪，好想吃小孩！这事儿被我柳大仙碰到了，怎能袖手旁观？继续和村长对话得知蛇妖出没在村南的毒瘴林中，我说要去降妖，村长竟然让他女儿来帮助我，我柳大仙法力高强，打个蛇妖还要人帮？哎！没办法，恭敬不如从命，多个人多点力量。<br/></p><p id="220be46c-4ec1-80e6-bde0-d70c1477c7af" class=""><br/>带着新加入的靓妹——慕容小梅，我来到了村南的毒瘴林入口，正要进入，游戏提示我说毒气太浓，无法进入。发现旁边有个小屋，不妨进去看看，进入后看到一个人，好象猎人的装扮。和他对话，得知他是世代住在这里的猎户，对附近的情况很熟悉。他告诉我说要进入毒瘴林，必须身穿芦藤甲，否则就会被瘴气攻心而死。芦藤甲相传是鲁公（公输班）所造，现在传给了他的后人鲁斧的手上，他家住在石梦城。<br/></p><p id="220be46c-4ec1-80bf-b015-f39f70ea12ca" class="">到石梦城（从右边出忘忧村）鲁斧家借芦藤甲，却被告知保甲被恶霸李虎抢走了。二话不说，我来到了李虎家的门口，喔！还有两个看门狗——看我的打狗棒法。收拾了看门的家丁后，我直奔李虎家的客厅杀来，李虎还在客厅里想没事儿人一样！<br/>不太轻松的搞定李虎后，得到芦藤甲。到鲁斧家，鲁斧挺食相的，告诉我保甲愿意相赠我这样的英雄，哈哈⋯⋯<br/></p><p id="220be46c-4ec1-8028-8d5c-ef6afbecf87e" class=""><br/>穿上芦藤甲，来到毒瘴林，这时就可以进入了。来到蛇窟山洞第三层后，发现一个好大的蛇妖。为民除害，见义勇为，我义无返顾。搞定蛇妖后，他恼羞成怒，竟然想把我封在了洞里面。没关系，再仔细的搜索一下。我发现原来有块石头挡着的地方，现在没有石头了，进去看看吧！<br/>哇！好象没出口呀？！不要被自己的眼睛所欺骗，前面有个地方可以通过。从有遮挡层的地方通过后，竟进入了蛇窟宝洞。看来是蛇妖那个大智障，将宝洞的石头挪到了蛇窟山洞出口了。好多宝物呀！我都看花眼了，我拿拿拿拿⋯⋯拿完后，发现地上有个一圈一圈的地点，看来有问题。我往上一踩，竟然回到了忘忧坟厂。<br/></p><p id="220be46c-4ec1-802e-8914-f8eda69c244f" class="">经过剧情回到忘忧村，发现蛇妖正在行凶。慕容小梅发现父亲已经被蛇妖杀死而昏死过去，现在你一个人战蛇妖吧。<br/>打败蛇妖后，慕容小梅安葬了父亲后，我就要回山复命了。<br/></p></div></details><p id="220be46c-4ec1-800b-9533-e2b06c996c67" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">三、钟山杀赤血（遇袁萍芷）</summary><div class="indented"><p id="220be46c-4ec1-800a-a8af-e9d26a46cdb5" class=""><br/>回山向师傅介绍了降妖的一些情况后，师傅告知有大批妖魔侵犯钟山，师叔冲虚子告急，希望得到支援。没办法，咱天生就是劳碌的命。我不辞劳苦，上钟山！<br/>来到忘忧村时，让我先去看一下慕容小梅。小梅听我说要上钟山降妖，她也要去，没她在，打起架来，我还真有点心虚，有个人做伴也好。走！<br/></p><p id="220be46c-4ec1-8086-8218-d36a78ee47e0" class=""><br/>来到建业城，突然有人喊捉贼。捉贼？！我拿手。三下五除二，搞定了小偷后，发现是又个靓妹。建业客栈宿一晚后，发现小偷——袁萍芷不辞而别了。钟山的任务太紧迫了，关不了许多了，继续向钟山进发。<br/>到钟山入口处，我们发现了袁萍芷，她现在愿改邪归正。好！不料半路杀出个程咬金，三个垃圾小雷公来挡道。搞定他们后，来到钟山道院，进入冲虚阁。大战三场后，钟山的同门带我去见师叔冲虚子。唠叨完后睡觉。第二天，一大清早，同门又告诉我师叔冲虚子有请，老头子还真罗嗦。见完师叔后，留下我们三个看钟，他去打仗，这老头看不出还挺好斗。<br/></p><p id="220be46c-4ec1-8085-bcac-cb0ed8b2de0a" class=""><br/>我们三个正在猜测前面大战的情况，突然闯进来一个老妖——假阎罗赤血，我打——<br/>不料我柳大仙纵横江湖几十天，竟然在小河沟里翻了船——被赤血搞晕了。等我醒来时，发现霸王钟不见了，袁萍芷也不见了，难道袁萍芷是内奸？师叔来了，罗嗦了一会后，我就担负起了寻找霸王钟重担。<br/>于是我们满怀信心地踏上了寻找袁萍芷的道路！！！下了山，回到建业城，我想往西直走，小梅却说让我问问有没有那个“内奸”的消息。美女的话，怎敢不丛，我就到建业客栈去找老板问话。<br/>老板说拿钟的人应该是去了西边的白水镇，我像接到了命令般十万火急地向白水镇跑去，一进镇，我就觉得气氛不对。果然，我与一个游人刚说一句话，他就说我是他儿子。岂有此理！！！我堂堂柳大仙怎会是你儿子，这人八成是疯了！！！镇里转了一圈，对这的情况稍有了解——这里的人们孩子好象都被......<br/></p><p id="220be46c-4ec1-80c4-94f2-decc58d3b73f" class=""><br/>好恐怖呀。<br/></p><p id="220be46c-4ec1-80ea-90f4-f3367149c88f" class=""><br/>我向南走时，看见一个阴气森森的古宅，正要进去，两个执法人员拉住我说里面有鬼，人不得进。我可是守法的人，于是我童心大起，在镇子里每间屋子串来串去。......咦！这人怎么德高望重的样子，跟他聊聊天，不想他竟是镇长。<br/>不听不知道，一听吓一跳。这里的人的孩子原来都被古宅里的妖怪弄走了，没事，我除魔卫道是本能，和镇长商量后，我决定向古宅出发！！！<br/>进入宅院，阴气重重。我走进屋子里，什么人也没有，这就怪了。还是小梅眼尖，看见一个奇怪的摆设，我过去看一下，突然院子里的哭声更大了。恩，蹊跷肯定在院子里，我到外头，很快发现了声源——一口枯井！<br/>二话没说，我就意正严词地跳了进去。晕呀......又是个迷宫，我就走走走，又走到一个有4层圈的地方，不用说，走进去！来到另一个地方，咦！前面不就是袁妹妹吗？我正要过去，小梅突然说那是个摄魂阵，不能乱闯，要解开旁边倒立的8个人才行！好的，开打，又是一番恶斗。8个人被解决后，中间被摄魂术控制的袁妹妹醒了过来，一番对话，才知道她不是内奸！！！然后我可爱的袁妹妹就归队了。呵呵，又是三人行！<br/></p><p id="220be46c-4ec1-800f-bbde-d1c74ff9ccac" class=""><br/>正要走呢，突然又冒出一个怪物，原来又是假阎罗赤血呀，一番死战，他被我彻底消灭了，呵呵，我说过我很厉害的！<br/>回到镇长那里，他感谢了我，然后吩咐手下救了小孩子，告诉我拿钟的人去了西边的南北村。好的，用咱们的飞毛腿，进发！！！<br/></p></div></details><p id="220be46c-4ec1-8068-b003-cbdb6cb6fe81" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">四、周处除三害</summary><div class="indented"><p id="220be46c-4ec1-80b3-951a-cf4c79e5c311" class=""><br/>到了南北村，真有一些重归故土的感觉，因为这里的地形实在太像忘忧村了，于是顿时对这里有一些亲切感。就找了一个游人聊天，他却说什么周公显灵，我们又在村里聊了一会儿，才知道这里前两天周公显灵，说这里将有血光之灾，只有1男2女可以解决，我想肯定是在说我这个大帅哥和那两个小靓妹，呵呵，我说的应该没错吧（玩家：“你也算帅，没有我的努力你还在百草地呢......”）<br/>然后我就跑到村北的周公庙里。果然见一个神仙在等我们。我们和他说话，知道他就是周处。周处告诉我们他以前封住的苍龙白虎好象有复活的样子，让我们去收了他们，他定给予重谢。为了那“重谢”，我开始降龙伏虎。<br/></p><p id="220be46c-4ec1-8030-b6a2-fcb3537734f5" class=""><br/>根据以前蛇妖在北面的经验，我果断地向村北走去。哈哈哈，我猜对了，这边有一个山洞，只是里面臭气熏天，害的小梅都想吐，为了这一点，我就应该消灭白虎！！！<br/>在山洞里转来转去的，又到了一个圈圈地点，我踏上去——嘿嘿！居然有两个宝箱，我打开了后，大喜，是白花花的银子呀，呵呵，发财了！！！<br/>我又转了一会，就是找不到白虎，但是那一堆白骨好象有问题，我过去一看，哈哈，白虎在里面藏着！！！打死他后，得到了个什么垃圾白虎之精，也不知道有什么用。还是先收服苍龙吧。<br/></p><p id="220be46c-4ec1-802c-8d15-ecd794768292" class=""><br/>于是我北上来到了北海沿岸，看见个旋涡，就跳了进去。烦不烦呀，又是迷宫，又走到一个圈圈地点，不用说，肯定要踏上去！！！来到一个龙宫，呵呵，主人好象不在家。我就往左走，看见一个蜥蜴，和它说话，原来是北海蛟，杀了他，一个避血手腕。又向右边走，是个大狗，再仔细看，是北海龙，呵呵，开杀，又使个避血手腕。<br/>走到大殿，又遇见北海蛟和北海龙一起上，这次它们被我真的杀了。老大出现了，真是烦，杀杀杀......得到一个什么叫“苍龙之精”的废品。我也该回周处那要“重谢”了，谁知他却给我一个《周处除三害》。周处还说应该去西边的酆都鬼城，然后这个破罗子神仙就升天了。那就走吧！！！<br/></p></div></details><p id="220be46c-4ec1-80f3-9fd1-ff002c6ac156" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">五、除天道（袁萍芷离队化身朱雀）</summary><div class="indented"><p id="220be46c-4ec1-8017-a9a9-caafa0711f27" class=""><br/>“走呀走呀走呀走，走到九月九哦哦......”我唱了一首歌，总算到酆都了，这里的人更奇怪——见到我就像见到鬼一样，怎么搞的。只好用老办法，和城里每个人都了解一下情况，但和上次一样，没问出什么眉目来。看来只好找客栈老板了。呵呵，还是客栈的人见识多，老板告诉我说这里是酆都鬼城，白天是人的，夜晚是鬼的，但近来白天也有鬼出来吓人，人晚上最好不要出去。原来是这样，于是我脑子转了几圈，想出了个好办法，三个人就住下了。<br/></p><p id="220be46c-4ec1-800c-adc6-dc1904649631" class=""><br/>到了三更半夜，我拉起了那两位靓妹，准备出去。店主发现后连忙阻挠，但是我的意志可是无比坚定的，店主见拗不过我，就让我们出来了。街上怎么冷清清的，我转了一圈，看见一个穿白衣服的人，不对不对，应该说是穿白衣服的鬼。我去问他鬼王赤血在哪里？他，白无常，竟然口出狂言说我们死了就能见了，并且要打死我们，岂有此理，我怒了于是就和他打了起来。这家伙功夫不赖，但还是被我轻而易举地打昏了过去......我不是自夸啦，实在是因为我太厉害了，呵呵。他对我说鬼王在南边的城隍庙里，正要过去，看见一个小鬼，他比白无常更狂妄，要我们打败他再说，我弹了弹指甲，他就来无影，去无踪了。<br/></p><p id="220be46c-4ec1-8022-aa16-fa12ae49a53e" class=""><br/>到了前面，终于看到了鬼王赤血，他居然又和我打了起来，三战三捷，我们又胜了。O-yell...O-yell...庆祝一番后，赤血说他既然败了，就任凭我处置，我本无杀他之心，于是和他罗嗦了一会儿。原来整个事件的源头不是这里，是在鹤鸣山的天道那里，我们就向西进发。<br/>来到鹤鸣山脚的村子，荒凉呀！还有几个村民死了，听别的村民说，他们是被妖魔杀的。气死我也，上山杀死妖怪！！！这个鹤鸣山还不错，我捡到了一个“御风”牌草鞋和玄冥草。<br/></p><p id="220be46c-4ec1-805b-bc2f-f76b025bfa37" class=""><br/>只有左边可走，我就用绝世轻功飞了过去，然后看见一个门，门口有两个小妖，轻轻松松解决了他们，前面的道士应该就是天道了，打斗一番，当然是天道死了。谁知道，袁妹妹居然变成了一只鸟，一看，是朱雀。<br/>和她说了半天，原来——她本来即是四象星君之一，是奉我师傅之命，来杀我......师傅原来是超级大恶魔！！！打败朱雀之后，她教了我一招“妙手空空”，好玩，以后就可以偷敌人的东西了（必须以前给她装备《周处除三害》才行），她却又自杀了，我命苦的袁妹妹呀！！！得到了“朱雀之精”<br/></p><p id="220be46c-4ec1-801b-b8fd-ccaf93891bfa" class=""><br/>远处传来众妖魔的声音，我和小梅就躲到了一个山洞里。可是这又是一个迷宫，好烦呀！！！走了半天，看到两个箱子，打开一个得用万能钥匙，里面是不点卡片；另一个是玄冰玉如意。小梅说后面的四个字有玄机，我就走了过去。原来是四个“替天行道”！<br/>我走到四个字前分别查看了一下，有石头碎裂的声音。<br/></p><p id="220be46c-4ec1-8037-a065-f5d0104c458e" class=""><br/>然后出来一个恐龙，和他打了半天，原来他就是玄武。他死后，我又得到了个玄武之精！<br/>我又转了半天，上了一个楼梯，又踏了一个圈圈地点，到了天师陵墓！！！最前面站着一个老伯伯，我好心和他说话，他却说我打扰了他清修，要和我打！于是我打败了他，亏他还自称是我祖师爷呢，真是垃圾，不经打！打败他，原来他是张道陵的一个魂魄，他现在可以升仙了，他还告诉我师傅已经变成大恶魔了！！！然后我就昏了过去，醒来的时候好象在愚人居，我和外国人不点点用不点卡片买了极品装备就讨伐师傅去了。<br/>到了摩天顶，遇见了诛仙阵，用那些“XX之精”贿赂过四条大柱子后，就和中间的诛仙打了起来，这家伙好难缠呀！！！不过还是被我乾坤无敌柳大仙打败，呵呵，那个差点吸走我魂魄的混元金斗归我了，爽呀！！！<br/></p></div></details><p id="220be46c-4ec1-80df-9a73-d087b70f587a" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">六、徒儿打师傅</summary><div class="indented"><p id="220be46c-4ec1-800e-b514-e666fafa8eb1" class=""><br/>到了三清宫，进了无机阁，咦，师傅呢？？？再往前走，我居然发现原来祖师爷神像后有个洞。哇！我是在这长大的，居然不知道，师傅隐藏得真厉害！我就走进去，又走了一会迷宫，真是不好玩！到了圈圈地点，当然踏上去。<br/>“咦！师傅！”我情不自禁地喊道，小梅却说师傅入了魔，不会认识我，我只好忍着内心的疼痛和师傅战斗......好在我没有伤着师傅，只是打破了他心中的心魔。可是师傅还是解脱了，他告诉我要赶紧把混元金斗放回伏魔洞的先天伏魔阵里，我赶紧跑出无机阁，向伏魔洞进发！！！<br/>到了伏魔洞的先天伏魔阵里，只见有4队怪物，我消灭他们后赶紧放混元金斗，人算不如天算！我居然又遇见了手下败将——护剑神！是免战还是扁他呢？我犹豫着......<br/></p></div></details><p id="220be46c-4ec1-8014-b705-e2518373c38e" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">七、大结局（泪目）</summary><div class="indented"><p id="220be46c-4ec1-804d-b328-de0a9b579cee" class=""><br/>对了，我用时空转移大法（就是先选“免战”，等通关后，再玩这个存档，选“欠扁”），现在灭妖要紧，还是先选免吧，于是我和他没有打架。<br/>若干年后......我成为掌门。<br/>这天，师弟告诉我最好玩的地方，我正要和他走，老婆子（小梅）又来唠叨了。不好，快闪要紧！！！！！！（完）<br/>然后我返回那个存档和护剑神说话时，选择了扁他。我把他给教训了一顿，他感叹了几句后......<br/>若干年后......我成为掌门。<br/>这天，师弟告诉我最好玩的地方，我正要和他走，老婆子（小梅）又来唠叨了。不好，快闪要紧！！！！！！（完）<br/></p></div></details></div></details><p id="220be46c-4ec1-809b-9a49-d9e30c2356cd" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">伏魔记终极究级装备</summary><div class="indented"><p id="220be46c-4ec1-80e2-b720-f11a382b2411" class=""><br/><br/><mark class="highlight-red"><strong>BY dzzz</strong></mark></p><p id="220be46c-4ec1-8059-b192-f7db727eac30" class=""><br/>柳清风：<br/><div class="indented"><p id="220be46c-4ec1-8059-86ae-f5e6b228a0f4" class="">天心灯，寒冰玉佩，避血手镯，乾坤游步（是鞋），七星剑（建议另配钨龙剑以备全体攻击），潮海衣，御灵道袍，天蚕丝带（是头戴的）</p></div></p><p id="220be46c-4ec1-80b9-b621-f1cede40086b" class="">慕容小梅：<div class="indented"><p id="220be46c-4ec1-80ba-98e1-db6ad73720ca" class="">七星灯，玄冰玉如意，玉镯，御风草鞋（灵狐靴备用），幽真双剑，诡踪衣（避毒衣备用），凤纹披风，天蚕丝带（避邪冠备用）</p></div></p></div></details><p id="220be46c-4ec1-80bc-b2a8-dabd898e24a5" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">伏魔记完美攻略</summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">攻略前言</summary><div class="indented"><p id="220be46c-4ec1-803e-8899-f0f888df2e59" class="">最初的一段时光是最难熬的了,刚开始没找师父前在百草地西北角有把绝世好剑－－钨龙剑!在百草地你还能找到金蝥、珠仙草（增加人物属性最大值的药品发现后马上吃掉）。<br/>来到百草地东面的三清宫内，进入无机阁中找到师父后在无机阁北面的墙上有勾魂散、七步蛇毒和六脏蚀毒粉。出了无机阁在炼丹房内北面墙上的一排葫芦中可以找到两颗无忧仙丹，在两间普通弟子居中有天山盐、金蝥和一些钱币。在厨房中有玉蓝草、茶叶蛋和天山盐，在师父居有降魔符、回神丹和定心符。在大师兄居有些钱币和白衣，在清风居（你自己的房间）中有发带、草鞋和一些钱币，其中的一张床可以休息（补满生命）。<br/></p><p id="220be46c-4ec1-80f9-8e14-cef727388bff" class=""><br/>以上是三清宫中可以找到的所有物品了。宫中有间药房,可以从柜台处买些青阴君带着。<br/>伏魔洞在百草地的西面，途中有座三清坟场，别在那儿耽误时间，直接去伏魔洞。<br/>要想拿到伏魔剑，先要打倒8个分布在8个灯洞中的护灯神兽，练成“降魔符法”后就能轻易地将其搞定。暗器和药品等到打护剑兽时再用，不然提前用完后打护剑兽会很困难的。要等到练成剑气术才能去搞护剑兽。<br/>下山的途中经过摩天顶时不要忘了去西面的观星亭拿督化笛。在经过一些错综复杂的歇息台子时可以到处找些物品。清单如下：青铜铠、长剑、双手剑、步护腕、花布鞋、彩带、八仙石、飞蝗石、玉蓝草⋯⋯<br/></p><p id="220be46c-4ec1-804b-bda2-d93cbbf5a1fa" class=""><br/>在此就不一一列出了。三清山入口出西面的草地上有玉蓝草和七杳草根。<br/>来到忘忧村的途中有个向北的岔路口，一东一西的树上有青仙果和霸王花。<br/>进了忘忧村后来到村子东北角的房内与主人打个招呼后在他屋内找到披风出来后去杂货店下面的房子中与主人说一下话后在屋内找到香袋去村子西北角蔡婆婆的房子中与蔡婆婆说话，她会让你救她女儿，一定要按照上述顺序才能进入蔡婆婆的房间，房间中还有一枚战狂石。并且不能忘了救她的女儿，救出她女儿后会得到一件宝物！在村子南边的村长家中找到村长，带上慕容小梅，把一些女孩用的装备都给她，在村长家中可以找到小梅穿的丝衣。在村子中武器店的东面的房间中找到老孟，帮她送情书。在武器店中除了砍刀其余不需要别的，因为遇上厉害的敌人时投掷砍刀可以伤敌hp-1034，而且价格适宜。在村子东南角的井旁有定心符，在杂货店西面有茶叶蛋。<br/>等这一切都办完后，去村子西南处通往瘴气林入口的道路，途中经过一个岔路口时往西面的愚人居的井中有罗汉笑。回到岔路口继续向南走，要先往瘴气林中闯一下，然后去北面的猎户家中询问进入瘴气林的办法，猎户家旁有烤鹿肉。<br/></p><p id="220be46c-4ec1-8052-88fe-db389db885d5" class="">
+</p><p id="220be46c-4ec1-8089-97fc-c38bc07a8b9b" class="">然后就去石梦城，在忘忧村东面，沿着路放心走，你不会迷路的！<br/>在此顺便告诉你一个赚钱的绝招:一般物品在当铺卖时是以购买时的半价出售的,但有一种物品购买时价格是222元,而在当铺出售时是购买价格的两倍,这种物品就是－－灵芝草。<br/>还要提醒各位的是：身法在此游戏中起着重要作用，在某些关键时刻更是决定着生死，所以，一些降低身法的装备尽量别使用。<br/></p><p id="220be46c-4ec1-80a9-b087-f2f16b1b9ee2" class="">
+</p><p id="220be46c-4ec1-80c5-9409-e2cf74e26947" class="">到达石梦城后先买些装备（有些装备只有符合特定的属性的人物才能装备），然后在有两个人把守的李府的北面的房间中你会找到鲁斧，你将答应帮他夺回芦藤铠甲，然后闯进李府客厅，客厅桌上有千里飘，把李虎搞定后将会得到芦藤雄甲、芦藤雌甲和金色钥匙（如果在忘忧村没有找到蔡婆婆，那么将不会得到金色钥匙）。在李府客厅的东面的房间中捆着蔡婆婆的女儿，要使用金色钥匙才能进入。在这间房子的南面的下人房中放走老王,然后去老王家中找老王,他会告诉你李府有密道,密道入口就在关蔡婆婆女儿房间的后面。李府西南角的房间中有子光金符、寒冰蛙、清凉油和袖里剑。在石梦城东南角的塔砖中有穿心镖。（为了节省时间，此后一些不重要的物品将不再一一列出所在地点）</p><p id="220be46c-4ec1-8033-bfaf-e2e6f4329bda" class="">
+</p><p id="220be46c-4ec1-8003-ac4d-eaa1e6e9d0d7" class="">穿上芦藤铠甲回到忘忧村后，先去蔡婆婆家找到她，她会送你“七星灯”。<br/>进入毒瘴林，来到蛇窟山洞里，找到蛇妖，只需投掷出几把砍刀就能轻松战胜它。然后它将你封在洞中后，在一个通道的尽头你会发现出口。在你将它彻底击毙之后，上山复命吧。<br/>到此为止，游戏的第一部分告一段落。<br/></p><p id="220be46c-4ec1-80b0-b61f-f5b4acde105c" class="">
+</p><p id="220be46c-4ec1-8030-b7f4-fdec3c1ec671" class="">上山复命之后，去钟山援救师叔的途中要经过建业城，此时会和一个小偷发生争执，投出几把砍刀后她会卸下男装变成女的，她就是你队伍中的第三个成员－－袁萍芷。当然了，现在她一定离去，但别担心，不久你就能重新遇见她。在建业城中别忘了把“老孟情书”送给阿军（一定要送到，不然你会后悔的！），阿军家就在建业城中一间入口面向西方的房间（如果你先去了钟山，那么可能会见不到阿军）。</p><p id="220be46c-4ec1-8068-945e-fd37af64b00b" class="">
+</p><p id="220be46c-4ec1-8081-b937-f4fc71fecfd1" class="">在建业城的武器店中多买些弯月刀（战斗时投出可伤敌约hp-5065.哈哈，厉害吧！），弯月刀只有在建业城才能买到。<br/>此时你想让你的级别迅速提升吗？告诉你一个秘密:在建业城的一个灯柱内有个钱袋,你拾到后会有三个不知天高地厚的小子向你要,忍耐一下,别发火,把钱还给他们。然后去客栈中找他们算帐，搞定他们后会得到富贵珠和一些装备，富贵珠留着没用，但卖出可以赚30000元钱的！出了客栈后可以再进去再和他们三人战斗，如此进进出出，你的级别会迅速提升，等到35级时，所有魔法将会修炼完成；60级后就是max，也就是所谓的无限了。<br/></p><p id="220be46c-4ec1-8037-a0bd-f7169080a5f6" class="">
+</p><p id="220be46c-4ec1-807a-924e-df84ace6e62a" class="">等到你对你的级别满意时就可以去钟山援救师叔了。<br/>在钟山入口处你会遇见袁萍芷，她会要求加入。<br/>在钟山道院的一个类似于无机阁的建筑中困着冲虚道长，解围后会碰见一个有眼不识泰山的小妖——赤血，战斗时只需投掷出两把弯月刀就能战胜他，但最后他会用摄魂术迷惑你，结果可想而知。<br/></p><p id="220be46c-4ec1-804a-8637-d108151b231f" class="">
+</p><p id="220be46c-4ec1-802f-9c77-e4ffcf6403ee" class="">从霸王钟洞里出来后冲虚会来找你，听他唠叨完后回到建业城中，去城西白水镇中找赤血算帐。<br/>来到白水镇，在镇长屋后有张“虫子卡片”（就是镇子西北角的房间），带上它，以后用的上。先与镇上游人交流一下后去客栈中找小二，他会告诉你原因的。然后出了客栈在镇子南面古宅入口出会有两个人把守着，这时去找镇长，他会领着你去。<br/>进入老宅子里，在南面的一间房子里有一个形状古怪的物品，对着它按“输入”后回到老宅子里，进入东北角的枯井中，找到“摄魂阵”，破解开摄魂阵后救出袁萍芷后一个回合搞死赤血。得到“引路石”后用它出来。<br/></p><p id="220be46c-4ec1-8059-89d9-e3a2b90db896" class="">
+</p><p id="220be46c-4ec1-8044-81fd-f7225a9f8217" class="">接着去南北村,南北村中有件魔族至宝——紫瞳魔灯(别拿,因为万能钥匙只有3把,现在拿了以后的卡片就拿不到了)，在东南角的房间后面。与村中的游人交流后去周处庙（和忘忧村村长家的位置相同），然后去南北村村南处的南山虎穴，消灭老虎后使用引路石回到南北村。回到南北村后找到周处庙入口处的两个村民，然后去找周处，周处会给你两颗无忧仙丹，别理那两个村民了，把仙丹自己吃了吧。</p><p id="220be46c-4ec1-8007-ac92-f74a8759d366" class="">
+</p><p id="220be46c-4ec1-8021-9986-eac0fe291859" class="">这时去北海迷宫找苍龙，把它打死后回到南北村找周处，他会送你一本书，如果你把这本书给袁萍芷装备上，以后她会教你“妙手空空”。<br/>料理完南北村的事情后就去鬼城，到鬼城后先别进客栈，去城中的一口井中找“移魂刀”,找到后给袁萍芷装备上，然后在街上随便找个人说一下后进入客栈,客栈中靠近柜台的酒缸中有张“小鬼卡片”，拿到,以后异域人陈泽伟会教你武功。与小二打招呼后去街上找到死皮赖脸的白无常，撂倒他后去城南鬼王庙找到鬼王并干掉他！然后去城西鹤鸣山，在鹤鸣山顶处有把“嗜血剑”，这是一把很垃圾的剑，尽管它的攻击力很高，但是弊大于利，找个机会投掷掉吧！<br/></p><p id="220be46c-4ec1-8053-bc71-ee8c3e4fbb7e" class="">
+</p><p id="220be46c-4ec1-8098-b2f7-f5fae120bf61" class="">在山顶处杀掉两个不值一提的小妖后会碰见天道，这个自视清高的家伙还是有两把刷子的，对付他之前要做好充分的准备。如果你在建业城时买的弯月刀数量多的话这时就不用担心了，只需投出几把就能轻松搞定！把天道k掉后将要和袁萍芷交手，用老方法——投掷弯月刀，轻松搞定，但如果她此时用“炎龙覆天”这招搞你的话可能会死机。</p><p id="220be46c-4ec1-80c6-96a4-e13cb6dede55" class="">
+</p><p id="220be46c-4ec1-80e5-99d6-e3f67bccd6b8" class="">解决了袁萍芷（死有余辜，欺骗别人的感情）后，进入鹤鸣山洞，沿着西边的路向上走，当走到尽头的时候在你东面有两个宝箱，西边的一个是“不点卡片”，旁边的一个是“玄冰玉如意”（好东西！）。正对着宝箱的是四个大字——替 天 行 道。按照顺序在四个字上分别点击一下后玄武将会现身，相信此时的你有能力将它干掉。</p><p id="220be46c-4ec1-801a-b7fd-fd6e7e29baf1" class="">
+</p><p id="220be46c-4ec1-808b-986a-deb65c4f4f68" class="">得到“玄武之精”后去陵墓迷宫（入口就在那四个大字的东面），在陵墓迷宫中找到天师陵墓的入口，进去后会发现在最上方的一个八卦阵中央端坐着一脸凝重的张道陵，只可惜这个老头不分青红皂白就向你不宣而战，既然这样你也用不着跟他客气了，三下五除二就让他升天了(如果你的“吉运”值高，此时还会得到“定神珠”)，这时他的魂魄升天时会把你带到忘忧村南的愚人居，在愚人居中有几个异域人，但如果你没有神秘卡片的话他们就不会出现。想必各位一定很纳闷为何会起名为“愚人居”，接着看就知道了——</p><p id="220be46c-4ec1-80a6-8dfe-ee233b78dbe0" class="">
+</p><p id="220be46c-4ec1-80df-809a-d649f1781fea" class="">如果你集齐三张神秘卡片，此时就派上用场了。既然是|愚人|，那一定是有原因的了，在愚人居中，你如果先找到南方小鬼(步步高论坛斑竹)的话，他会向你要“小鬼卡片”，但如果你答应给他，他拿走的却是你的“不点卡片”，然后他会教你“泽伟补命述”（最厉害的医术），但如果你没有“不点卡片”或是你先把“不点卡片”给了不点点，即使你给他“小鬼卡片”，他也会骗走你8000元钱。如果你先找到不点点，她会向你要“不点卡片”，你如果给她，那她会卖给你一些难得的武器，但就学不到“泽伟补命述”了；还有通宵虫(步步高论坛斑竹)，如果你把“虫子卡片”给他，他会教你最个性化的魔法——百虫欺天！但如果你不给他卡片，他则会要求与你用你所有的钱交换他的衣服——潮海衣！这是最棒的衣服！因为以上所有的东西和魔法和装备不可能都得到，所以请大家自己掂量，这也就是“愚人”之所在！</p><p id="220be46c-4ec1-8065-8e18-d712fb35d935" class="">
+</p><p id="220be46c-4ec1-8059-9be7-f74b1846369a" class="">回到忘忧村后就往三清山进发吧，在经过摩天顶时四象诛仙阵会阻碍你前进，破此阵法的前提是要佩带“天心灯”，分别把四象精魄方入阵四周的惊、伤、杜、活四大阵门，然后拿走阵中央的“混元金斗”，这时诛仙会现身阻止你，现在这个班门弄斧的家伙相信对于你已经够不上威胁了。<br/>破了四象诛仙阵后回到三清宫，此时的你是否会感到一丝亲切？别大意了，无机子这时修炼“万魔幻化”已经达到第8层，不是那么好对付的。进入无机阁后，在太上老君的石像旁就是无机洞洞口，面对着它按下“输入”键就可以进入。无机子在洞中央，找到后只需投出3把七星剑就能轻松搞定这个不知悔改的老贼。<br/></p><p id="220be46c-4ec1-802c-b5cd-cbff31c1d74b" class="">
+</p><p id="220be46c-4ec1-8021-a7b3-e4de970df991" class="">然后，回到伏魔洞，来到伏魔阵中央，不需要理会周围的小妖，面对着当初拔伏魔剑的地方按“输入”键，这时护剑兽会出现，看到他的嚣张气焰你是否觉得他很欠扁呢？这就对了，让他死的明明白白！</p><p id="220be46c-4ec1-8050-b450-f8c1fd0d6e1c" class="">
+</p><p id="220be46c-4ec1-802b-a0e7-d4e3e7992391" class="">首先 你应该注意，那些下面多了一横线的有物品可拿！刚出来，去见了师傅，就在各个地方拿东西。无机阁有毒药拿，丹房里有2个丹药，各居室里也有钱和装备。之后去药店里买6个青阴君，就可以出发了！延路也有东东可拿哦！升了一级就用飞剑斩杀！到了伏魔洞，先去灯洞2和6拿装备，到了4级就可用符法去干掉8个灯兽了！补充了血和蓝，就杀护剑兽，先干掉2个小的，再用毒药毒大的，中了毒的话，就可轻松宰了他了！然后见了师傅就下山。多往左边走，装备都在左边！到了忘忧村，先往下去见村长，小梅加入！上来后，每个屋都进一次，可得老孟情书，还有婆婆要你救她的小画家。然后下来往左，到了林子进不去，可进屋里和猎人对话。之后到石建城右上的屋里见老头，出来杀进李府，杀了李虎后到旁屋救出小画家，到橱房放了王管家，就出来到左下屋内见王管家，他会告诉你李府内有密道，你就去李府右上从房子穿过，可进密道拿宝物！之后就去杀蛇，蛇可乱，容易杀。但它跑后，你须一个人对付它，就难了。可以在蛇洞多爆点火毛虫，用虫眠它，就容易了！上山见了师傅，回忘忧村接了小梅，就前往钟山。途经建业城，碰上小偷袁苹止，宰了她！从客栈出来，先找阿军把老孟情书给他，可得3万能钥匙！然后去当铺卖了不要的物品，到武器店买弯月刀（用弯月刀扔怪可杀5000血！）也可选择买装备，凭实力过通关，但很难！就去钟山吧！钟山下来，又可买弯月刀了！到了白水村，在左上村长家屋后用钥匙可得神秘卡片1。之后问行走的人，然后去客栈问老板，再往下问守宅人，问村长，进入老宅。进到屋内，对那个狗头按一下，出来进入枯井。破了摄魂阵，就到南北村。右下井边，对着屋后可得魔族至宝。然后杀老虎，宰了龙。也可在海里做死的升级，直到练成最好的功夫：神剑御魔，凤舞九天！之后到酆都，右下井边可拿移魂刀！问了人之后去客栈，出来杀了白无常和鬼王，就去山上杀天道。可惜袁死了！进了洞后，上面可得卡片3（麻烦大家告诉我卡片2在哪？）杀天师，到了愚人居，买装备啊！冲上山，到无机阁里进入无机洞，杀了师傅，在到伏魔洞 杀了护剑神，结束了！！神秘卡片2在酆都酒店里！</p><p id="220be46c-4ec1-809a-aacb-d8e34e16730e" class="">
+</p><p id="220be46c-4ec1-8054-98cd-ef003552473b" class="">(注：本文为小T上的伏魔记的解说.) 论坛的朋友们好! 伏魔记这个游戏相信大家可能都玩过,这个游戏是虫子和南方小鬼他们写的.(还有三国霸业也是他们写的,但三国霸业相对于伏魔记较难,我经常亡国.没法,我只有拿伏魔记来开刀了.)不过伏魔记整个游戏是比较枯燥的,希望你们在玩时要注意游戏于学习时间的分配.好了,闲话不多说了,直接进入正文. (写在前面的话：本文多有不适,不当之处还望指出.)</p><p id="220be46c-4ec1-80bb-8b6f-f657237e8eda" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">第一阶段：基础级(1级--9级)</summary><div class="indented"><p id="220be46c-4ec1-8042-8a49-d049cfd61246" class=""><br/>我把1级--9级称为基础级,这一阶段是柳清风取伏魔剑的阶段.这一阶段比较间单,但又有些麻烦,不过只要坚持总会过去的.<br/></p><p id="220be46c-4ec1-80df-b233-dae46e2e4006" class=""><br/>游戏一开始,你就会看见这个游戏的主人翁---柳清风.之后,根据师兄的提示,叫你(柳清风,以下的你多指柳清风)去找师傅.要是新手的话,我告诉你,先不忙到师傅那里去,而是先熟习环境,到处逛一逛,翻一翻,你就会找到一些好东西.如：&#x27;无忧仙丹&#x27;(在三清宫练丹房的葫芦中),&#x27;钱&#x27;(在普通弟子居中)等等,<br/></p><p id="220be46c-4ec1-80f3-a853-fa43ecece198" class="">之后在去找师傅也不迟.(当然,你要先去找师傅再去找东西也可以.)之后,你便踏上取剑的道路了.这时你朝三清宫的西边走,走啊走,你将看到&#x27;三清宫坟场&#x27;,进去吧!在这里练级吧!</p><p id="220be46c-4ec1-804e-b472-ec3831536072" class="">可能老手要问了：怎么要到&#x27;坟场&#x27;里练级呢?为什么不到伏魔洞中去练级呢?我告诉你,这两样都可以,但是我认为我的更好.为什么呢?因为在&#x27;坟场&#x27;中有一种很象老头的妖怪,每当你击败一个就有可能获得一个两面针,这可是会加血50,想一想,这是多么的有用啊!</p><p id="220be46c-4ec1-8090-be38-e72754e8bbd7" class="">不过,有时你会被它封住,不能用魔法.对了,还有那个蜜蜂,当它进攻时可能会让你中毒,你应当小心它们.好了,就这样一直玩到你有4级,在这一级你会练成一种新魔法---伏魔咒.这时你就可以到伏魔洞中去了,去进攻那8个护灯兽就比较容易了(差不多用3个伏魔咒就可以了.).</p><p id="220be46c-4ec1-8015-90d5-ed6b3d604127" class="">在打这些护灯兽时,有些宝箱,里面有一些东西在打护剑神兽要用到,应注意.当你打完这几个护灯神兽时,出来,差不多8级了.好,我们到三清宫去买药.注意,买药应当多买加血的.比如：青阴君--加150的血,玉兰草--加280的血,</p><p id="220be46c-4ec1-80ea-afea-c5beeeccc036" class="">到后面,你会在石梦城里买到赤玉断续膏--加450的血.要是你的钱多的话,你可以考虑买800钱的七杳仙草(用来眠护剑神的,但有时也用不起).现在你可以看一看你是否有9级,要是有的话,哈哈!!我们一起去打护剑神兽吧!要是没有,也不用担心,你要选一个练级的地方,练到9级就OK了!.</p><p id="220be46c-4ec1-8083-a2e0-e30261bf8249" class="">看到这里,你一定会问：为什么要到9级才打护剑神兽呢?哈!因为在9级我们会练成又一样新法术---剑气术,这个用来进攻是很有效的.这时,我们就可以杀回伏魔洞,取剑去了!但在同护剑神兽搏杀之前要存一次档,当你死去时就不用怕了,同时也为你壮壮胆.还有在打护剑神兽的过程中一定不要紧张,该怎样就怎样,小心就好了,相信你会打败它的.</p><p id="220be46c-4ec1-80e4-904e-dceb7cb4e17f" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">第二阶段：发展段(9级--12级)</summary><div class="indented"><p id="220be46c-4ec1-80c5-8322-ff9650d11599" class=""><br/>我在这一阶段里就消灭了那只大蛇妖,所以我将其命名为发展段.而我为什么要将这一阶段取名为&#x27;发展段&#x27;呢?因为呀,在这一阶段中是我们为第三阶段打下基础的,要看第三阶段是否能很顺利的通过有很大的影响(注意,是很大哟!).<br/></p><p id="220be46c-4ec1-80d2-87be-ea33c365a354" class=""><br/>好了!言归你取了伏魔剑,交给了师傅可以下山了.只见你十分高兴的沿着步云梯向下走.下了步云梯你就会看见一个平台(至于叫什么名字,我想不起来了.),再向左走,你就会到观星亭.在那里有一个宝箱,里面有嘟化笛的东西.<br/></p><p id="220be46c-4ec1-80dc-a712-ce33b1a407e8" class="">在从那里出来,向下走.走啊,走,你会看见楼阁式的平台,向四方都有通路.在这里你可能会感觉到象迷宫一般(上次我曾想将这里的地图画下来,后来还是迷了路.这次玩时,我猜想这里可能是依山盘旋而下的,只是猜想啊!).</p><p id="220be46c-4ec1-80a9-b8f2-f5bf834fe86f" class="">而有些平台有宝箱子,想吃完这些箱子有点难.(要知道这是要付出时间的呀!)当你从上面下来时,你将不能上去了,所以要把握好.</p><p id="220be46c-4ec1-8035-ab10-fdd8c9f10900" class="">当你下来之后,将前往忘忧村,在这条道路上有个被打开了的地方,在里面有两样小东西(在树下的哟!).在忘忧村时要熟习环境,在熟习环境之后.寻问一下当地人,有可能你将会得到一封信(有不有它都无所谓.).你还会看见一座桥,在桥的那头是村长的家,那个拿书的人便是村长.</p><p id="220be46c-4ec1-8080-bdbd-dc1ecc451ee6" class="">到了村长家我们同样不能忘记要到处看一看,找一找,看看有不有宝物.找完之后再靠近他.他会告诉你一些关于妖怪的信息,之后会将他的女儿交给你,让她同你一道去打蛇妖.</p><p id="220be46c-4ec1-80ce-9391-dc451e3f6667" class="">之后在从桥那边出来,向左走你就会看见一条路,向下走吧(即前往猎户家)!对了,在这条路上会出现一些小怪,你可能会烦这些小怪,但不要这样.在这里你可以试试群攻(刚开始可能不行,你可以改变装备(女的那个),当出现了灯笼一样的东西便是了(是女那个发的),对了,还有在后面会有剑一样的群攻方式(男的发的),我在下面有说明!有了群攻就方便多了,一切都好办了!</p><p id="220be46c-4ec1-809c-8bf6-cc3cc5e665f9" class="">当你在猎户家门外时,先不要进入,而是走另一条路.当你走到路前时,你不会进入,因为瘴气的原故.这时再进猎户家.进了猎户家,他会告诉你要到石梦城找鲁班的后人鲁公,好了,现在我们出发前往石梦城吧!</p><p id="220be46c-4ec1-80de-a89a-c2abe634ae11" class="">到了石梦城不忙找鲁公,熟习环境先.熟习了环境后,到商店中买东西,换装备；做完后,不是先前你熟习环境时有一女子告诉你&#x27;那户大户人家是李府&#x27;,好了,记住那里是李府.而在这女子周围,你到处找一找,就会得到穿心镖(它可以让蛇妖失去400的血),在后面用来打蛇妖的.</p><p id="220be46c-4ec1-806c-8343-f7b8386c9250" class="">现在,鲁公我们来了!之后,鲁公会告诉你那个衣服被李虎抢了去.看到这儿,我们很生气的来到李府,用群攻轻易而举的就打败了那两个守卫；</p><p id="220be46c-4ec1-80fe-8b28-ee3f95cd4a4c" class="">进了李府,就不得不到处找找.最终找到李虎在客厅中,找到了他,先不忙动他,现到他的贮藏室去把所有的东西找到再说.打李虎前,先存一次档再去打,还是用我们那厉害的群攻.打死李虎,得到衣服,再到处看看,你就会看见一个人,他是谁?你会想,上前问问他吧!他告诉你他是老王,是被李虎抓来的.之后,系统会提示你是杀死他或放走他.如果你选择杀死他,那么在先前一定要存一次档,因为他比李虎还厉害,</p><p id="220be46c-4ec1-802b-9197-d478742ee9b7" class="">当你打死他之后,金钱,经验获得都很少,而且进不了李府的密室,所以最好不要选.如果你选择了放走,哈!你太幸运了.放走了他,不着急找密室,到石梦城的城门入的那户人家去吧!一进去你就会发现那里多了一人站在那里.谁?老王!你上前搭话,他们就会告诉你关于李府密室的事.而这李府的密室在那里呢?在李府细心找吧!要是找不找,别担心,下次来论坛我会告诉你们的*-*.进了密室,该干什么干什么去吧!</p><p id="220be46c-4ec1-8079-b64c-dd72cbbebbbd" class="">找到了密室里的东西,就到鲁公那里去还衣服,请放一百个心,他不会要的,他将衣服赠送给你.但见你十分高兴,马上装上了这个衣服(实际上它是身披里的).</p><p id="220be46c-4ec1-8027-9e57-e8c7e6696d9e" class="">有了这些,到当铺里当掉没用的东西,再买一些好的装备,还有药和可投掷的东西.好了,现前往蛇洞(并不是打蛇妖),把所有的宝箱中的东西都找出来,注意每个哟!当你看见蛇妖时,不要靠进它,等会儿我们在来打它.现在到石梦城,还是像以前一样当掉没用的东西,再买有用的东西.</p><p id="220be46c-4ec1-80ce-89a1-d8b2c115c0eb" class="">一切完成之后,哈!蛇妖我们来了!注意,打蛇妖时要存两次档,一次在有蛇妖的那个洞里,另一次在打了第一次蛇妖之后.有了这两次存档,那可谓是进可攻,退可守呀!关于如何打败蛇妖,我下面有说明.打败蛇妖之后,这一阶级就算是过了.<br/><br/></p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">第三阶段：出师段(12级--?级)</summary><div class="indented"><p id="220be46c-4ec1-809d-9838-fb879c03a87e" class=""><br/>这一阶段我没有可讲的,相信你经过前面的几个阶段,这一阶级是没有多少问题的.<br/></p><p id="220be46c-4ec1-8079-9050-f73ff1411ef9" class=""><br/>关于结局：<br/>结局的你怀着悲伤的心情前往三清宫,进攻你的师傅.要知为什么?哈哈!要看你自己了!<br/>关于打蛇妖：<br/>打蛇妖的确难,想当年,我第一次打伏魔记时,升到20级才侥幸打败了那条老母蛇(我对蛇妖的戏称),我那天狂笑了一下午,连同桌都说我发疯了*-<br/><em>.言归正传,要打败蛇妖,就要买好的东西.首先,好装备；其次,好药；最后,好的投掷武器.关于好装备,这个要看你了.药,你可以多买那些加血的(如：赤玉断续膏等).投掷的,你可以买太极符,袖里箭等那些好东西,对了还有那些可以让蛇妖眠住或封住,中毒的东西.这些东西都比较贵,多得些钱也很重要.打蛇妖时要细心,不荒张,就OK了!打护灯兽基本也是如此.<br/>关于群攻：<br/>这个我也不是很懂,我知到可以改变他们(柳清风他们)的装备来实现,这个要用到嘟化笛,平安符等.这个要看你的调试了,相信群攻会到来的!<br/>关于思想：<br/>这个游戏只要细心,不要很紧张,以及多熟习,很快会通关的,但要注意时间的安排哟!<br/>关于其它：<br/>我在头几天也发表了文章名相同的文章,不过那只是部份.对了,我还记得发表时太慌忙了,名字都打错了,实在报歉.都怪我,打小语文学得不好,弄得连这么简单的字都打错了.<br/>好了,全文就到这里吧!学语文去也!<br/></em>*<br/>-----------=========<br/>我的QQ：465643272(我很少在线)<br/></p><p id="220be46c-4ec1-8006-91d3-ea6c0925ce63" class="">爬上树,你就会站得更高!+_+</p><p id="220be46c-4ec1-809f-b9ba-ce8e6bb44e09" class="">蔡婆婆你知道把，就是那个要你救女儿的那个，和她反复对话，她会叫你给万锁开送信，有奖励！！！</p><p id="220be46c-4ec1-809f-b1ed-efbb542f7993" class="">ps：九龙道剑在天师身上，霸王钟在天道身上，带上霸王钟练一级就会学会“霸王钟”，威力可以！</p><p id="220be46c-4ec1-806c-b63c-e54017384fed" class="">麻烦告诉我如何上传文件，我抽空把存档发上来，qq：465804663</p></div></details></div></details><p id="220be46c-4ec1-803f-9dcc-f9f816baeadc" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">经典伏魔记攻略</summary><div class="indented"><p id="220be46c-4ec1-8042-a9e0-de7218311e86" class=""><br/>RPG游戏－－伏魔记(完整版)<br/></p><p id="220be46c-4ec1-80b9-b445-cfe679f31c35" class=""><br/>当你初次接触到这个简单而又不乏乐趣的RPG游戏时,会认为很困难吗?会感到似曾相识吗?在此,我会向大家详细地介绍一下(针对完整版)。<br/>最初的一段时光是最难熬的了,刚开始没找师父前在百草地西北角有把绝世好剑－－钨龙剑!在百草地你还能找到金蝥、珠仙草（增加人物属性最大值的药品发现后马上吃掉）。<br/></p><p id="220be46c-4ec1-806e-bc9c-d0640d87448b" class=""><br/>来到百草地东面的三清宫内，进入无机阁中找到师父后在无机阁北面的墙上有勾魂散、七步蛇毒和六脏蚀毒粉。出了无机阁在炼丹房内北面墙上的一排葫芦中可以找到两颗无忧仙丹，在两间普通弟子居中有天山盐、金蝥和一些钱币。在厨房中有玉蓝草、茶叶蛋和天山盐，在师父居有降魔符、回神丹和定心符。在大师兄居有些钱币和白衣，在清风居（你自己的房间）中有发带、草鞋和一些钱币，其中的一张床可以休息（补满生命）。<br/>以上是三清宫中可以找到的所有物品了。宫中有间药房,可以从柜台处买些青阴君带着。<br/></p><p id="220be46c-4ec1-80b7-bf87-c23cbbb456f5" class=""><br/>伏魔洞在百草地的西面，途中有座三清坟场，别在那儿耽误时间，直接去伏魔洞。<br/>要想拿到伏魔剑，先要打倒8个分布在8个灯洞中的护灯神兽，练成“降魔符法”后就能轻易地将其搞定。暗器和药品等到打护剑兽时再用，不然提前用完后打护剑兽会很困难的。要等到练成剑气术才能去搞护剑兽。<br/></p><p id="220be46c-4ec1-8077-b7bb-c1fe89275138" class=""><br/>下山的途中经过摩天顶时不要忘了去西面的观星亭拿督化笛。在经过一些错综复杂的歇息台子时可以到处找些物品。清单如下：青铜铠、长剑、双手剑、步护腕、花布鞋、彩带、八仙石、飞蝗石、玉蓝草⋯⋯<br/>在此就不一一列出了。三清山入口出西面的草地上有玉蓝草和七杳草根。<br/></p><p id="220be46c-4ec1-800a-a552-e7e8097272da" class=""><br/>来到忘忧村的途中有个向北的岔路口，一东一西的树上有青仙果和霸王花。<br/>进了忘忧村后来到村子东北角的房内与主人打个招呼后在他屋内找到披风出来后去杂货店下面的房子中与主人说一下话后在屋内找到香袋去村子西北角蔡婆婆的房子中与蔡婆婆说话，她会让你救她女儿，<br/><strong>一定要按照上述顺序才能进入蔡婆婆的房间</strong>，房间中还有一枚战狂石。并且不能忘了救她的女儿，救出她女儿后会得到一件宝物！</p><p id="220be46c-4ec1-8089-9b00-de62e3361d92" class="">
+</p><p id="220be46c-4ec1-80a4-a997-dd2a7b5443da" class="">在村子南边的村长家中找到村长，带上慕容小梅，把一些女孩用的装备都给她，在村长家中可以找到小梅穿的丝衣。在村子中武器店的东面的房间中找到老孟，帮她送情书。在武器店中除了<mark class="highlight-red">砍刀</mark>其余不需要别的，因为遇上厉害的敌人时投掷砍刀可以伤敌hp-1034，而且价格适宜。在村子东南角的井旁有定心符，在杂货店西面有茶叶蛋。<br/>等这一切都办完后，去村子西南处通往瘴气林入口的道路，途中经过一个岔路口时往西面的愚人居的井中有罗汉笑。回到岔路口继续向南走，要先往瘴气林中闯一下，然后去北面的猎户家中询问进入瘴气林的办法，猎户家旁有烤鹿肉。<br/></p><p id="220be46c-4ec1-80ee-bef5-cb9fda1fe693" class=""><br/>然后就去石梦城，在忘忧村东面，沿着路放心走，你不会迷路的！<br/>在此顺便告诉你一个赚钱的绝招:一般物品在当铺卖时是以购买时的半价出售的,但有一种物品购买时价格是222元,而在当铺出售时是购买价格的两倍,这种物品就是－－<br/><mark class="highlight-red"><strong>灵芝草</strong></mark>。<br/>还要提醒各位的是：身法在此游戏中起着重要作用，在某些关键时刻更是决定着生死，所以，一些降低身法的装备尽量别使用。<br/></p><p id="220be46c-4ec1-802e-839c-d64a476d05d2" class=""><br/>到达石梦城后先买些装备（有些装备只有符合特定的属性的人物才能装备），然后在有两个人把守的李府的北面的房间中你会找到鲁斧，你将答应帮他夺回芦藤铠甲，然后闯进李府客厅，客厅桌上有千里飘，把李虎搞定后将会得到芦藤雄甲、芦藤雌甲和金色钥匙（如果在忘忧村没有找到蔡婆婆，那么将不会得到金色钥匙）。在李府客厅的东面的房间中捆着蔡婆婆的女儿，要使用金色钥匙才能进入。在这间房子的南面的下人房中放走老王,然后去老王家中找老王,他会告诉你李府有密道,密道入口就在关蔡婆婆女儿房间的后面。李府西南角的房间中有子光金符、寒冰蛙、清凉油和袖里剑。在石梦城东南角的塔砖中有穿心镖。（为了节省时间，此后一些不重要的物品将不再一一列出所在地点）<br/></p><p id="220be46c-4ec1-80ba-8b25-f3ebc2ca7035" class=""><br/>穿上芦藤铠甲回到忘忧村后，先去蔡婆婆家找到她，她会送你“七星灯”。<br/>进入毒瘴林，来到蛇窟山洞里，找到蛇妖，只需投掷出几把砍刀就能轻松战胜它。然后它将你封在洞中后，在一个通道的尽头你会发现出口。在你将它彻底击毙之后，上山复命吧。<br/>到此为止，游戏的第一部分告一段落。<br/></p><p id="220be46c-4ec1-806f-acc6-f5f523c7c23d" class=""><br/>上山复命之后，去钟山援救师叔的途中要经过建业城，此时会和一个小偷发生争执，投出几把砍刀后她会卸下男装变成女的，她就是你队伍中的第三个成员－－袁萍芷。当然了，现在她一定离去，但别担心，不久你就能重新遇见她。在建业城中别忘了把“老孟情书”送给阿军（一定要送到，不然你会后悔的！），阿军家就在建业城中一间入口面向西方的房间（如果你先去了钟山，那么可能会见不到阿军）。<br/></p><p id="220be46c-4ec1-80b7-b294-c39a21669152" class=""><br/>在建业城的武器店中多买些<br/><mark class="highlight-red">弯月刀</mark>（战斗时投出可伤敌约hp-5065.哈哈，厉害吧！），弯月刀只有在建业城才能买到。</p><p id="220be46c-4ec1-8096-9757-f80869c10bd0" class=""><br/>此时你想让你的级别迅速提升吗？告诉你一个秘密（不要问我为什么知道这么多，要不然我怎么能撰写全攻略呢？——我可是玩了二十多遍的天才李航哦！^-^）:在建业城的一个灯柱内有个钱袋,你拾到后会有三个不知天高地厚的小子向你要,忍耐一下,别发火,把钱还给他们。然后去客栈中找他们算帐，搞定他们后会得到富贵珠和一些装备，富贵珠留着没用，但卖出可以赚30000元钱的！出了客栈后可以再进去再和他们三人战斗，如此进进出出，你的级别会迅速提升，等到35级时，所有魔法将会修炼完成；<br/><mark class="highlight-red"><strong>60级后就是max</strong></mark>，也就是所谓的无限了。<br/><br/></p><p id="220be46c-4ec1-8035-8d2f-d89235f127e6" class="">等到你对你的级别满意时就可以去钟山援救师叔了。<br/>在钟山入口处你会遇见袁萍芷，她会要求加入。<br/>在钟山道院的一个类似于无机阁的建筑中困着冲虚道长，解围后会碰见一个有眼不识泰山的小妖——赤血，战斗时只需投掷出两把弯月刀就能战胜他，但最后他会用摄魂术迷惑你，结果可想而知。<br/>从霸王钟洞里出来后冲虚会来找你，听他唠叨完后回到建业城中，去城西白水镇中找赤血算帐。<br/>来到白水镇，在镇长屋后有张“虫子卡片”（就是镇子西北角的房间），带上它，以后用的上。先与镇上游人交流一下后去客栈中找小二，他会告诉你原因的。然后出了客栈在镇子南面古宅入口出会有两个人把守着，这时去找镇长，他会领着你去。<br/></p><p id="220be46c-4ec1-801a-a4a5-ef25ebea6b72" class=""><br/>进入老宅子里，在南面的一间房子里有一个形状古怪的物品，对着它按“输入”后回到老宅子里，进入东北角的枯井中，找到“摄魂阵”，破解开摄魂阵后救出袁萍芷后一个回合搞死赤血。得到“引路石”后用它出来。<br/></p><p id="220be46c-4ec1-8030-9353-c83a4f1ebdc0" class=""><br/>接着去南北村,南北村中有件魔族至宝——紫瞳魔灯(别拿,因为万能钥匙只有3把,现在拿了以后的卡片就拿不到了)，在东南角的房间后面。与村中的游人交流后去周处庙（和忘忧村村长家的位置相同），然后去南北村村南处的南山虎穴，消灭老虎后使用引路石回到南北村。回到南北村后找到周处庙入口处的两个村民，然后去找周处，周处会给你两颗无忧仙丹，别理那两个村民了，把仙丹自己吃了吧。<br/></p><p id="220be46c-4ec1-80c4-ad09-f58bec717519" class=""><br/>这时去北海迷宫找苍龙，把它打死后回到南北村找周处，他会送你一本书，如果你把这本书给袁萍芷装备上，以后她会教你“妙手空空”。<br/>料理完南北村的事情后就去鬼城，到鬼城后先别进客栈，去城中的一口井中找“移魂刀”,找到后给袁萍芷装备上，然后在街上随便找个人说一下后进入客栈,客栈中靠近柜台的酒缸中有张“小鬼卡片”，拿到,以后异域人陈泽伟会教你武功。与小二打招呼后去街上找到死皮赖脸的白无常，撂倒他后去城南鬼王庙找到鬼王并干掉他！然后去城西鹤鸣山，在鹤鸣山顶处有把“嗜血剑”，这是一把很垃圾的剑，尽管它的攻击力很高，但是弊大于利，找个机会投掷掉吧！<br/></p><p id="220be46c-4ec1-8082-aa96-fb81fb26cacf" class=""><br/>在山顶处杀掉两个不值一提的小妖后会碰见天道，这个自视清高的家伙还是有两把刷子的，对付他之前要做好充分的准备。如果你在建业城时买的弯月刀数量多的话这时就不用担心了，只需投出几把就能轻松搞定！把天道k掉后将要和袁萍芷交手，用老方法——投掷弯月刀，轻松搞定，但如果她此时用“炎龙覆天”这招搞你的话可能会死机。<br/></p><p id="220be46c-4ec1-8037-aeb0-f70a11885620" class=""><br/>解决了袁萍芷（死有余辜，欺骗别人的感情）后，进入鹤鸣山洞，沿着西边的路向上走，当走到尽头的时候在你东面有两个宝箱，西边的一个是“不点卡片”，旁边的一个是“玄冰玉如意”（好东西！）。正对着宝箱的是四个大字——替 天 行 道。按照顺序在四个字上分别点击一下后玄武将会现身，相信此时的你有能力将它干掉。<br/></p><p id="220be46c-4ec1-80b0-b9d3-ca55e4d8aec6" class=""><br/>得到“玄武之精”后去陵墓迷宫（入口就在那四个大字的东面），在陵墓迷宫中找到天师陵墓的入口，进去后会发现在最上方的一个八卦阵中央端坐着一脸凝重的张道陵，只可惜这个老头不分青红皂白就向你不宣而战，既然这样你也用不着跟他客气了，三下五除二就让他升天了(如果你的“吉运”值高，此时还会得到“定神珠”)，这时他的魂魄升天时会把你带到忘忧村南的愚人居，在愚人居中有几个异域人，但如果你没有神秘卡片的话他们就不会出现。想必各位一定很纳闷为何会起名为“愚人居”，接着看就知道了——<br/></p><p id="220be46c-4ec1-8023-bc71-c432a9f688eb" class=""><br/>如果你集齐三张神秘卡片，此时就派上用场了。既然是|愚人|，那一定是有原因的了，在愚人居中，你如果先找到南方小鬼(步步高论坛斑竹)的话，他会向你要“小鬼卡片”，但如果你答应给他，他拿走的却是你的“不点卡片”，然后他会教你“泽伟补命述”（最厉害的医术），但如果你没有“不点卡片”或是你先把“不点卡片”给了不点点，即使你给他“小鬼卡片”，他也会骗走你8000元钱。如果你先找到不点点，她会向你要“不点卡片”，你如果给她，那她会卖给你一些难得的武器，但就学不到“泽伟补命述”了；还有通宵虫(步步高论坛斑竹)，如果你把“虫子卡片”给他，他会教你最个性化的魔法——百虫欺天！但如果你不给他卡片，他则会要求与你用你所有的钱交换他的衣服——潮海衣！这是最棒的衣服！因为以上所有的东西和魔法和装备不可能都得到，所以请大家自己掂量，这也就是“愚人”之所在！<br/></p><p id="220be46c-4ec1-80ed-9685-e7c7c6960bb0" class=""><br/>回到忘忧村后就往三清山进发吧，在经过摩天顶时四象诛仙阵会阻碍你前进，破此阵法的前提是要佩带“天心灯”，分别把四象精魄方入阵四周的惊、伤、杜、活四大阵门，然后拿走阵中央的“混元金斗”，这时诛仙会现身阻止你，现在这个班门弄斧的家伙相信对于你已经够不上威胁了。<br/>破了四象诛仙阵后回到三清宫，此时的你是否会感到一丝亲切？别大意了，无机子这时修炼“万魔幻化”已经达到第8层，不是那么好对付的。进入无机阁后，在太上老君的石像旁就是无机洞洞口，面对着它按下“输入”键就可以进入。无机子在洞中央，找到后只需投出3把七星剑就能轻松搞定这个不知悔改的老贼。<br/>然后，回到伏魔洞，来到伏魔阵中央，不需要理会周围的小妖，面对着当初拔伏魔剑的地方按“输入”键，这时护剑兽会出现，看到他的嚣张气焰你是否觉得他很欠扁呢？这就对了，让他死的明明白白！<br/>到此为止，这个RPG游戏——伏魔记就全部落下帷幕了。<br/></p><p id="220be46c-4ec1-805b-93b9-df7ba5f5fe35" class="">
+</p><p id="220be46c-4ec1-8032-a5cb-fa2ffed8b14e" class=""><mark class="highlight-red"><strong>刀光剑影,落叶无痕⋯⋯  若干年后，让我们一起回味这一个令人留恋的完美结局⋯⋯</strong></mark></p></div></details><p id="220be46c-4ec1-80c1-bb78-c80ddc7c0baf" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
