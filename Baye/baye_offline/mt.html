@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>三国霸业</title>
-        <link rel="stylesheet" type="text/css" href="css/baye.css" />
-        <style>
-            /* 滤镜层样式 */
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>魔塔</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/flex.css" />
+    <link rel="stylesheet" type="text/css" href="css/baye.css" />
+
+    <style>
+        
+          /* 滤镜层样式 */
             .filter-overlay {
                 position: absolute;
                 top: 0;
@@ -52,10 +56,10 @@
              /* 横屏模式下的布局 - 自己加的 */
              @media screen and (orientation: landscape) {
                 #app {
-                    width: 70% !important;
+                    width: 70vw !important;
                    /* height: calc(80vw * 0.6) !important; */ /* 高度 = 宽度 * (96/160) */
                     margin-top: 0 !important;
-                    margin-left: 15% !important;
+                    margin-left: 15vw !important;
                     margin-right: 0 !important;
                     padding: 0 !important;
                     position: fixed !important;
@@ -74,9 +78,8 @@
                     left: 0 !important;
                 }
             }
-            
         
-    /* 基础控制按钮样式 - 共用 */
+            /* 基础控制按钮样式 - 共用 */
 .direction-btn, .action-btn,
 .repeat-btn-container #btn_repeat,
 .help-btn-container #btn_help {
@@ -469,63 +472,82 @@
 .virtual1-buttons-hidden .toggle-btn-container {
   display: block !important;
 }             
-                    
+
         </style>
-        <link rel="icon" href="favicon.png">
-        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-touch-fullscreen" content="yes"/>
-        <meta name="apple-mobile-web-app-title" content="三国霸业">
-        <meta name="full-screen" content="yes"><!-- UC强制全屏 -->
-        <meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
-        <meta name="browsermode" content="application"><!-- UC应用模式 -->
-        <meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
-        <meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon.png"><!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon.png"><!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon.png"><!-- Retina iPad，144x144 像素，可以没有，但推荐有 --><!-- iOS 图标 end -->
-        <style>
-            body {
-                overflow: hidden;
-                margin:0px;
-            }
-            #info {
-                float:left;
-                position: fixed;
-                left: 0;
-                top: 0;
-                background: white;
-                opacity: 0.8;
-                pointer-events:none;
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/encoding-indexes.js"></script>
+    <script src="js/encoding.js"></script>
+    <script src="js/sprintf.js"></script>
+    <script src="js/lzma_worker-min.js"></script>
+    <script src="js/base64.js"></script>
+
+    <style>
+            html, body {
+                overflow: hidden !important;
+                position: fixed !important;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overscroll-behavior: none !important;
             }
         </style>
-        
-        <!-- 重定向守卫 -->
-        <script src="js/redirect-guard.js"></script>
+  </head>
 
-        <!-- 依赖库 -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/encoding-indexes.js"></script>
-        <script src="js/encoding.js"></script>
-        <script src="js/sprintf.js"></script>
-        <script src="js/lzma_worker-min.js"></script>
-        <script src="js/base64.js"></script>
-        <script src="js/performance-monitor.js"></script>
+  <link rel="icon" href="favicon.png">
+  <meta id="viewport" name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="魔塔">
+  <meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+  <meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+  <meta name="browsermode" content="application"><!-- UC应用模式 -->
+  <meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+  <meta name="msapplication-tap-highlight"
+    content="no"><!-- windows phone 点击无高光 -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"
+    href="favicon.png"><!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+    href="favicon.png"><!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+    href="favicon.png"><!-- Retina iPad，144x144 像素，可以没有，但推荐有 --><!-- iOS 图标 end -->
 
-        <!-- WASM 加载器 -->
-        <script src="js/wasm-loader.js"></script>
-    </head>
-    <body>
-        <div id="app" style="position: relative; display: inline-block;">
-            <canvas id="lcd" width="160" height="96">然而你的浏览器并不支持HTML5</canvas>
-            <!-- 滤镜层 -->
-            <div id="filterOverlay" class="filter-overlay"></div>
+  <body>
+    <div layout="row center-center">
+      <div class="container" style="width:480px">
+        <div class="dummy"></div>
+        <div class="element lcd">
+          <canvas class="fill no_blur" id="lcd" width="160"
+            height="96">然而你的浏览器并不支持HTML5</canvas>
         </div>
-        <div id="info"></div>
-        
-                <div id="zone"></div>
+      </div>
+    </div>
+    <p></p>
+    <!-- <div layout="row center-center" >
+            <div style="width:480px" >
+                <div layout="row center-stretch">
+                    <div layout="column center-left" style="font-size:14px;line-height:140%" >
+                        <div><h2>按键说明:</h2></div>
+                        <div>电脑键盘 -> 电子词典</div>
+                        <div>上下左右 -> 上下左右</div>
+                        <div>H键 -> 帮助</div>
+                        <div>S键 -> 查找</div>
+                        <div>回车键 -> 输入</div>
+                        <div>空格键 -> 返回</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div id="lib-name"></div>
+            </div>
+        </div> -->
+
+    <div id="zone"></div>
 
     <!-- 方向按钮 -->
     <div class="direction-pad" id="direction_pad">
@@ -560,39 +582,24 @@
     </div>
 
     <!-- R键按钮 - 独立放置在方向键和操作键之间 -->
-    <div class="repeat-btn-container" id="repeat_btn_container">
+    <!-- <div class="repeat-btn-container" id="repeat_btn_container">
       <div class="action-btn" id="btn_repeat">
-        <span style="color: gray; font-size: 20px; font-weight: bold;">图</span>
+        <span style="color: gray; font-size: 20px; font-weight: bold;">助</span>
       </div>
-    </div>
-    
+    </div> -->
+
     <!-- H键按钮 - 内置功能按钮 -->
     <div class="help-btn-container" id="help_btn_container">
       <div class="action-btn" id="btn_help">
-        <span style="color: gray; font-size: 20px; font-weight: bold;">信</span>
+        <span style="color: gray; font-size: 20px; font-weight: bold;">查</span>
       </div>
     </div>
-    
-    <!-- 切换按钮HTML -->
-<div class="toggle-btn-container" id="toggle_btn_container">
-  <div id="btn_toggle" class="toggle-btn">
-     <span style="color: gray; font-size: 5px; font-weight: bold;"></span>
-  </div>
-</div> 
-        
-    </body>
+
+  </body>
 </html>
-<!-- 核心游戏脚本 -->
-<script src="js/idbkvstore.min.js?ver=202111140022"></script>
-<script src="js/bridge.js?ver=202111140022"></script>
-<script src="js/lcd.js?ver=202111140022"></script>
-<script src="js/filter-bridge.js?ver=202111140022"></script>
-        <!-- 先加载游戏的键盘系统 
-<script src="js/keyboard.js"></script>
-<!-- 然后加载虚拟手柄 
-<script src="js/virtual-gamepad.js"></script>
-我先把他注释掉，因为它们都是harry和我后加的，没实现
--->
+
+<script src="js/lcd_mt.js"></script>
+<script src="js/mtower.js"></script>
 
 <!-- 然后在内联脚本中编写虚拟按键功能 -->
 <script>
@@ -739,16 +746,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- 视口管理器 -->
-<script src="js/viewport-manager.js"></script>
-
-<!-- VIP内购 - 农业商业发展倍率 (直接调用C函数) -->
-<script src="js/vip-multiplier.js"></script>
-
-<!-- 全物品功能 -->
-<script src="js/all-items-triple.js"></script>
-
-<!-- 游戏初始化 -->
-<script src="js/game-init.js"></script>
-
-<!-- baye.v2.js 通过 wasm-loader.js 动态加载，以支持 iOS 14 WASM 预加载 -->
+<script>
+    window.bayeStart = undefined;
+    lcdSetDotSize(1);
+    _main();
+    document.onkeydown = onKeyDown;
+</script>

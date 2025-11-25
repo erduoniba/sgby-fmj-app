@@ -24,14 +24,14 @@ function lcdBlur(blur) {
 
 function lcdInit()
 {
-    var width = 16*10;
-    var height = 16*6;
+    var width = 16*13;
+    var height = 16*8;
 
     //分辨率
     switch (window.localStorage["baye/resolution"]) {
     case '0':
-        width = 16*10;
-        height = 16*6;
+        width = 16*13;
+        height = 16*8;
         break;
     case '1':
         width = 16*13;
@@ -370,7 +370,7 @@ function bayeMain() {
     
     // 如果是三国霸业词典原版，根据分辨率选择不同的lib文件
     if (libname === '三国霸业-词典原版' || libpath === 'libs/dat-v2-mod.lib' || libpath === 'libs/dat-mod.lib') {
-        var resolution = window.localStorage['baye/resolution'] || '0';
+        var resolution = window.localStorage['baye/resolution'] || '1';
         var newLibPath;
         
         // 根据分辨率选择lib文件
@@ -402,9 +402,44 @@ function bayeMain() {
             window.localStorage['baye/libpath'] = newLibPath;
             loadLibDefault(_main);
         }
+    } else { if (libname === '三国霸业-旭哥Harry' || libpath === 'libs/harry.lib' || libpath === 'libs/harry1.lib') {
+        var resolution = window.localStorage['baye/resolution'] || '1';
+        var newLibPath;
+        
+        // 根据分辨率选择lib文件
+        if (resolution === '1') {
+            // 高清模式，使用v2版本
+            newLibPath = 'libs/harry1.lib';
+            console.log('使用高清版本: libs/dat-v2-mod.lib');
+        } else {
+            // 原版模式，使用标准版本
+            newLibPath = 'libs/harry.lib';
+            console.log('使用原版分辨率: libs/dat-mod.lib');
+        }
+        
+        // 如果lib路径发生了变化，需要清除缓存
+        if (libpath !== newLibPath) {
+            console.log('检测到分辨率切换，清除lib缓存...');
+            // 清除缓存的lib数据
+            window.localStorage.removeItem('baye//data/dat.lib');
+            // 清除IndexedDB中的缓存
+            libCacheClear(function() {
+                console.log('lib缓存已清除');
+                // 更新lib路径
+                window.localStorage['baye/libpath'] = newLibPath;
+                // 重新加载lib
+                loadLibDefault(_main);
+            });
+        } else {
+            // lib路径没有变化，直接加载
+            window.localStorage['baye/libpath'] = newLibPath;
+            loadLibDefault(_main);
+        }
     } else {
         // 非三国霸业原版，直接加载
         loadLibDefault(_main);
+    }
+    
     }
 }
 
@@ -884,6 +919,62 @@ function bayeSaveFileContent(filename, content) {
         }, '*');
     }
 }
+
+// 独立的切换按钮功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 等待虚拟按键初始化完成
+    setTimeout(function() {
+        const toggleBtn = document.getElementById('btn_toggle');
+        const body = document.body;
+        
+        if (!toggleBtn) {
+            console.error('找不到切换按钮，请检查HTML是否正确添加');
+            return;
+        }
+        
+        let virtualButtonsVisible = true;
+        
+        function toggleVirtualButtons() {
+            virtualButtonsVisible = !virtualButtonsVisible;
+            
+            if (virtualButtonsVisible) {
+                // 显示虚拟按键◻◼
+                body.classList.remove('virtual-buttons-hidden');
+                toggleBtn.innerHTML = '显';
+                console.log('显示虚拟按键');
+            } else {
+                // 隐藏虚拟按键
+                body.classList.add('virtual-buttons-hidden');
+                toggleBtn.innerHTML = '隐';
+                console.log('隐藏虚拟按键');
+                
+                // 停止所有方向键的连按
+                const directionKeys = ['dir_up', 'dir_down', 'dir_left', 'dir_right'];
+                directionKeys.forEach(buttonId => {
+                    const button = document.getElementById(buttonId);
+                    if (button) {
+                        // 触发触摸结束事件来停止连按
+                        const event = new Event('touchend');
+                        button.dispatchEvent(event);
+                    }
+                });
+            }
+        }
+        
+        // 添加事件监听
+        toggleBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            toggleVirtualButtons();
+        }, { passive: false });
+        
+        toggleBtn.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            toggleVirtualButtons();
+        });
+        
+        console.log('切换按钮功能已启用');
+    }, 2000); // 延迟2秒确保虚拟按键已初始化
+});
 
 // 初始化 Module 对象（如果不存在）
 if (typeof Module === 'undefined') {

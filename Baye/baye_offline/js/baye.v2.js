@@ -4310,10 +4310,6 @@ function gam_sem_delete(semid) {
 }
 function gam_sem_signal(semid) {
   var sem = Module.sems[semid];
-  if (!sem) {
-    console.warn('[gam_sem_signal] semaphore ' + semid + ' is undefined or deleted');
-    return;
-  }
   sem.cnt += 1;
   if (sem.signal) {
     sem.signal();
@@ -4323,11 +4319,6 @@ function gam_sem_signal(semid) {
 function gam_sem_wait(semid) {
   return Asyncify.handleSleep(function (wakeUp) {
     var sem = Module.sems[semid];
-    if (!sem) {
-      console.warn('[gam_sem_wait] semaphore ' + semid + ' is undefined or deleted');
-      setTimeout(wakeUp, 0);
-      return;
-    }
     function signal() {
       sem.cnt -= 1;
       setTimeout(wakeUp, 0);
