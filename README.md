@@ -4,6 +4,16 @@
 
 该项目是一个多平台游戏项目集合，包含经典 BBK 游戏的现代化移植版本。
 
+伸手党福利：
+
+**iOS伏魔记重制版下载**：https://apps.apple.com/cn/app/%E4%BC%8F%E9%AD%94%E8%AE%B0%E9%87%8D%E5%88%B6%E7%89%88/id6747572873
+
+**iOS三国霸业重制版下载：**https://apps.apple.com/cn/app/%E4%B8%89%E5%9B%BD%E9%9C%B8%E4%B8%9A%E9%87%8D%E5%88%B6%E7%89%88/id6744382643
+
+**Android三国霸业/伏魔记重制版下载**：https://fir.xcxwo.com/byfmj
+
+
+
 项目包含以下主要组件：
 
 [三国霸业C源码编译技术文档](./Baye/baye_c/README.md)
